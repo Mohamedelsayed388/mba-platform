@@ -1,0 +1,838 @@
+<title>MBA Platform</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a course "digest" published in issues. Navy masthead with a formula ticker, sticky section bar, then one readable column per section. Each lecture is an Issue; flashcards, quiz and formulas accumulate across issues. */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#0c1a2b; --muted:#55667b; --line:#d5dce6; --soft:#eaeef4;
+  --mast:#0f2440; --mast-2:#163252; --on-mast:#eef3f9; --on-mast-muted:#a9b9cd;
+  --accent:#0d7a67; --accent-soft:#dff0ec; --on-accent:#ffffff;
+  --brass:#a8771c; --brass-soft:#f5ead3;
+  --good:#24784a; --good-soft:#e1f2e7; --bad:#b03e2b; --bad-soft:#f8e3de;
+  --f-brand:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-ar:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#09111b; --surface:#101b28; --ink:#e4ebf3; --muted:#94a4b8; --line:#223245; --soft:#152334;
+  --mast:#0c1a2c; --mast-2:#14273f; --on-mast:#eef3f9; --on-mast-muted:#9fb1c6;
+  --accent:#3fc2a7; --accent-soft:#12302b; --on-accent:#05211b;
+  --brass:#dcaa52; --brass-soft:#33280f;
+  --good:#5ec589; --good-soft:#123222; --bad:#ea816b; --bad-soft:#371b15; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#09111b; --surface:#101b28; --ink:#e4ebf3; --muted:#94a4b8; --line:#223245; --soft:#152334;
+  --mast:#0c1a2c; --mast-2:#14273f; --on-mast:#eef3f9; --on-mast-muted:#9fb1c6;
+  --accent:#3fc2a7; --accent-soft:#12302b; --on-accent:#05211b;
+  --brass:#dcaa52; --brass-soft:#33280f;
+  --good:#5ec589; --good-soft:#123222; --bad:#ea816b; --bad-soft:#371b15; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+p{margin:0}
+h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.15}
+.ar{font-family:var(--f-ar);direction:rtl;text-align:right;line-height:1.9}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* Masthead */
+.mast{background:var(--mast);color:var(--on-mast);overflow:hidden}
+.mast .wrap{padding-block:30px 26px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:end}
+.brand{display:flex;flex-direction:column;gap:14px;min-width:0}
+.brandrow{display:flex;align-items:center;gap:12px}
+.mark{width:44px;height:44px;flex:0 0 auto}
+.kicker{color:var(--on-mast-muted)}
+.brand h1{font-family:var(--f-brand);font-stretch:118%;font-weight:800;font-size:clamp(34px,6.4vw,58px);letter-spacing:-.015em;line-height:1}
+.brand h1 em{font-style:normal;color:var(--brass)}
+.brand .tag{color:var(--on-mast-muted);max-width:56ch}
+.byline{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--on-mast-muted)}
+.byline b{color:var(--on-mast);font-weight:600}
+.latest{background:var(--mast-2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.latest .label{color:var(--brass)}
+.latest h2{font-family:var(--f-brand);font-stretch:100%;font-weight:700;font-size:22px}
+.latest ul{margin:0;padding-left:18px;color:var(--on-mast-muted);font-size:14px;display:flex;flex-direction:column;gap:2px}
+.latest button{align-self:flex-start}
+.ticker{border-top:1px solid rgba(255,255,255,.08);background:var(--mast);overflow:hidden;white-space:nowrap}
+.ticker .run{display:inline-flex;gap:40px;padding-block:10px;animation:tick 60s linear infinite;font-family:var(--f-mono);font-size:13px;color:var(--on-mast-muted)}
+.ticker .run span b{color:var(--on-mast);font-weight:500;margin-right:8px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Section bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar button{font:600 15px var(--f-brand);font-stretch:100%;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:13px 14px 11px;cursor:pointer;white-space:nowrap}
+.bar button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+main .wrap{padding-block:30px 56px}
+.panel{display:flex;flex-direction:column;gap:40px}
+.block{display:flex;flex-direction:column;gap:14px}
+.block>h2{font-family:var(--f-brand);font-stretch:100%;font-weight:700;font-size:26px}
+.block>.label{color:var(--accent)}
+.lead{max-width:68ch}
+.note{font-size:14px;color:var(--muted)}
+
+/* Buttons */
+.btn{font:500 15px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:7px;padding:9px 14px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.brass{background:var(--brass);border-color:var(--brass);color:var(--mast)}
+.btn.good{border-color:var(--good);color:var(--good)}
+.btn[disabled]{opacity:.45;cursor:default}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:500 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+
+/* Overview */
+.issues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.issue{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.issue .no{font-family:var(--f-brand);font-stretch:118%;font-weight:800;font-size:40px;line-height:1;color:var(--accent)}
+.issue h3{font-family:var(--f-brand);font-stretch:100%;font-size:19px;font-weight:700}
+.issue .counts{display:flex;gap:14px;font-size:13px;color:var(--muted);font-family:var(--f-mono)}
+.issue.soon{background:transparent;border-style:dashed}
+.issue.soon .no{color:var(--line)}
+.issue .go{margin-top:auto;align-self:flex-start}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pillar{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pillar .label{color:var(--muted)}
+.pillar b{font-family:var(--f-brand);font-stretch:100%;font-size:17px;line-height:1.25}
+.pillar.now{border-color:var(--accent);background:var(--accent-soft)}
+.pillar.now .label{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.stat b{font-family:var(--f-brand);font-stretch:110%;font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted)}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.step{border-top:3px solid var(--accent);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.step b{font-family:var(--f-brand);font-stretch:100%;font-size:18px}
+.curator{background:var(--mast);color:var(--on-mast);border-radius:12px;padding:24px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:start}
+.curator .avatar{width:64px;height:64px;border-radius:50%;background:var(--brass);color:var(--mast);display:grid;place-items:center;font:800 23px var(--f-brand)}
+.curator h3{font-family:var(--f-brand);font-stretch:105%;font-size:22px;font-weight:700}
+.curator .role{color:var(--brass);font-size:14px;font-family:var(--f-mono)}
+.curator p{color:var(--on-mast-muted)}
+.curator .ar{color:var(--on-mast)}
+.curator .col{display:flex;flex-direction:column;gap:10px;min-width:0}
+
+/* Issue articles */
+.issuebar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+.ihead{display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.ihead .label{color:var(--accent)}
+.ihead h2{font-family:var(--f-brand);font-stretch:112%;font-weight:800;font-size:clamp(28px,5vw,40px)}
+article{display:flex;flex-direction:column;gap:40px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pane{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pane h3{font-family:var(--f-brand);font-stretch:100%;font-size:19px;font-weight:700}
+.formula{font-family:var(--f-mono);font-size:14px;background:var(--soft);border-radius:6px;padding:9px 11px;overflow-x:auto;white-space:nowrap}
+.ar.callout{border-right:3px solid var(--brass);padding-right:14px;max-width:none}
+
+/* CFO tree */
+.tree{display:flex;flex-direction:column;align-items:center}
+.root{background:var(--mast);color:var(--on-mast);border-radius:8px;padding:12px 26px;text-align:center}
+.root b{font-family:var(--f-brand);font-stretch:118%;font-size:24px;font-weight:800;display:block}
+.root span{font-size:13px;color:var(--on-mast-muted)}
+.stem{width:2px;height:22px;background:var(--line)}
+.branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%;padding-top:18px;border-top:2px solid var(--line)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;min-width:0}
+.branch::before{content:"";position:absolute;top:-19px;left:50%;width:2px;height:18px;background:var(--line)}
+.branch h3{font-family:var(--f-brand);font-stretch:100%;font-size:17px;font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.branch .num{font-family:var(--f-mono);font-size:13px;color:var(--accent);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:var(--bg)}
+.st{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.st.done{color:var(--accent)}
+.flag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);background:var(--brass-soft);padding:1px 7px;border-radius:3px}
+
+/* Flow */
+.flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:stretch}
+.flow .col{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.flow h3{font-family:var(--f-brand);font-stretch:100%;font-size:17px;margin-bottom:8px}
+.flow ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px;font-size:15px}
+.firm{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.firm .box{background:var(--mast);color:var(--on-mast);border-radius:8px;padding:10px 14px;font:700 15px var(--f-brand)}
+.arrow{font-size:20px;color:var(--accent)}
+
+/* Tables */
+.scroll{overflow-x:auto}
+.mini{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.mini th,.mini td{padding:6px 7px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.mini th:first-child,.mini td:first-child{text-align:left}
+.mini th{font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.neg{color:var(--bad)} .pos{color:var(--good)}
+.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
+.cmp th,.cmp td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.cmp th{font-family:var(--f-brand);font-stretch:100%;font-size:15px}
+.cmp td:first-child{color:var(--muted);font-size:13px;width:22%}
+
+/* Capital budgeting */
+.cb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.cb .m{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.cb .fam{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cb .m.dcf .fam{color:var(--accent)}
+.cb .m b{font:800 28px var(--f-brand);font-stretch:112%}
+.cb .rule{font-size:14px;border-top:1px dashed var(--line);padding-top:6px}
+
+/* Flashcards */
+.deckbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;justify-content:space-between}
+.progress{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.meter{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.fc{background:var(--surface);border:1px solid var(--line);border-radius:12px;min-height:360px;display:flex;flex-direction:column;cursor:pointer;position:relative;overflow:hidden}
+.fc::after{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--mast)}
+.fc .side{padding:26px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.fc .tg{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
+.fc .front-term{font:800 clamp(32px,6vw,48px) var(--f-brand);font-stretch:112%;margin:auto 0;text-align:center}
+.fc .hint{text-align:center;color:var(--muted);font-size:13px}
+.fc .back-term{font:700 21px var(--f-brand)}
+.fc .en{max-width:70ch}
+.fc .ar{border-top:1px solid var(--line);padding-top:12px}
+.fc.known{border-color:var(--good)}
+.controls{display:flex;flex-wrap:wrap;gap:8px}
+.spacer{flex:1}
+
+/* Quiz */
+.score{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.score b{font:800 26px var(--f-brand);font-stretch:110%}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.q .qn{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.q .qs{font-size:16.5px;font-weight:500}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{text-align:left;font:400 15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt[disabled]{cursor:default}
+.opt .why{font-size:14px;color:var(--muted)}
+.opt.right{background:var(--good-soft);border-color:var(--good)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt .lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.opt.right .lbl{color:var(--good)} .opt.wrong .lbl{color:var(--bad)}
+.explain{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:10px}
+.explain .steps{font-family:var(--f-mono);font-size:14px;background:var(--soft);border-radius:6px;padding:10px 12px;overflow-x:auto;white-space:pre}
+
+/* Formulas */
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fcard .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.fcard h3{font-family:var(--f-brand);font-stretch:100%;font-size:17px;font-weight:700}
+.fcard .iss{font-family:var(--f-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.fcard .rule{font-size:14px;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);background:var(--surface)}
+footer .wrap{padding-block:22px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
+
+@media (max-width:820px){
+  .mast .wrap{grid-template-columns:minmax(0,1fr);align-items:start}
+  .issues,.steps3,.stats{grid-template-columns:minmax(0,1fr)}
+  .pillars{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .branches{grid-template-columns:minmax(0,1fr);border-top:0;padding-top:0;padding-left:16px;border-left:2px solid var(--line)}
+  .branch::before{top:50%;left:-17px;width:16px;height:2px}
+  .stem{height:14px}
+  .flow,.two,.fgrid{grid-template-columns:minmax(0,1fr)}
+  .firm{flex-direction:row}
+  .arrow{transform:rotate(90deg)}
+  .cb{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .curator{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}*{transition:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brandrow">
+        <svg class="mark" viewBox="0 0 44 44" aria-hidden="true">
+          <rect x="1" y="1" width="42" height="42" rx="10" fill="none" stroke="var(--brass)" stroke-width="2"/>
+          <rect x="10" y="24" width="5" height="10" rx="1" fill="var(--on-mast)"/>
+          <rect x="19.5" y="18" width="5" height="16" rx="1" fill="var(--on-mast)"/>
+          <rect x="29" y="11" width="5" height="23" rx="1" fill="var(--brass)"/>
+          <circle cx="12.5" cy="19" r="2" fill="var(--brass)"/><circle cx="22" cy="13" r="2" fill="var(--brass)"/>
+          <path d="M12.5 19 L22 13 L31.5 7" stroke="var(--brass)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <span class="label kicker">Executive MBA · AI study companion</span>
+      </div>
+      <h1>MBA <em>Platform</em></h1>
+      <p class="tag">Now running: <b style="color:var(--on-mast);font-weight:600">Finance for Non-Financial Managers</b>, issued lecture by lecture with a structured summary, flashcards, a scenario quiz and a growing formula sheet.</p>
+      <div class="byline"><span>Built by <b>Mohamed Elsayed</b>, AI Instructor</span><span>Course lecturer: Dr. Ahmed Amin Hashim</span></div>
+    </div>
+    <aside class="latest" aria-label="Latest issue">
+      <span class="label">Latest · Issue 02</span>
+      <h2>Financial Analysis &amp; Capital Budgeting</h2>
+      <ul><li>Sources &amp; uses of funds</li><li>Horizontal and vertical analysis</li><li>Ratios, DuPont network, MVA &amp; EVA</li></ul>
+      <button class="btn brass" data-open-issue="2">Read issue 02</button>
+    </aside>
+  </div>
+  <div class="ticker" aria-hidden="true"><div class="run" id="ticker"></div></div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <nav role="tablist" aria-label="Digest sections">
+      <button role="tab" id="t-home" aria-controls="home" aria-selected="true">Overview</button>
+      <button role="tab" id="t-issues" aria-controls="issues" aria-selected="false">Issues</button>
+      <button role="tab" id="t-cards" aria-controls="cards" aria-selected="false">Flashcards</button>
+      <button role="tab" id="t-quiz" aria-controls="quiz" aria-selected="false">Quiz</button>
+      <button role="tab" id="t-formulas" aria-controls="formulas" aria-selected="false">Formula Sheet</button>
+    </nav>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+
+<!-- OVERVIEW -->
+<section class="panel" id="home" role="tabpanel" aria-labelledby="t-home">
+  <div class="block">
+    <span class="label">Issues so far</span>
+    <h2>One issue per lecture, one bank for the exam</h2>
+    <p class="lead">Each issue covers one lecture. Every flashcard, question and formula also joins the course-wide bank, so by exam time the whole course is in one place.</p>
+    <div class="issues" id="issue-cards"></div>
+  </div>
+
+  <div class="block">
+    <span class="label">How to study with it</span>
+    <div class="steps3">
+      <div class="step"><b>Read the issue</b><p>The lecture in a clear structure, with the slide examples worked through.</p><p class="ar">اقرا الإصدار بعد المحاضرة بيوم، والأفكار لسه طازة.</p></div>
+      <div class="step"><b>Drill the flashcards</b><p>Terms and formulas in English, with the intuition in Arabic.</p><p class="ar">خمس دقايق في المواصلات أو بين الحالات تكفي.</p></div>
+      <div class="step"><b>Apply in the quiz</b><p>Scenario questions with worked solutions and why each option is wrong.</p><p class="ar">الغلط هنا أرخص بكتير من الغلط في الامتحان.</p></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="label">Your progress on this device</span>
+    <div class="stats">
+      <div class="stat"><b id="s-known">0</b><span>flashcards marked as known</span></div>
+      <div class="stat"><b id="s-best">–</b><span>best score on the full quiz</span></div>
+      <div class="stat"><b id="s-issues">2</b><span>issues published</span></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="label">Course structure</span>
+    <h2>Four parts across the semester</h2>
+    <div class="pillars">
+      <div class="pillar now"><span class="label">Part 1 · in progress</span><b>Financial Analysis &amp; Capital Budgeting</b></div>
+      <div class="pillar"><span class="label">Part 2</span><b>The Cost of Capital</b></div>
+      <div class="pillar"><span class="label">Part 3</span><b>Securities Valuation</b></div>
+      <div class="pillar"><span class="label">Part 4</span><b>The Environment Surrounding Business</b></div>
+    </div>
+  </div>
+
+  <div class="curator">
+    <div class="avatar" aria-hidden="true">ME</div>
+    <div class="col">
+      <span class="role">Founder · AI Instructor</span>
+      <h3>Mohamed Elsayed</h3>
+      <p>Engineer and plant manager in ready-mix concrete operations, Executive MBA student, and certified AI Ambassador (Ministry of Communications &amp; IT). I build these issues with AI tools and check them against the lecture slides, to show how AI can turn a lecture into structured, testable study material within a day.</p>
+      <p class="ar">الهدف إن كل زميل في الدفعة، مهندس أو دكتور أو إداري، يلاقي المادة متقسمة بلغة يفهمها، ويراجع في دقايق من الموبايل. ولو لقيت أي غلطة أو عندك اقتراح، ابعتهولي على الجروب.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ISSUES -->
+<section class="panel" id="issues" role="tabpanel" aria-labelledby="t-issues" hidden>
+  <div class="issuebar">
+    <div class="seg" id="issue-seg" role="group" aria-label="Choose issue">
+      <button aria-pressed="false" data-issue="1">Issue 01 · Introduction</button>
+      <button aria-pressed="true" data-issue="2">Issue 02 · Financial Analysis</button>
+    </div>
+  </div>
+
+  <!-- Issue 01 -->
+  <article data-issue-body="1" hidden>
+    <div class="ihead">
+      <span class="label">Issue 01 · Part One · Introduction</span>
+      <h2>Finance, the CFO and the six tasks</h2>
+      <p class="lead">Finance is completely different from accounting. This issue sets the map for the whole course: who the CFO is, what the CFO does, and the tools behind each task.</p>
+      <p class="ar callout">الهدف من المادة مش إنك تبقى محاسب بيسجّل قيود. الهدف إنك تفكر بعقلية القيادة: هل الشركة بتكسب عائد أعلى من تكلفة فلوسها، وعندها سيولة تكفي التزاماتها والفرص اللي قدامها؟</p>
+    </div>
+
+    <div class="block">
+      <h2>Where finance sits</h2>
+      <p class="lead">Every organization has its own chart, but the pattern holds: the CFO reports to the CEO, and both Accounting and Finance report to the CFO.</p>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th></th><th>Accounting</th><th>Finance</th></tr></thead>
+        <tbody>
+          <tr><td>Responsibilities</td><td>Financial reporting, audit, tax, compliance, financial controls, bookkeeping</td><td>Financial and investment analysis, risk management, forecasting, budgeting, strategic planning</td></tr>
+          <tr><td>Competencies</td><td>GAAP, IFRS, tax laws, accounting principles, audit procedures</td><td>Financial and investment analysis, capital markets, financial modeling</td></tr>
+          <tr><td>Tools</td><td>Accounting and tax software, Excel, QuickBooks, Sage</td><td>Financial modeling software, Excel, Bloomberg Terminal</td></tr>
+          <tr><td>Certifications</td><td>CPA, CMA, CIA, CGMA</td><td>CFA, FRM, CAIA, CPA</td></tr>
+          <tr><td>Career path</td><td>Staff Accountant → Senior → Accounting Manager → Controller → CFO</td><td>Financial Analyst → Senior Analyst → Finance Manager → CFO, or investment banking, PE, VC</td></tr>
+          <tr><td>Type of work</td><td>Detail-oriented, technical, compliance-focused, process-driven</td><td>Strategic, forward-looking, analytical, decision-focused</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ar callout">المحاسبة بتبص لورا وبتسجّل اللي حصل بالقواعد، والمالية بتبص لقدام وبتقرر. وزي ما المستشفى محتاج قسم أشعة دقيق عشان الجراح ياخد قراره صح، الشركة محتاجة محاسبة سليمة عشان القرار المالي يتبني على أرقام حقيقية.</p>
+    </div>
+
+    <div class="block">
+      <h2>GAAP and IFRS</h2>
+      <div class="two">
+        <div class="pane"><h3>GAAP</h3><p>Generally Accepted Accounting Principles: a strict set of rules companies follow when they write financial reports, issued by the Financial Accounting Standards Board (FASB) to ensure consistency and transparency.</p></div>
+        <div class="pane"><h3>IFRS</h3><p>International Financial Reporting Standards: a set of accounting rules for how information should be gathered and presented in financial reports.</p></div>
+      </div>
+      <p class="ar callout">الفكرة زي الكود الهندسي: كل الشركات بتكتب قوائمها بنفس القواعد، فأي مستثمر أو بنك يقدر يقرا ويقارن من غير ما يتوه.</p>
+    </div>
+
+    <div class="block">
+      <h2>The CFO's six tasks</h2>
+      <p class="lead">This tree is the map of the whole course. Learn each task together with its tools.</p>
+      <div class="tree">
+        <div class="root"><b>CFO</b><span>Accounting + Finance</span></div>
+        <div class="stem"></div>
+        <div class="branches">
+          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · EVA</span></div><span class="st done">Issue 02</span></div>
+          <div class="branch"><h3><span class="num">2</span>Financial Forecasting</h3><div class="chips"><span class="chip">Forecasted financial position</span><span class="chip">% of sales method</span><span class="chip">Linear regression</span></div><span class="st">Coming up</span></div>
+          <div class="branch"><h3><span class="num">3</span>Planning &amp; Control</h3><div class="chips"><span class="chip">Budgeting</span><span class="chip">Breakeven analysis</span><span class="chip">Operating leverage</span></div><span class="st">Coming up</span></div>
+          <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC</span></div><span class="st">Part 2 · Cost of capital</span></div>
+          <div class="branch"><h3><span class="num">5</span>Investment Decisions</h3><div class="chips"><span class="chip">SRR</span><span class="chip">PBP</span><span class="chip">NPV</span><span class="chip">IRR</span></div><span class="st done">Defined in issue 01</span></div>
+          <div class="branch"><h3><span class="num">6</span>Asset Management</h3><div class="chips"><span class="chip">To be detailed</span></div><span class="st">Coming up</span></div>
+        </div>
+      </div>
+      <p class="ar callout">الدكتور سأل سؤالين في المحاضرة لازم تكون جاهز لهم: هل كل منظمة لازم تعمل توقعات مالية؟ وهل كل منظمة لازم تخطط وتراقب؟ الإجابة العملية إن التوقعات مش دايمًا إلزامية بالقانون، لكن التخطيط والرقابة جزء من الإدارة نفسها، لأن الموارد محدودة والمستقبل مش مضمون.</p>
+    </div>
+
+    <div class="block">
+      <h2>Investment decisions: the capital budgeting toolkit</h2>
+      <p class="lead">Decisions are made in two cases, under certainty and under uncertainty, using two families of tools.</p>
+      <div class="cb">
+        <div class="m"><span class="fam">Profitability analysis</span><b>SRR</b><span>Simple rate of return. Compares the initial investment to the final value; a basic indication of profitability.</span><span class="rule">Quick screen. Ignores timing.</span></div>
+        <div class="m"><span class="fam">Profitability analysis</span><b>PBP</b><span>Payback period. Time expected before the investment is returned as income.</span><span class="rule">Prefer the shorter PBP.</span></div>
+        <div class="m dcf"><span class="fam">Discounted cash flow</span><b>NPV</b><span>PV of cash inflows minus PV of cash outflows over a period.</span><span class="rule">Accept if NPV &gt; 0.</span></div>
+        <div class="m dcf"><span class="fam">Discounted cash flow</span><b>IRR</b><span>The discount rate at which NPV equals zero; used to accept and rank projects.</span><span class="rule">Accept if IRR &gt; cost of capital.</span></div>
+      </div>
+      <p class="ar callout">الأداتين الأولانيين زي الكشف المبدئي: سريع ومفيد للفرز. لكن القرار الكبير بيتاخد بـ NPV وIRR، لأنهم بيحسبوا إن الجنيه النهارده أغلى من الجنيه بعد خمس سنين.</p>
+    </div>
+
+    <div class="block">
+      <h2>Case: the value of a CFO</h2>
+      <div class="pane">
+        <p>In March 2015 Google hired Ruth Porat, then CFO of Morgan Stanley, as CFO with a package worth more than $70 million: a $650,000 base salary, a $5 million signing bonus, $25 million in stock, and a $40 million grant every two years from 2016. At Morgan Stanley she had earned $8–11 million a year. She later became President and Chief Investment Officer of Alphabet, and has discussed AI cooperation with Abu Dhabi, which aims to be the first fully AI-driven government by 2027.</p>
+      </div>
+      <p class="ar callout">جوجل ماكانتش بتدفع الرقم ده لحد يمسك الدفاتر. كانت بتدفع لحد يقرر مليارات الاستثمار تروح فين. وده الفرق بين المحاسبة والمالية في جملة واحدة.</p>
+    </div>
+  </article>
+
+  <!-- Issue 02 -->
+  <article data-issue-body="2">
+    <div class="ihead">
+      <span class="label">Issue 02 · Part One · Lecture 2</span>
+      <h2>Financial Analysis and Capital Budgeting</h2>
+      <p class="lead">The first CFO task in depth: where money comes from and goes, how to read statements across years and within a year, and how ratios and value metrics show whether a firm creates wealth.</p>
+    </div>
+
+    <div class="block">
+      <h2>What financial analysis is for</h2>
+      <p class="lead">Financial analysis evaluates businesses, projects, budgets and other transactions to determine their performance and suitability. Overall, it tests whether a company earns a return on capital at least equal to its cost of capital, and generates enough cash to meet obligations and pursue opportunities.</p>
+      <div class="two">
+        <div class="pane"><h3>It is used to</h3><ul style="margin:0;padding-left:20px"><li>Evaluate economic trends</li><li>Set financial policies</li><li>Build long-term plans for business activity</li><li>Identify investment opportunities</li></ul></div>
+        <div class="pane"><h3>It reads three statements</h3><ul style="margin:0;padding-left:20px"><li>Income statement</li><li>Balance sheet</li><li>Cash flow statement</li></ul><p class="note">Reviewed by management, investors and lenders to assess the company's financial position.</p></div>
+      </div>
+      <p class="ar callout">الشركة محتاجة مؤشرين سليمين في نفس الوقت: عائد أعلى من تكلفة الفلوس، وسيولة تكفي. زي الضغط والنبض، واحد سليم مايكفيش لو التاني فيه مشكلة.</p>
+    </div>
+
+    <div class="block">
+      <h2>Sources and uses of funds</h2>
+      <p class="lead">The slide says "money (not cash)" on purpose: funds are broader than the cash in the bank. In modern finance, "Sources and Uses of Funds" is the preferred term.</p>
+      <div class="flow">
+        <div class="col"><h3>Sources · inflows</h3><ol><li>Operating cash flows</li><li>Bank loans</li><li>Issuing shares (equity)</li><li>Issuing bonds or other debt</li><li>Sale of assets</li><li>Retained earnings</li></ol></div>
+        <div class="firm"><span class="arrow">→</span><span class="box">The firm</span><span class="arrow">→</span></div>
+        <div class="col"><h3>Uses · outflows</h3><ol><li>Purchasing fixed assets</li><li>Financing working capital</li><li>Repaying loans or debt</li><li>Paying dividends</li><li>Acquiring another company</li><li>Research and development</li><li>Capital expenditures (CapEx)</li><li>Operating expenses</li></ol></div>
+      </div>
+      <p class="note">The statement helps managers, investors and lenders see where financing comes from, how funds are allocated, whether funds are sufficient for planned activities, and whether projects are financially feasible.</p>
+      <p class="ar callout">البيان ده بيجاوب على سؤالين: الفلوس جت منين، وراحت فين. والبنك أول ما يشوفه بيعرف هل التمويل مناسب للاستخدام، ولا الشركة بتصرف قروض طويلة الأجل على مصاريف يومية.</p>
+    </div>
+
+    <div class="block">
+      <h2>Horizontal analysis</h2>
+      <div class="formula">% change = (Current period − Base period) ÷ Base period × 100</div>
+      <p class="lead">Select several years of comparable data, take one as the baseline (often the oldest), and compare every later year to it. The result shows which accounts are growing (hopefully revenue) and which are shrinking (hopefully expenses).</p>
+      <div class="two">
+        <div class="pane">
+          <h3>Company ABC</h3>
+          <div class="scroll"><table class="mini">
+            <thead><tr><th>Item</th><th>Base</th><th>Current</th><th>Change</th></tr></thead>
+            <tbody><tr><td>Net income</td><td>$15M</td><td>$25M</td><td class="pos">+66%</td></tr><tr><td>Retained earnings</td><td>$65M</td><td>$67M</td><td class="pos">+3.07%</td></tr></tbody>
+          </table></div>
+          <p class="ar">الربح قفز 66%، لكن المحتجز زاد 3% بس. يعني معظم ربح السنة اتوزع أو اتصرف، وده استنتاج ماكانش هيبان من غير المقارنة.</p>
+        </div>
+        <div class="pane">
+          <h3>Income statement example</h3>
+          <div class="scroll"><table class="mini">
+            <thead><tr><th>Item</th><th>Year 1</th><th>Year 2</th><th>Change</th></tr></thead>
+            <tbody>
+              <tr><td>Net sales</td><td>100,000</td><td>120,000</td><td class="pos">+20%</td></tr>
+              <tr><td>COGS</td><td>75,000</td><td>97,000</td><td class="neg">+29%</td></tr>
+              <tr><td>Gross profit</td><td>25,000</td><td>23,000</td><td class="neg">−8%</td></tr>
+              <tr><td>Marketing exp.</td><td>15,000</td><td>13,500</td><td class="pos">−10%</td></tr>
+              <tr><td>Profit before tax</td><td>10,000</td><td>9,500</td><td class="neg">−5%</td></tr>
+              <tr><td>Tax</td><td>2,000</td><td>1,900</td><td>−5%</td></tr>
+              <tr><td>Net profit</td><td>8,000</td><td>7,600</td><td class="neg">−5%</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <p class="note">Weaknesses: choosing a base year is hard; it shows change without explaining the cause; it is vulnerable to changes in accounting methods; it ignores inflation, so rising amounts may reflect prices rather than real growth.</p>
+      <p class="ar callout">المبيعات زادت 20% بس التكلفة جريت أسرع بكتير، فصافي الربح نزل رغم إن الشغل زاد. زي محطة زاد إنتاجها لكن تكلفة المتر زادت أكتر، فكل متر بقى بيكسّب أقل.</p>
+    </div>
+
+    <div class="block">
+      <h2>Vertical analysis</h2>
+      <div class="formula">Vertical % = Income statement item ÷ Total sales × 100</div>
+      <p class="lead">Choose one benchmark line, most often net sales, and express every other line (COGS, gross profit, operating profit, net income) as a percentage of it. Companies then track how those percentages change over time.</p>
+      <div class="two">
+        <div class="pane">
+          <div class="scroll"><table class="mini">
+            <thead><tr><th>Item · 2022</th><th>Amount</th><th>% of sales</th></tr></thead>
+            <tbody>
+              <tr><td>Net sales</td><td>100,000</td><td>100%</td></tr><tr><td>COGS</td><td>75,000</td><td>75%</td></tr><tr><td>Gross profit</td><td>25,000</td><td>25%</td></tr><tr><td>Marketing exp.</td><td>15,000</td><td>15%</td></tr><tr><td>Profit before tax</td><td>10,000</td><td>10%</td></tr><tr><td>Tax</td><td>2,000</td><td>2%</td></tr><tr><td>Net profit</td><td>8,000</td><td>8%</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="pane">
+          <h3>Weaknesses</h3>
+          <ul style="margin:0;padding-left:20px"><li>Does not follow accounting standards and principles</li><li>Cannot measure the company's liquidity</li></ul>
+          <p class="note">Slide 17 lists "horizontal analysis alone cannot assess liquidity" under vertical analysis. It reads like a typo for vertical; check with the lecturer.</p>
+          <p class="ar">من كل 100 جنيه مبيعات، 8 جنيه بس فضلوا ربح. والنسب دي بتخليك تقارن شركة صغيرة بشركة عملاقة على نفس المقياس.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Ratio analysis and the network of ratios</h2>
+      <div class="two">
+        <div class="pane"><h3>Ratio analysis</h3><p>A quantitative method of gaining insight into a company's liquidity, operational efficiency and profitability. It is a cornerstone of fundamental equity analysis.</p></div>
+        <div class="pane"><h3>Network of ratios</h3><p>Also called a pyramid of ratios or the DuPont system. It links ratios so that one cascades into or multiplies another, revealing the root cause of performance.</p><div class="formula">ROE = Net margin × Asset turnover × Equity multiplier</div><p class="note">The DuPont formula is the classic example; the slides define the concept.</p></div>
+      </div>
+      <p class="ar callout">بدل ما تبص لكل نسبة لوحدها، بتشوف إزاي بتأثر في بعض. العائد نزل؟ تنزل خطوة خطوة: المشكلة في الهامش، ولا في دوران الأصول، ولا في حجم الديون؟ زي شجرة الأعطال في الصيانة بالظبط.</p>
+    </div>
+
+    <div class="block">
+      <h2>Modern techniques: MVA and EVA</h2>
+      <div class="two">
+        <div class="pane">
+          <h3>Market Value Added</h3>
+          <p>Total wealth a company has created for its investors since inception: current market value minus the capital originally contributed by bondholders and shareholders. Positive means wealth created; negative means wealth destroyed.</p>
+          <div class="formula">MVA = Market value (equity + debt) − Total capital invested</div>
+        </div>
+        <div class="pane">
+          <h3>Worked example: Apex Corporation</h3>
+          <div class="scroll"><table class="mini">
+            <tbody>
+              <tr><td>Equity: 10,000,000 × $45</td><td>$450M</td></tr>
+              <tr><td>+ Debt (market value)</td><td>$150M</td></tr>
+              <tr><td>= Total market value</td><td>$600M</td></tr>
+              <tr><td>− Total capital invested</td><td>$400M</td></tr>
+              <tr><td><b>MVA</b></td><td class="pos"><b>+$200M</b></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Metric</th><th>Focus</th><th>Scope</th></tr></thead>
+        <tbody>
+          <tr><td>MVA</td><td>Market perception and forward-looking wealth creation</td><td>Cumulative over the company's whole life</td></tr>
+          <tr><td>EVA</td><td>Internal operational efficiency and current profitability</td><td>A specific period, quarterly or annually</td></tr>
+        </tbody>
+      </table></div>
+      <div class="formula">EVA = NOPAT − (Capital invested × WACC)</div>
+      <p class="ar callout">المستثمرين حطوا 400 مليون، والسوق شايف الشركة دلوقتي بـ 600. الـ 200 مليون الفرق هي الثروة اللي الإدارة صنعتها. أما الـ EVA فبيسأل سؤال السنة دي: الربح التشغيلي غطّى تكلفة كل الفلوس اللي شغالة في الشركة ولا لأ؟</p>
+    </div>
+  </article>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="panel" id="cards" role="tabpanel" aria-labelledby="t-cards" hidden>
+  <div class="block">
+    <div class="deckbar">
+      <div class="seg" id="fc-seg" role="group" aria-label="Choose deck"></div>
+      <span class="progress" id="fc-known"></span>
+    </div>
+    <div class="meter"><i id="fc-bar"></i></div>
+    <div class="fc" id="fc" tabindex="0" role="button" aria-label="Flip card"></div>
+    <div class="controls">
+      <button class="btn" id="fc-prev">Previous</button>
+      <button class="btn primary" id="fc-flip">Flip</button>
+      <button class="btn" id="fc-next">Next</button>
+      <span class="progress" id="fc-pos" style="align-self:center"></span>
+      <span class="spacer"></span>
+      <button class="btn good" id="fc-mark">Mark as known</button>
+      <button class="btn" id="fc-review">Unknown only</button>
+      <button class="btn" id="fc-shuffle">Shuffle</button>
+    </div>
+    <p class="note">Tap the card to flip it. On a keyboard, use the arrow keys and space.</p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="panel" id="quiz" role="tabpanel" aria-labelledby="t-quiz" hidden>
+  <div class="block">
+    <div class="seg" id="qz-seg" role="group" aria-label="Choose questions"></div>
+    <div class="score">
+      <span>Score</span><b class="mono" id="qz-score">0 / 0</b>
+      <span class="note" id="qz-left"></span>
+      <span class="spacer"></span>
+      <button class="btn" id="qz-reset">Start over</button>
+    </div>
+  </div>
+  <div class="block" id="qz-list"></div>
+</section>
+
+<!-- FORMULAS -->
+<section class="panel" id="formulas" role="tabpanel" aria-labelledby="t-formulas" hidden>
+  <div class="block">
+    <span class="label">Grows with every issue</span>
+    <h2>Formula sheet</h2>
+    <p class="lead">Every formula and decision rule from the course so far, tagged with the issue it came from.</p>
+    <div class="fgrid" id="f-grid"></div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>MBA Platform</b> · An independent study companion for the Finance for Non-Financial Managers course, Arab Academy for Management, Banking &amp; Financial Sciences. Not an official Academy publication; the lecture slides remain the reference.</span>
+    <span class="ar">تم إعداد وتصميم هذه الحزمة بواسطة تقنيات الذكاء الاصطناعي وتطويرها لتناسب الخلفيات الهندسية والطبية.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function $(id){return document.getElementById(id);}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k)||'null');localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
+
+  /* ===== Course data: add a new lecture by appending to these arrays ===== */
+  var ISSUES=[
+    {n:1,title:'Finance, the CFO and the six tasks',sub:'Introduction · Accounting vs finance · GAAP & IFRS · CFO tasks · Capital budgeting tools'},
+    {n:2,title:'Financial Analysis & Capital Budgeting',sub:'Sources & uses · Horizontal & vertical · Ratios & DuPont · MVA & EVA'}
+  ];
+  var NEXT='Part 1 continues: forecasting, planning & control';
+
+  var CARDS=[
+    {i:1,t:'CFO',en:'Chief Financial Officer. Leads the finance function and reports to the CEO. Both Accounting and Finance report to the CFO.',ar:'المدير المالي مش رئيس الحسابات وبس. هو اللي بيقرر الفلوس تيجي منين وتروح فين، وتحته فرعين: المحاسبة اللي بتسجّل، والمالية اللي بتخطط وتقرر.'},
+    {i:1,t:'Accounting vs Finance',en:'Accounting is historical, detail-oriented and compliance-focused: reporting, audit, tax, bookkeeping. Finance is forward-looking and decision-focused: analysis, forecasting, budgeting, risk and strategic planning.',ar:'المحاسب شغلته زي تقرير الأشعة: صورة دقيقة لحالة حصلت فعلًا، مكتوبة بلغة موحدة. المالي ياخد التقرير ده ويقرر الخطوة الجاية.'},
+    {i:1,t:'GAAP',en:'Generally Accepted Accounting Principles. The rules companies must follow when writing financial reports, issued by the FASB for consistency and transparency.',ar:'زي الكود الهندسي اللي كل المصممين ملتزمين بيه. هنا كل الشركات بتكتب قوائمها بنفس القواعد، فالمستثمر يقدر يقارن بينهم.'},
+    {i:1,t:'IFRS',en:'International Financial Reporting Standards. A set of accounting rules for how information is gathered and presented in financial reports.',ar:'ده الكود الدولي، وأغلب دول العالم شغالة بيه، ومعايير المحاسبة المصرية مبنية عليه.'},
+    {i:1,t:'Financial forecasting tools',en:'Forecasted financial position, the percentage of sales method, and linear regression analysis.',ar:'التنبؤ هنا مش تخمين. بتربط بنود الميزانية بالمبيعات المتوقعة، أو بترسم خط اتجاه من بيانات السنين اللي فاتت وتمدّه لقدام.'},
+    {i:1,t:'Planning & control tools',en:'Budgeting; breakeven analysis and operating leverage.',ar:'الموازنة هي الخطة مكتوبة بالأرقام، ونقطة التعادل بتقولك أقل حجم شغل يغطي تكاليفك.'},
+    {i:1,t:'Financial hierarchy',en:'Sources of finance, costs of finance, and WACC (weighted average cost of capital). Marked "Important" on the slides.',ar:'يعني هنموّل منين، وكل مصدر بيكلّفنا كام، ومتوسط التكلفة كلها. الدكتور معلّم عليها، فخدها في الاعتبار.'},
+    {i:1,t:'WACC',en:'Weighted Average Cost of Capital. The average cost of all the firm’s capital, weighted by the share of each source, debt and equity.',ar:'زي ما تحسب متوسط سعر خامة جاية من موردين مختلفين حسب الكمية من كل واحد. والرقم ده هو الحد الأدنى اللي أي مشروع لازم يعدّيه.'},
+    {i:1,t:'Capital budgeting',en:'Evaluating long-term investments under certainty or uncertainty. Two families: investment profitability analysis (SRR, PBP) and discounted cash flow methods (NPV, IRR).',ar:'دي أخطر قرارات المدير المالي، لأنها فلوس كتير ولمدة طويلة وصعب ترجع فيها بعد ما تبدأ.'},
+    {i:1,t:'SRR',en:'Simple Rate of Return. One of the most basic metrics: it compares the initial investment to the final value, giving a basic indication of profitability, though it ignores other factors such as timing.',ar:'حساب سريع على ضهر الورقة، مفيد للفرز الأول. لكنه بيعامل الجنيه اللي جاي بعد خمس سنين زي الجنيه اللي في إيدك النهارده.'},
+    {i:1,t:'PBP',en:'Payback Period. The time expected before an investment is returned in the form of income. When comparing projects, managers prefer the shorter payback.',f:'PBP = Initial investment ÷ Annual cash inflow (even flows)',ar:'السؤال البسيط: فلوسي هترجع إمتى؟ بس مشروع بيسترد في سنتين ويقف ممكن يكون أسوأ من مشروع بيسترد في أربعة ويفضل يكسب عشرين سنة.'},
+    {i:1,t:'NPV',en:'Net Present Value. The difference between the present value of cash inflows and the present value of cash outflows over a period. Accept if NPV > 0.',f:'NPV = Σ CFt ÷ (1 + k)^t − CF0',ar:'بترجّع كل الفلوس اللي المشروع هيجيبها لقيمتها النهارده، وتطرح منها اللي دفعته. لو الناتج موجب، المشروع بيزوّد ثروتك فعلًا.'},
+    {i:1,t:'IRR',en:'Internal Rate of Return. The discount rate at which NPV equals zero, used to decide which projects are investment-worthy and to rank them. Accept if IRR > cost of capital.',ar:'ده العائد الحقيقي للمشروع كنسبة. لو 15% وفلوسك بتكلفك 10%، المشروع بيكسب. لو 8%، يبقى كأنك بتستلف بـ 10 عشان تكسب 8.'},
+    {i:2,t:'Financial analysis',en:'Evaluating businesses, projects, budgets and transactions to judge performance and suitability. It tests whether the firm earns a return at least equal to its cost of capital and generates enough cash to meet obligations and pursue opportunities.',ar:'كشف شامل على الشركة بمؤشرين: هل بتكسب أكتر من تكلفة فلوسها؟ وهل عندها سيولة تكفي؟ لو واحد منهم مش سليم، الشركة في خطر حتى لو التاني ممتاز.'},
+    {i:2,t:'Three financial statements',en:'Income statement, balance sheet and cash flow statement. Together they show where money came from, where it went and where it is now.',ar:'قائمة الدخل بتقولك كسبت ولا خسرت، والميزانية بتقولك عندك إيه وعليك إيه، وقائمة التدفقات بتقولك الكاش دخل وخرج منين فعلًا.'},
+    {i:2,t:'Sources of funds',en:'Inflows of cash or financing: operating cash flows, bank loans, issuing shares, issuing bonds or other debt, sale of assets, retained earnings.',ar:'السؤال هنا: الفلوس جاية منين؟ من شغلنا نفسه، ولا من البنك، ولا من المساهمين، ولا بعنا أصل؟ وكل مصدر ليه تكلفة ومخاطرة مختلفة.'},
+    {i:2,t:'Uses of funds',en:'Outflows: fixed assets, working capital, debt repayment, dividends, acquisitions, R&D, CapEx, operating expenses.',ar:'والسؤال التاني: الفلوس راحت فين؟ التمويل لازم يناسب الاستخدام، وتمويل مصاريف يومية بقرض طويل الأجل علامة خطر.'},
+    {i:2,t:'Funds vs money vs cash',en:'Cash is what is available right now. Funds are broader and include credit facilities and working capital. "Sources and Uses of Funds" is the preferred term over "Sources and Uses of Money".',ar:'الكاش هو اللي في الخزنة والحساب الجاري حالًا. الـ Funds أوسع بكتير. عشان كده السلايد كاتب "money (not cash)".'},
+    {i:2,t:'Horizontal analysis',en:'Compares the same account across several years against a baseline year, often the oldest, showing which accounts grow and which shrink.',f:'% change = (Current − Base) ÷ Base × 100',ar:'بتمشي على نفس السطر سنة ورا سنة. لو المبيعات بتكبر والمصاريف بتصغر، الاتجاه صحي. لو العكس، فيه نزيف لازم تدور على مصدره.'},
+    {i:2,t:'Vertical analysis',en:'Expresses every line as a percentage of one benchmark in the same period, most often net sales; companies then track the percentages over time.',f:'% = Item ÷ Total sales × 100',ar:'بتاخد سنة واحدة وتسأل: من كل 100 جنيه مبيعات، كام راحوا تكلفة وكام فضلوا ربح؟'},
+    {i:2,t:'Limits of horizontal analysis',en:'Choosing a base year is difficult; it shows change without explaining the cause; it is vulnerable to changes in accounting methods; it ignores inflation.',ar:'لو المبيعات زادت 20% والتضخم 25%، إنت في الحقيقة بعت كمية أقل. الرقم كبر، بس الحجم الحقيقي صغر.'},
+    {i:2,t:'Limits of vertical analysis',en:'It does not follow accounting standards and principles, and it cannot measure the company’s liquidity.',ar:'بيوريك تركيبة القائمة كويس، لكنه مايقولكش الشركة هتقدر تدفع المرتبات والموردين الشهر الجاي ولا لأ.'},
+    {i:2,t:'Ratio analysis',en:'A quantitative method of gaining insight into a company’s liquidity, operational efficiency and profitability; a cornerstone of fundamental equity analysis.',ar:'النسب هي التحاليل المعملية للشركة: نسبة للسيولة، ونسبة للكفاءة، ونسبة للربحية، والصورة الكاملة بتطلع لما تقراهم مع بعض.'},
+    {i:2,t:'Network of ratios',en:'Also called a pyramid of ratios or the DuPont system. It links ratios so one cascades into or multiplies another, revealing the root cause of performance.',f:'ROE = Net margin × Asset turnover × Equity multiplier',ar:'زي شجرة الأعطال في الصيانة: العائد نزل؟ تنزل خطوة خطوة لحد ما توصل للسبب، هامش ولا دوران ولا ديون.'},
+    {i:2,t:'MVA',en:'Market Value Added. Total wealth created for investors since inception: market value of equity and debt minus the total capital they contributed. Positive creates wealth; negative destroys it.',f:'MVA = Market value (equity + debt) − Total capital invested',ar:'المستثمرين حطوا 400 مليون، والسوق شايف الشركة بـ 600. الـ 200 مليون الفرق هي الثروة اللي الإدارة صنعتها.'},
+    {i:2,t:'EVA',en:'Economic Value Added. The economic profit for a period after charging the full cost of capital, both debt and equity.',f:'EVA = NOPAT − (Capital invested × WACC)',ar:'الشركة ممكن تكون كسبانة في الدفاتر وفي الحقيقة بتخسر، لو ربحها التشغيلي أقل من تكلفة الفلوس اللي شغالة بيها.'},
+    {i:2,t:'MVA vs EVA',en:'MVA reflects market perception and is cumulative over the company’s life. EVA reflects internal efficiency and is measured per period.',ar:'الـ EVA شهادة الأداء بتاعة السنة دي، والـ MVA رأي السوق في المشوار كله.'},
+    {i:2,t:'Retained earnings',en:'Cumulative profits kept in the business instead of being paid out as dividends; listed as a source of funds.',ar:'مش كاش في البنك، ده رقم بيقول الشركة احتجزت أرباح بالقيمة دي. في مثال ABC، الربح زاد 66% والمحتجز زاد 3% بس، يعني أغلب الربح اتوزع أو اتصرف.'}
+  ];
+
+  var QUIZ=[
+    {i:1,s:'A hospital group must decide how to fund a new wing (a bank loan, new shares or retained earnings) and what the blended cost of that funding will be. Which CFO task is this?',
+     o:[['Financial hierarchy','Its tools are sources of finance, costs of finance and WACC.',1],['Financial forecasting','Forecasting projects the future position; it does not choose the funding mix.'],['Planning and control','Its tools are budgeting and breakeven analysis.'],['Asset management','This concerns managing the assets once funded, not how they are funded.']],
+     st:'Sources of finance → Costs of finance → WACC = Financial hierarchy',
+     ar:'كل ما السؤال يكون "نموّل منين وبكام؟" يبقى إنت في الـ Financial Hierarchy. والدكتور معلّم عليها Important، فتوقّع سؤال عليها.'},
+    {i:1,s:'Which of these tasks belongs to Finance rather than Accounting?',
+     o:[['Forecasting next year’s cash needs for a new plant','Forward-looking and decision-focused, which is the finance role.',1],['Recording depreciation according to IFRS','Recording under standards is accounting.'],['Preparing the annual tax return','Tax is an accounting responsibility.'],['Auditing last quarter’s expense records','Audit looks back and checks compliance, an accounting task.']],
+     st:'Accounting: reporting, audit, tax, compliance\nFinance: analysis, forecasting, budgeting, risk, planning',
+     ar:'اسأل نفسك: المهمة دي بتبص لورا ولا لقدام؟ لو بتسجّل وبتراجع اللي حصل يبقى محاسبة، ولو بتقدّر وبتقرر اللي جاي يبقى مالية.'},
+    {i:1,s:'Project A costs 600,000 and returns 150,000 a year. Project B costs 400,000 and returns 125,000 a year. Using payback period alone, which do you choose?',
+     o:[['Project B, payback 3.2 years','400,000 ÷ 125,000 = 3.2 years, shorter than A.',1],['Project A, payback 4 years','A takes longer to recover its cost.'],['Project A, because its annual return is higher','PBP ranks by recovery time, not by the size of annual inflows.'],['Neither, PBP cannot compare projects','The slides say managers compare projects by choosing the shorter PBP.']],
+     st:'A: 600,000 ÷ 150,000 = 4.0 years\nB: 400,000 ÷ 125,000 = 3.2 years',
+     ar:'فترة الاسترداد بتجاوب على سؤال واحد: فلوسي هترجع إمتى؟ لكنها مابتشوفش اللي بيحصل بعد الاسترداد، فممكن تختار الأسرع وتسيب الأربح.'},
+    {i:1,s:'A project has an NPV of −20,000 when discounted at the firm’s cost of capital of 11%. What can you conclude about its IRR?',
+     o:[['IRR is below 11%, so reject the project','A negative NPV at 11% means the rate that makes NPV zero is lower than 11%.',1],['IRR is above 11%, so accept the project','If IRR were above 11%, NPV at 11% would be positive.'],['IRR equals 11%','At the IRR, NPV is exactly zero, not −20,000.'],['Nothing, NPV and IRR are unrelated','IRR is defined as the rate where NPV = 0, so they are directly linked.']],
+     st:'NPV(11%) < 0 → IRR < 11% → reject',
+     ar:'الاتنين بيقولوا نفس الكلام بلغتين. الـ NPV السالب معناه إن المشروع مش جايب تكلفة فلوسه، وده نفس معنى إن العائد الداخلي أقل من 11%.'},
+    {i:1,s:'A new imaging device has an IRR of 14%. The clinic’s cost of capital is 10%. What is the decision?',
+     o:[['Accept: IRR exceeds the cost of capital','14% > 10%, so the project earns more than its funding costs.',1],['Reject: IRR should be below the cost of capital','The rule is the opposite.'],['Accept only if payback is under 2 years','PBP is a separate tool; the IRR rule already says accept.'],['Cannot decide without SRR','SRR ignores timing; IRR is the stronger DCF measure.']],
+     st:'IRR 14% − cost of capital 10% = +4% spread → accept',
+     ar:'كأنك بتستلف بفايدة 10% وتشغّل الفلوس في حاجة بتجيب 14%. الفرق ده هو المكسب الحقيقي.'},
+    {i:2,s:'A hospital group’s revenue was EGP 80M in the base year and EGP 92M this year. Using horizontal analysis, what is the percentage change?',
+     o:[['15%','12M ÷ 80M × 100. The change is divided by the base year.',1],['13%','This divides by the current year (12 ÷ 92). Horizontal analysis divides by the base.'],['EGP 12M','That is the absolute variance, not the percentage change.'],['87%','80 ÷ 92 compares the two years as a ratio, not as growth.']],
+     st:'(92 − 80) ÷ 80 × 100 = 12 ÷ 80 × 100 = 15%',
+     ar:'القسمة في التحليل الأفقي دايمًا على سنة الأساس. لو قسمت على السنة الحالية هتطلع بنسبة أصغر وغلط، ودي من أشهر أخطاء الامتحان.'},
+    {i:2,s:'A construction firm reports net sales of 250,000 and COGS of 175,000. In a vertical analysis, what percentage does COGS represent?',
+     o:[['70%','175,000 ÷ 250,000 × 100. Every line is divided by net sales.',1],['30%','That is the gross profit margin, what is left after COGS.'],['143%','250 ÷ 175 puts the benchmark in the numerator.'],['175,000','That is the amount, not its share of sales.']],
+     st:'175,000 ÷ 250,000 × 100 = 70%\nGross profit = 100% − 70% = 30%',
+     ar:'من كل 100 جنيه مبيعات، 70 بتروح على تكلفة التنفيذ المباشرة، و30 بس بيتبقوا يغطّوا باقي المصاريف والربح.'},
+    {i:2,s:'Sales rose from 100,000 to 120,000 (+20%), but COGS rose from 75,000 to 97,000. What does the horizontal analysis tell management?',
+     o:[['Costs grew faster than sales, so gross profit fell about 8%','COGS +29% against sales +20%; gross profit went from 25,000 to 23,000.',1],['The company is healthier because sales grew 20%','Sales growth means little if costs grow faster and margin shrinks.'],['Gross profit grew because both sales and COGS grew','Gross profit = sales − COGS, and it fell by 2,000.'],['Nothing, horizontal analysis needs net sales as a benchmark','That describes vertical analysis.']],
+     st:'COGS: (97,000 − 75,000) ÷ 75,000 = 29%\nGross profit: 25,000 → 23,000 = −8%',
+     ar:'الشغل زاد لكن الربح قلّ، زي مستشفى زاد عدد المرضى بس تكلفة الخامات والأجور زادت أسرع، فالعائد من كل حالة بقى أقل.'},
+    {i:2,s:'Sales grew 20% this year, while inflation was 25%. Which weakness of horizontal analysis does this expose?',
+     o:[['It ignores inflation','Rising amounts can reflect price increases, not real growth in volume.',1],['It does not follow accounting standards','That is listed as a weakness of vertical analysis.'],['It cannot measure liquidity','Also listed under vertical analysis, and not the issue here.'],['It needs a benchmark line item','Vertical analysis uses a benchmark line; horizontal uses a base year.']],
+     st:'Nominal growth 20% < inflation 25% → real volume likely fell',
+     ar:'الرقم كبر على الورق، لكن لو سعر كل حاجة زاد 25%، يبقى انت في الحقيقة بعت كمية أقل من السنة اللي فاتت.'},
+    {i:2,s:'5,000,000 shares trade at $12, the market value of debt is $40M, and total capital invested by lenders and shareholders is $90M. What is the MVA?',
+     o:[['+$10M','Market value = $60M equity + $40M debt = $100M; $100M − $90M = $10M.',1],['−$30M','This uses equity only ($60M − $90M). The slides include debt in market value.'],['+$100M','This is total market value before subtracting capital invested.'],['+$50M','This subtracts debt from capital instead of adding it to market value.']],
+     st:'Equity = 5,000,000 × $12 = $60M\nMarket value = $60M + $40M = $100M\nMVA = $100M − $90M = +$10M',
+     ar:'المستثمرين حطوا 90 مليون، والسوق شايف الشركة بـ 100 مليون، يبقى الإدارة صنعت 10 مليون ثروة. وافتكر إن القيمة السوقية هنا أسهم وديون مع بعض، زي مثال Apex.'},
+    {i:2,s:'A firm has NOPAT of 18M, capital invested of 150M and a WACC of 12%. What is its EVA, and what does it mean?',
+     o:[['EVA = 0: profit exactly covers the cost of capital, no value created','150M × 12% = 18M; 18M − 18M = 0.',1],['EVA = +18M: the firm is creating value','This ignores the capital charge entirely.'],['EVA = −132M: the firm is destroying value','This subtracts the capital itself instead of its cost.'],['EVA = +15.84M','This applies 12% to NOPAT instead of to invested capital.']],
+     st:'Capital charge = 150M × 12% = 18M\nEVA = 18M − 18M = 0',
+     ar:'الشركة كسبانة 18 مليون في الدفاتر، لكن الفلوس اللي شغالة بيها بتكلّف 18 مليون بالظبط. يعني المستثمر كان هياخد نفس العائد في بديل بنفس المخاطرة.'},
+    {i:2,s:'Which of the following is a USE of funds, not a source?',
+     o:[['Paying dividends to shareholders','Cash leaves the firm, so it is a use.',1],['Retained earnings','Listed as a source: profits kept inside the firm.'],['Sale of assets','Listed as a source: cash comes in from the sale.'],['Issuing bonds','Listed as a source: debt financing brings money in.']],
+     st:'Sources: operations, loans, shares, bonds, asset sales, retained earnings\nUses: fixed assets, working capital, debt repayment, dividends,\n      acquisitions, R&D, CapEx, operating expenses',
+     ar:'اسأل نفسك سؤال واحد: الفلوس داخلة الشركة ولا خارجة منها؟ التوزيعات خارجة للمساهمين، يبقى استخدام.'},
+    {i:2,s:'Company ABC’s net income grew 66% while retained earnings grew only 3.07%. What is the most likely explanation?',
+     o:[['Most of the profit was paid out as dividends or used elsewhere','Retained earnings rise only by the profit kept after distributions.',1],['The company made a loss this year','Net income grew from $15M to $25M, so there was no loss.'],['Retained earnings are calculated from sales, not profit','They come from accumulated profit minus distributions.'],['The two figures should always grow at the same rate','Retained earnings depend on the payout decision, so they rarely move in step.']],
+     st:'ΔNet income = 25M − 15M = +10M (66%)\nΔRetained earnings = 67M − 65M = +2M (3.07%)\n→ about 23M of this year’s 25M profit left the firm',
+     ar:'الشركة كسبت 25 مليون السنة دي، لكن المحتجز زاد 2 مليون بس. يعني الجزء الأكبر من الربح اتوزع أو اتصرف، وده نوع الاستنتاج المطلوب من التحليل الأفقي.'},
+    {i:2,s:'Two firms both report ROE of 15%. Firm X: margin 15%, asset turnover 1.0, equity multiplier 1.0. Firm Y: margin 3%, asset turnover 2.5, equity multiplier 2.0. What does the network of ratios reveal?',
+     o:[['Firm Y reaches the same ROE through high turnover and heavy debt, so it carries more financial risk','3% × 2.5 × 2.0 = 15%; a multiplier of 2 means half its assets are debt-financed.',1],['The two firms are identical because ROE is the same','The network exists to show that the same ROE can come from different causes.'],['Firm X is riskier because its margin is higher','A high margin with no debt is the safer profile.'],['Firm Y has the better pricing power','Its 3% margin is far weaker than X’s 15%.']],
+     st:'X: 15% × 1.0 × 1.0 = 15%\nY:  3% × 2.5 × 2.0 = 15%',
+     ar:'مريضين نتيجة التحليل النهائي عندهم واحدة، لكن واحد سليم طبيعي والتاني ماشي على دوا قوي. نفس الـ ROE، بس Y معتمدة على الديون، وأي مشكلة في السوق هتأثر فيها أسرع.'}
+  ];
+
+  var FORMULAS=[
+    {i:1,t:'Payback period',f:'PBP = Initial investment ÷ Annual cash inflow',r:'Prefer the shorter payback. For uneven flows, add the yearly inflows until they recover the investment.'},
+    {i:1,t:'Net present value',f:'NPV = Σ CFt ÷ (1 + k)^t − CF0',r:'Accept if NPV > 0; choose the highest positive NPV.'},
+    {i:1,t:'Internal rate of return',f:'Find r such that Σ CFt ÷ (1 + r)^t − CF0 = 0',r:'Accept if IRR > cost of capital (WACC).'},
+    {i:1,t:'Simple rate of return',f:'SRR compares the initial investment to its final value',r:'A basic indication of profitability; ignores timing.'},
+    {i:2,t:'Horizontal analysis',f:'% change = (Current − Base) ÷ Base × 100',r:'Base year is often the oldest.'},
+    {i:2,t:'Vertical analysis',f:'% = Item ÷ Total sales × 100',r:'Net sales is the usual benchmark (100%).'},
+    {i:2,t:'Market value added',f:'MVA = Market value (equity + debt) − Total capital invested',r:'Positive: wealth created. Negative: wealth destroyed.'},
+    {i:2,t:'Economic value added',f:'EVA = NOPAT − (Capital invested × WACC)',r:'Positive: the period’s profit exceeds the full cost of capital.'},
+    {i:2,t:'DuPont return on equity',f:'ROE = (Net income ÷ Revenue) × (Revenue ÷ Total assets) × (Total assets ÷ Equity)',r:'Margin × turnover × leverage: shows which driver produced the ROE.'}
+  ];
+
+  /* ===== Ticker ===== */
+  var tk=FORMULAS.map(function(f){return '<span><b>'+esc(f.t)+'</b>'+esc(f.f)+'</span>';}).join('');
+  $('ticker').innerHTML=tk+tk;
+
+  /* ===== Tabs ===== */
+  var tabs=[].slice.call(document.querySelectorAll('.bar button'));
+  function show(id){
+    tabs.forEach(function(t){var on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on?'true':'false');$(t.getAttribute('aria-controls')).hidden=!on;});
+    if(id==='home')refreshStats();
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'));window.scrollTo(0,0);});});
+
+  /* ===== Issues ===== */
+  function openIssue(n){
+    [].forEach.call(document.querySelectorAll('[data-issue-body]'),function(a){a.hidden=+a.dataset.issueBody!==n;});
+    [].forEach.call(document.querySelectorAll('#issue-seg button'),function(b){b.setAttribute('aria-pressed',+b.dataset.issue===n?'true':'false');});
+    show('issues');window.scrollTo(0,0);
+  }
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-open-issue]');if(b)openIssue(+b.dataset.openIssue);});
+  [].forEach.call(document.querySelectorAll('#issue-seg button'),function(b){b.addEventListener('click',function(){openIssue(+b.dataset.issue);});});
+  var ic=ISSUES.map(function(s){
+    var nc=CARDS.filter(function(c){return c.i===s.n;}).length, nq=QUIZ.filter(function(q){return q.i===s.n;}).length;
+    return '<div class="issue"><span class="no">'+(s.n<10?'0':'')+s.n+'</span><h3>'+esc(s.title)+'</h3><p class="note">'+esc(s.sub)+'</p><div class="counts"><span>'+nc+' cards</span><span>'+nq+' questions</span></div><button class="btn go" data-open-issue="'+s.n+'">Open issue</button></div>';
+  }).join('');
+  ic+='<div class="issue soon"><span class="no">'+(ISSUES.length<9?'0':'')+(ISSUES.length+1)+'</span><h3>Next issue</h3><p class="note">'+esc(NEXT)+'. Published within 48 hours of the lecture.</p></div>';
+  $('issue-cards').innerHTML=ic;
+
+  /* ===== Segments (deck filters) ===== */
+  function segs(el,cb,cur){
+    var opts=[{v:0,l:'Whole course'}].concat(ISSUES.map(function(s){return {v:s.n,l:'Issue '+(s.n<10?'0':'')+s.n};}));
+    el.innerHTML=opts.map(function(o){return '<button aria-pressed="'+(o.v===cur?'true':'false')+'" data-v="'+o.v+'">'+o.l+'</button>';}).join('');
+    el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(el.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});cb(+b.dataset.v);});
+  }
+
+  /* ===== Flashcards ===== */
+  var KK='afd-known-v1', known=store(KK)||{};
+  var deck=0, order=[], pos=0, flipped=false, fc=$('fc');
+  function pool(){return CARDS.map(function(_,i){return i;}).filter(function(i){return !deck||CARDS[i].i===deck;});}
+  function issueTag(n){return 'Issue '+(n<10?'0':'')+n;}
+  function render(){
+    var p=pool(), k=p.filter(function(i){return known[CARDS[i].t];}).length;
+    $('fc-known').textContent=k+' of '+p.length+' known';
+    $('fc-bar').style.width=(p.length?k/p.length*100:0)+'%';
+    if(!order.length){fc.classList.remove('known');fc.innerHTML='<div class="side"><p class="front-term">All known</p><p class="hint">Shuffle to bring back the full deck.</p></div>';$('fc-pos').textContent='';return;}
+    var c=CARDS[order[pos]];
+    fc.classList.toggle('known',!!known[c.t]);
+    fc.innerHTML=!flipped
+      ?'<div class="side"><span class="tg">'+issueTag(c.i)+'</span><p class="front-term">'+esc(c.t)+'</p><p class="hint">Tap to see the answer</p></div>'
+      :'<div class="side"><span class="tg">'+issueTag(c.i)+'</span><p class="back-term">'+esc(c.t)+'</p><p class="en">'+esc(c.en)+'</p>'+(c.f?'<div class="formula">'+esc(c.f)+'</div>':'')+'<p class="ar" lang="ar">'+esc(c.ar)+'</p></div>';
+    $('fc-pos').textContent=(pos+1)+' / '+order.length;
+    $('fc-mark').textContent=known[c.t]?'Unmark':'Mark as known';
+    $('fc-prev').disabled=pos===0; $('fc-next').disabled=pos===order.length-1;
+  }
+  function reset(){order=pool();pos=0;flipped=false;render();}
+  function flip(){if(!order.length)return;flipped=!flipped;render();}
+  function go(d){var n=pos+d;if(n<0||n>=order.length)return;pos=n;flipped=false;render();}
+  fc.addEventListener('click',function(){if(String(window.getSelection?window.getSelection():'').length)return;flip();});
+  fc.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}});
+  document.addEventListener('keydown',function(e){if($('cards').hidden||(e.target&&e.target.tagName==='BUTTON'))return;if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1);});
+  $('fc-flip').onclick=flip; $('fc-prev').onclick=function(){go(-1);}; $('fc-next').onclick=function(){go(1);};
+  $('fc-mark').onclick=function(){if(!order.length)return;var c=CARDS[order[pos]];if(known[c.t])delete known[c.t];else known[c.t]=1;store(KK,known);render();};
+  $('fc-shuffle').onclick=function(){order=pool();for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}pos=0;flipped=false;render();};
+  $('fc-review').onclick=function(){order=pool().filter(function(i){return !known[CARDS[i].t];});pos=0;flipped=false;render();};
+  segs($('fc-seg'),function(v){deck=v;reset();},0);
+  reset();
+
+  /* ===== Quiz ===== */
+  var BK='afd-best-v1', qdeck=0, answered={}, correct=0, list=$('qz-list');
+  function qpool(){return QUIZ.map(function(_,i){return i;}).filter(function(i){return !qdeck||QUIZ[i].i===qdeck;});}
+  function build(){
+    answered={};correct=0;list.innerHTML='';
+    var p=qpool();
+    p.forEach(function(qi,n){
+      var q=QUIZ[qi], el=document.createElement('div');el.className='q';
+      var idx=q.o.map(function(_,i){return i;});
+      for(var k=idx.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=idx[k];idx[k]=idx[j];idx[j]=t;}
+      var h='<span class="qn">Question '+(n+1)+' of '+p.length+' · '+issueTag(q.i)+'</span><p class="qs">'+esc(q.s)+'</p><div class="opts">';
+      idx.forEach(function(oi){h+='<button class="opt" id="q'+qi+'o'+oi+'" data-q="'+qi+'" data-o="'+oi+'"><span>'+esc(q.o[oi][0])+'</span></button>';});
+      h+='</div><div class="explain" hidden><div class="steps">'+esc(q.st)+'</div><p class="ar" lang="ar">'+esc(q.ar)+'</p></div>';
+      el.innerHTML=h;list.appendChild(el);
+    });
+    update();
+  }
+  function update(){
+    var p=qpool(), n=Object.keys(answered).length;
+    $('qz-score').textContent=correct+' / '+n;
+    $('qz-left').textContent=n===p.length?'All '+p.length+' answered':(p.length-n)+' of '+p.length+' left';
+    if(n===p.length&&qdeck===0){var b=store(BK);if(b===null||correct>b)store(BK,correct);}
+  }
+  list.addEventListener('click',function(e){
+    var b=e.target.closest('.opt');if(!b)return;
+    var qi=+b.dataset.q, oi=+b.dataset.o;if(answered[qi]!==undefined)return;
+    answered[qi]=oi;var q=QUIZ[qi];if(q.o[oi][2])correct++;
+    var box=b.closest('.q');
+    [].forEach.call(box.querySelectorAll('.opt'),function(x){
+      var i=+x.dataset.o,o=q.o[i];x.disabled=true;
+      if(o[2]){x.classList.add('right');x.insertAdjacentHTML('afterbegin','<span class="lbl">Correct answer</span>');}
+      else if(i===oi){x.classList.add('wrong');x.insertAdjacentHTML('afterbegin','<span class="lbl">Your answer</span>');}
+      x.insertAdjacentHTML('beforeend','<span class="why">'+esc(o[1])+'</span>');
+    });
+    box.querySelector('.explain').hidden=false;update();
+  });
+  $('qz-reset').onclick=build;
+  segs($('qz-seg'),function(v){qdeck=v;build();},0);
+  build();
+
+  /* ===== Formulas ===== */
+  $('f-grid').innerHTML=FORMULAS.map(function(f){return '<div class="fcard"><div class="top"><h3>'+esc(f.t)+'</h3><span class="iss">'+issueTag(f.i)+'</span></div><div class="formula">'+esc(f.f)+'</div><p class="rule">'+esc(f.r)+'</p></div>';}).join('');
+
+  /* ===== Stats ===== */
+  function refreshStats(){
+    $('s-known').textContent=CARDS.filter(function(c){return known[c.t];}).length+' / '+CARDS.length;
+    var b=store(BK);$('s-best').textContent=b===null?'–':b+' / '+QUIZ.length;
+    $('s-issues').textContent=ISSUES.length;
+  }
+  refreshStats();
+
+  var h=(location.hash||'').replace('#','');
+  if(['issues','cards','quiz','formulas'].indexOf(h)>-1)show(h);
+})();
+</script>

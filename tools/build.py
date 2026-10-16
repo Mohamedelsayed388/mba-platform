@@ -47,7 +47,7 @@ body::before{background:var(--mast)}
 i=s.index('</style>')+len('</style>')
 s=head+s[:i]+extra_css+s[i:]
 # install button in byline area
-s=s.replace('<div class="byline"><span>Curated by','<div><button class="btn brass install" id="install-btn" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0l-3.5-3.5M8 10l3.5-3.5M2 12v2h12v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Install the app</button></div>\n      <div class="byline"><span>Curated by',1)
+s=s.replace('<div class="byline">','<div><button class="btn brass install" id="install-btn" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0l-3.5-3.5M8 10l3.5-3.5M2 12v2h12v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Install the app</button></div>\n      <div class="byline">',1)
 sheet='''
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-title">
   <div class="card">
@@ -78,5 +78,6 @@ sheet='''
 })();
 </script>
 '''
+assert 'id="install-btn"' in s, 'install button not inserted'
 s=s+sheet+'</body>\n</html>\n'
 open(dst,'w').write(s)

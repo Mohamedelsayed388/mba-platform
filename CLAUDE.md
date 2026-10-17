@@ -22,6 +22,12 @@ MBA Platform is Mohamed Elsayed's installable study app (PWA) for his Executive 
 4. Commit and push to `main`. GitHub Pages redeploys within about a minute.
 5. Mirror the change to the Claude artifact copy if one exists in the conversation.
 
+## Backlog: add with the next lecture
+
+Clear each item once it has shipped.
+
+- **CapEx vs OpEx** (requested by Mohamed on 2026-10-17). Add a flashcard tagged `i: 2` that defines CapEx (assets lasting more than a year, recorded on the balance sheet and depreciated, shown under investing activities in the cash flow statement) and OpEx (day-to-day costs expensed in the year), with a ready-mix plant example. Add one scenario quiz question tagged `i: 2`, for example a 5M pump with a 10-year life: the cash goes out now, but profit falls by 500K of depreciation a year. Optionally add a short note in Issue 02 next to "Capital expenditures (CapEx)" in the Uses list.
+
 ## Content style (agreed with Mohamed)
 
 - Each section starts in English, MBA style: definitions, formulas, worked numbers.

@@ -174,6 +174,12 @@ article{display:flex;flex-direction:column;gap:40px}
 .cb .fam{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .cb .m.dcf .fam{color:var(--accent)}
 .cb .m b{font:800 28px var(--f-brand);font-stretch:112%}
+.cb .full{font-weight:600;font-size:14px;color:var(--ink);line-height:1.3}
+.fc .front-full{text-align:center;color:var(--muted);font-size:17px;margin:4px 0 auto;min-height:1em}
+.drivers{width:100%;border-collapse:collapse;font-size:14.5px}
+.drivers th,.drivers td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.drivers th{font-family:var(--f-brand);font-stretch:100%;font-size:14px;color:var(--muted);font-weight:600}
+.drivers td:first-child{font-weight:600}
 .cb .rule{font-size:14px;border-top:1px dashed var(--line);padding-top:6px}
 
 /* Flashcards */
@@ -185,7 +191,7 @@ article{display:flex;flex-direction:column;gap:40px}
 .fc::after{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--mast)}
 .fc .side{padding:26px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
 .fc .tg{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
-.fc .front-term{font:800 clamp(32px,6vw,48px) var(--f-brand);font-stretch:112%;margin:auto 0;text-align:center}
+.fc .front-term{font:800 clamp(32px,6vw,48px) var(--f-brand);font-stretch:112%;margin:auto 0 0;text-align:center}
 .fc .hint{text-align:center;color:var(--muted);font-size:13px}
 .fc .back-term{font:700 21px var(--f-brand)}
 .fc .en{max-width:70ch}
@@ -383,10 +389,10 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
         <div class="root"><b>CFO</b><span>Accounting + Finance</span></div>
         <div class="stem"></div>
         <div class="branches">
-          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · EVA</span></div><span class="st done">Issue 02</span></div>
+          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · Market Value Added</span><span class="chip">EVA · Economic Value Added</span></div><span class="st done">Issue 02</span></div>
           <div class="branch"><h3><span class="num">2</span>Financial Forecasting</h3><div class="chips"><span class="chip">Forecasted financial position</span><span class="chip">% of sales method</span><span class="chip">Linear regression</span></div><span class="st">Coming up</span></div>
           <div class="branch"><h3><span class="num">3</span>Planning &amp; Control</h3><div class="chips"><span class="chip">Budgeting</span><span class="chip">Breakeven analysis</span><span class="chip">Operating leverage</span></div><span class="st">Coming up</span></div>
-          <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC</span></div><span class="st">Part 2 · Cost of capital</span></div>
+          <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC · Weighted Average Cost of Capital</span></div><span class="st">Part 2 · Cost of capital</span></div>
           <div class="branch"><h3><span class="num">5</span>Investment Decisions</h3><div class="chips"><span class="chip">SRR</span><span class="chip">PBP</span><span class="chip">NPV</span><span class="chip">IRR</span></div><span class="st done">Defined in issue 01</span></div>
           <div class="branch"><h3><span class="num">6</span>Asset Management</h3><div class="chips"><span class="chip">To be detailed</span></div><span class="st">Coming up</span></div>
         </div>
@@ -398,10 +404,10 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
       <h2>Investment decisions: the capital budgeting toolkit</h2>
       <p class="lead">Decisions are made in two cases, under certainty and under uncertainty, using two families of tools.</p>
       <div class="cb">
-        <div class="m"><span class="fam">Profitability analysis</span><b>SRR</b><span>Simple rate of return. Compares the initial investment to the final value; a basic indication of profitability.</span><span class="rule">Quick screen. Ignores timing.</span></div>
-        <div class="m"><span class="fam">Profitability analysis</span><b>PBP</b><span>Payback period. Time expected before the investment is returned as income.</span><span class="rule">Prefer the shorter PBP.</span></div>
-        <div class="m dcf"><span class="fam">Discounted cash flow</span><b>NPV</b><span>PV of cash inflows minus PV of cash outflows over a period.</span><span class="rule">Accept if NPV &gt; 0.</span></div>
-        <div class="m dcf"><span class="fam">Discounted cash flow</span><b>IRR</b><span>The discount rate at which NPV equals zero; used to accept and rank projects.</span><span class="rule">Accept if IRR &gt; cost of capital.</span></div>
+        <div class="m"><span class="fam">Profitability analysis</span><b>SRR</b><span class="full">Simple Rate of Return</span><span>Compares the initial investment to the final value; a basic indication of profitability.</span><span class="rule">Quick screen. Ignores timing.</span></div>
+        <div class="m"><span class="fam">Profitability analysis</span><b>PBP</b><span class="full">Payback Period</span><span>Time expected before the investment is returned as income.</span><span class="rule">Prefer the shorter PBP.</span></div>
+        <div class="m dcf"><span class="fam">Discounted cash flow</span><b>NPV</b><span class="full">Net Present Value</span><span>PV (present value) of cash inflows minus PV of cash outflows over a period.</span><span class="rule">Accept if NPV &gt; 0.</span></div>
+        <div class="m dcf"><span class="fam">Discounted cash flow</span><b>IRR</b><span class="full">Internal Rate of Return</span><span>The discount rate at which NPV equals zero; used to accept and rank projects.</span><span class="rule">Accept if IRR &gt; cost of capital.</span></div>
       </div>
       <p class="ar callout">الأداتين الأولانيين زي الكشف المبدئي: سريع ومفيد للفرز. لكن القرار الكبير بيتاخد بـ NPV وIRR، لأنهم بيحسبوا إن الجنيه النهارده أغلى من الجنيه بعد خمس سنين.</p>
     </div>
@@ -441,6 +447,23 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
         <div class="firm"><span class="arrow">→</span><span class="box">The firm</span><span class="arrow">→</span></div>
         <div class="col"><h3>Uses · outflows</h3><ol><li>Purchasing fixed assets</li><li>Financing working capital</li><li>Repaying loans or debt</li><li>Paying dividends</li><li>Acquiring another company</li><li>Research and development</li><li>Capital expenditures (CapEx)</li><li>Operating expenses</li></ol></div>
       </div>
+      <div class="two">
+        <div class="pane">
+          <h3>CapEx · Capital Expenditure</h3>
+          <p>Spending on assets that serve the business for more than one year, or that extend an existing asset's life or capacity: a new mixer, a pump, a truck, cement silos, a major plant overhaul.</p>
+          <p class="note">Recorded as an asset on the balance sheet and spread over its useful life as depreciation. The cash leaves at once and appears under investing activities in the cash flow statement.</p>
+        </div>
+        <div class="pane">
+          <h3>OpEx · Operating Expenditure</h3>
+          <p>Day-to-day costs of running the business: cement, aggregates, diesel, salaries, routine maintenance, rent.</p>
+          <p class="note">Recorded as an expense in the year it is incurred, so it reduces that year's profit in full.</p>
+        </div>
+      </div>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>A pump costing 5,000,000 with a 10-year life</th><th>Cash out</th><th>Expense in profit</th></tr></thead>
+        <tbody><tr><td>Year 1</td><td>5,000,000</td><td>500,000 depreciation</td></tr><tr><td>Years 2 to 10</td><td>0</td><td>500,000 a year</td></tr></tbody>
+      </table></div>
+      <p class="ar callout">المضخة تمنها 5 مليون، والفلوس دي بتخرج من الخزنة مرة واحدة. لكن الربح مش بينزل 5 مليون السنة دي، لأن المضخة هتخدم 10 سنين، فبينزل 500 ألف إهلاك كل سنة. أما السولار والمرتبات، فبيتخصموا من ربح السنة نفسها على طول. وأي قرار CapEx كبير زي ده، هو اللي بيتقيّم بـ NPV وIRR قبل ما يتاخد.</p>
       <p class="note">The statement helps managers, investors and lenders see where financing comes from, how funds are allocated, whether funds are sufficient for planned activities, and whether projects are financially feasible.</p>
       <p class="ar callout">البيان ده بيجاوب على سؤالين: الفلوس جت منين، وراحت فين. والبنك أول ما يشوفه بيعرف هل التمويل مناسب للاستخدام، ولا الشركة بتصرف قروض طويلة الأجل على مصاريف يومية.</p>
     </div>
@@ -501,19 +524,60 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
     </div>
 
     <div class="block">
-      <h2>Ratio analysis and the network of ratios</h2>
+      <h2>Ratio analysis, ROE and the DuPont network</h2>
+      <p class="lead">Ratio analysis is a quantitative method of gaining insight into a company's liquidity, operational efficiency and profitability. It is a cornerstone of fundamental equity analysis. Two return ratios sit at the top of the network: ROE and ROA.</p>
       <div class="two">
-        <div class="pane"><h3>Ratio analysis</h3><p>A quantitative method of gaining insight into a company's liquidity, operational efficiency and profitability. It is a cornerstone of fundamental equity analysis.</p></div>
-        <div class="pane"><h3>Network of ratios</h3><p>Also called a pyramid of ratios or the DuPont system. It links ratios so that one cascades into or multiplies another, revealing the root cause of performance.</p><div class="formula">ROE = Net margin × Asset turnover × Equity multiplier</div><p class="note">The DuPont formula is the classic example; the slides define the concept.</p></div>
+        <div class="pane">
+          <h3>ROE · Return on Equity</h3>
+          <p>How much profit the company earns on the shareholders' own money: share capital plus retained earnings.</p>
+          <div class="formula">ROE = Net income ÷ Shareholders' equity × 100</div>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>Shareholders' equity</td><td>50,000,000</td></tr>
+            <tr><td>Net income this year</td><td>7,500,000</td></tr>
+            <tr><td><b>ROE</b></td><td><b>15%</b></td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="pane">
+          <h3>ROA · Return on Assets</h3>
+          <p>How much profit the company earns on everything it uses, whether those assets are financed by shareholders or by debt.</p>
+          <div class="formula">ROA = Net income ÷ Total assets × 100</div>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>Total assets (50M equity + 50M debt)</td><td>100,000,000</td></tr>
+            <tr><td>Net income this year</td><td>7,500,000</td></tr>
+            <tr><td><b>ROA</b></td><td><b>7.5%</b></td></tr>
+          </tbody></table></div>
+        </div>
       </div>
-      <p class="ar callout">بدل ما تبص لكل نسبة لوحدها، بتشوف إزاي بتأثر في بعض. العائد نزل؟ تنزل خطوة خطوة: المشكلة في الهامش، ولا في دوران الأصول، ولا في حجم الديون؟ زي شجرة الأعطال في الصيانة بالظبط.</p>
+      <p class="ar callout">نفس الربح، بس الـ ROE طالع ضعف الـ ROA، والسبب إن نص الأصول متمولة بقروض. الشركة بتشتغل بفلوس البنك، والربح بيتحسب على فلوس المساهمين بس، فالعائد عليهم بيكبر. والسؤال اللي لازم يتسأل دايمًا: الـ ROE العالي ده جاي من شغل كويس، ولا من ديون كتير؟ ودي بالظبط وظيفة الـ DuPont.</p>
+
+      <h3 style="font-family:var(--f-brand);font-size:20px">The DuPont system: what is driving the ROE?</h3>
+      <p class="lead">The network of ratios (also called a pyramid of ratios or the DuPont system) links ratios so that one cascades into or multiplies another, revealing the root cause of performance. DuPont splits ROE into three drivers; multiply them and sales and assets cancel out, leaving net income ÷ equity.</p>
+      <div class="formula">ROE = Net profit margin × Asset turnover × Equity multiplier</div>
+      <div class="formula">ROE = (Net income ÷ Sales) × (Sales ÷ Total assets) × (Total assets ÷ Equity)</div>
+      <div class="scroll"><table class="drivers">
+        <thead><tr><th>Driver</th><th>Formula</th><th>What it measures</th></tr></thead>
+        <tbody>
+          <tr><td>Net profit margin</td><td class="mono">Net income ÷ Sales</td><td>Pricing and cost control: profit kept from every 100 of sales</td></tr>
+          <tr><td>Asset turnover</td><td class="mono">Sales ÷ Total assets</td><td>Operating efficiency: sales generated by every 1 of assets (plants, trucks, inventory)</td></tr>
+          <tr><td>Equity multiplier</td><td class="mono">Total assets ÷ Equity</td><td>Financial leverage: how far assets are funded by debt rather than shareholders</td></tr>
+        </tbody>
+      </table></div>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>Two ready-mix companies</th><th>Margin</th><th>Turnover</th><th>Multiplier</th><th>ROE</th></tr></thead>
+        <tbody>
+          <tr><td>Company A</td><td>10%</td><td>1.5</td><td>1.0</td><td><b>15%</b></td></tr>
+          <tr><td>Company B</td><td>3%</td><td>2.5</td><td>2.0</td><td><b>15%</b></td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">A multiplier of 1.0 means no debt; 2.0 means half the assets are financed by debt.</p>
+      <p class="ar callout">الشركتين العائد عندهم 15%، بس القصة مختلفة خالص. شركة A بتكسب من سعر كويس وتشغيل كفء، ومن غير ديون. شركة B هامشها ضعيف، وبتعوّض بتشغيل عالي جدًا وبالقروض. ولو السوق وقف شهرين أو الفايدة زادت، B هي اللي هتتعب، لأن عليها أقساط لازم تدفعها. زي مهندس الصيانة اللي مابيكتفيش بإن الماكينة شغالة، وبيقيس الضغط والحرارة والاهتزاز عشان يعرف حالتها الحقيقية.</p>
     </div>
 
     <div class="block">
-      <h2>Modern techniques: MVA and EVA</h2>
+      <h2>Modern techniques: MVA (Market Value Added) and EVA (Economic Value Added)</h2>
       <div class="two">
         <div class="pane">
-          <h3>Market Value Added</h3>
+          <h3>MVA · Market Value Added</h3>
           <p>Total wealth a company has created for its investors since inception: current market value minus the capital originally contributed by bondholders and shareholders. Positive means wealth created; negative means wealth destroyed.</p>
           <div class="formula">MVA = Market value (equity + debt) − Total capital invested</div>
         </div>
@@ -537,7 +601,29 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
           <tr><td>EVA</td><td>Internal operational efficiency and current profitability</td><td>A specific period, quarterly or annually</td></tr>
         </tbody>
       </table></div>
-      <div class="formula">EVA = NOPAT − (Capital invested × WACC)</div>
+      <div class="two">
+        <div class="pane">
+          <h3>NOPAT · Net Operating Profit After Tax</h3>
+          <p>The profit from the core business after tax, <b>before</b> deducting interest on loans. It measures operating performance regardless of how the company is financed.</p>
+          <div class="formula">NOPAT = EBIT × (1 − Tax rate)</div>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>EBIT (operating profit before interest and tax)</td><td>20,000,000</td></tr>
+            <tr><td>Tax rate</td><td>22.5%</td></tr>
+            <tr><td><b>NOPAT</b> = 20M × 0.775</td><td><b>15,500,000</b></td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="pane">
+          <h3>EVA · Economic Value Added</h3>
+          <p>The economic profit for a period after charging the full cost of all the capital used, both debt and equity, through WACC (Weighted Average Cost of Capital).</p>
+          <div class="formula">EVA = NOPAT − (Capital invested × WACC)</div>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>NOPAT</td><td>15,500,000</td></tr>
+            <tr><td>Capital charge: 120M × 12% WACC</td><td>14,400,000</td></tr>
+            <tr><td><b>EVA</b></td><td class="pos"><b>+1,100,000</b></td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+      <p class="ar callout">ليه الـ NOPAT مابيطرحش فوايد القروض؟ لأن تكلفة القروض داخلة أصلًا جوه الـ WACC في معادلة الـ EVA، ولو طرحناها من الربح كمان، هنكون حاسبينها مرتين. وكمان عشان نقيس التشغيل نفسه: محطتين بنفس الإنتاج والكفاءة، واحدة بقرض والتانية بفلوس أصحابها، المفروض يطلعلهم نفس الـ NOPAT. والـ EVA الموجب هنا معناه إن الشركة كسبت 1.1 مليون فوق تكلفة كل الفلوس اللي شغالة بيها.</p>
       <p class="ar callout">المستثمرين حطوا 400 مليون، والسوق شايف الشركة دلوقتي بـ 600. الـ 200 مليون الفرق هي الثروة اللي الإدارة صنعتها. أما الـ EVA فبيسأل سؤال السنة دي: الربح التشغيلي غطّى تكلفة كل الفلوس اللي شغالة في الشركة ولا لأ؟</p>
     </div>
   </article>
@@ -614,19 +700,19 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
   var NEXT='Part 1 continues: forecasting, planning & control';
 
   var CARDS=[
-    {i:1,t:'CFO',en:'Chief Financial Officer. Leads the finance function and reports to the CEO. Both Accounting and Finance report to the CFO.',ar:'المدير المالي مش رئيس الحسابات وبس. هو اللي بيقرر الفلوس تيجي منين وتروح فين، وتحته فرعين: المحاسبة اللي بتسجّل، والمالية اللي بتخطط وتقرر.'},
+    {i:1,t:'CFO',full:'Chief Financial Officer',en:'Chief Financial Officer. Leads the finance function and reports to the CEO. Both Accounting and Finance report to the CFO.',ar:'المدير المالي مش رئيس الحسابات وبس. هو اللي بيقرر الفلوس تيجي منين وتروح فين، وتحته فرعين: المحاسبة اللي بتسجّل، والمالية اللي بتخطط وتقرر.'},
     {i:1,t:'Accounting vs Finance',en:'Accounting is historical, detail-oriented and compliance-focused: reporting, audit, tax, bookkeeping. Finance is forward-looking and decision-focused: analysis, forecasting, budgeting, risk and strategic planning.',ar:'المحاسب شغلته زي تقرير الأشعة: صورة دقيقة لحالة حصلت فعلًا، مكتوبة بلغة موحدة. المالي ياخد التقرير ده ويقرر الخطوة الجاية.'},
-    {i:1,t:'GAAP',en:'Generally Accepted Accounting Principles. The rules companies must follow when writing financial reports, issued by the FASB for consistency and transparency.',ar:'زي الكود الهندسي اللي كل المصممين ملتزمين بيه. هنا كل الشركات بتكتب قوائمها بنفس القواعد، فالمستثمر يقدر يقارن بينهم.'},
-    {i:1,t:'IFRS',en:'International Financial Reporting Standards. A set of accounting rules for how information is gathered and presented in financial reports.',ar:'ده الكود الدولي، وأغلب دول العالم شغالة بيه، ومعايير المحاسبة المصرية مبنية عليه.'},
+    {i:1,t:'GAAP',full:'Generally Accepted Accounting Principles',en:'Generally Accepted Accounting Principles. The rules companies must follow when writing financial reports, issued by the FASB for consistency and transparency.',ar:'زي الكود الهندسي اللي كل المصممين ملتزمين بيه. هنا كل الشركات بتكتب قوائمها بنفس القواعد، فالمستثمر يقدر يقارن بينهم.'},
+    {i:1,t:'IFRS',full:'International Financial Reporting Standards',en:'International Financial Reporting Standards. A set of accounting rules for how information is gathered and presented in financial reports.',ar:'ده الكود الدولي، وأغلب دول العالم شغالة بيه، ومعايير المحاسبة المصرية مبنية عليه.'},
     {i:1,t:'Financial forecasting tools',en:'Forecasted financial position, the percentage of sales method, and linear regression analysis.',ar:'التنبؤ هنا مش تخمين. بتربط بنود الميزانية بالمبيعات المتوقعة، أو بترسم خط اتجاه من بيانات السنين اللي فاتت وتمدّه لقدام.'},
     {i:1,t:'Planning & control tools',en:'Budgeting; breakeven analysis and operating leverage.',ar:'الموازنة هي الخطة مكتوبة بالأرقام، ونقطة التعادل بتقولك أقل حجم شغل يغطي تكاليفك.'},
     {i:1,t:'Financial hierarchy',en:'Sources of finance, costs of finance, and WACC (weighted average cost of capital). Marked "Important" on the slides.',ar:'يعني هنموّل منين، وكل مصدر بيكلّفنا كام، ومتوسط التكلفة كلها. الدكتور معلّم عليها، فخدها في الاعتبار.'},
-    {i:1,t:'WACC',en:'Weighted Average Cost of Capital. The average cost of all the firm’s capital, weighted by the share of each source, debt and equity.',ar:'زي ما تحسب متوسط سعر خامة جاية من موردين مختلفين حسب الكمية من كل واحد. والرقم ده هو الحد الأدنى اللي أي مشروع لازم يعدّيه.'},
+    {i:1,t:'WACC',full:'Weighted Average Cost of Capital',en:'Weighted Average Cost of Capital. The average cost of all the firm’s capital, weighted by the share of each source, debt and equity.',ar:'زي ما تحسب متوسط سعر خامة جاية من موردين مختلفين حسب الكمية من كل واحد. والرقم ده هو الحد الأدنى اللي أي مشروع لازم يعدّيه.'},
     {i:1,t:'Capital budgeting',en:'Evaluating long-term investments under certainty or uncertainty. Two families: investment profitability analysis (SRR, PBP) and discounted cash flow methods (NPV, IRR).',ar:'دي أخطر قرارات المدير المالي، لأنها فلوس كتير ولمدة طويلة وصعب ترجع فيها بعد ما تبدأ.'},
-    {i:1,t:'SRR',en:'Simple Rate of Return. One of the most basic metrics: it compares the initial investment to the final value, giving a basic indication of profitability, though it ignores other factors such as timing.',ar:'حساب سريع على ضهر الورقة، مفيد للفرز الأول. لكنه بيعامل الجنيه اللي جاي بعد خمس سنين زي الجنيه اللي في إيدك النهارده.'},
-    {i:1,t:'PBP',en:'Payback Period. The time expected before an investment is returned in the form of income. When comparing projects, managers prefer the shorter payback.',f:'PBP = Initial investment ÷ Annual cash inflow (even flows)',ar:'السؤال البسيط: فلوسي هترجع إمتى؟ بس مشروع بيسترد في سنتين ويقف ممكن يكون أسوأ من مشروع بيسترد في أربعة ويفضل يكسب عشرين سنة.'},
-    {i:1,t:'NPV',en:'Net Present Value. The difference between the present value of cash inflows and the present value of cash outflows over a period. Accept if NPV > 0.',f:'NPV = Σ CFt ÷ (1 + k)^t − CF0',ar:'بترجّع كل الفلوس اللي المشروع هيجيبها لقيمتها النهارده، وتطرح منها اللي دفعته. لو الناتج موجب، المشروع بيزوّد ثروتك فعلًا.'},
-    {i:1,t:'IRR',en:'Internal Rate of Return. The discount rate at which NPV equals zero, used to decide which projects are investment-worthy and to rank them. Accept if IRR > cost of capital.',ar:'ده العائد الحقيقي للمشروع كنسبة. لو 15% وفلوسك بتكلفك 10%، المشروع بيكسب. لو 8%، يبقى كأنك بتستلف بـ 10 عشان تكسب 8.'},
+    {i:1,t:'SRR',full:'Simple Rate of Return',en:'Simple Rate of Return. One of the most basic metrics: it compares the initial investment to the final value, giving a basic indication of profitability, though it ignores other factors such as timing.',ar:'حساب سريع على ضهر الورقة، مفيد للفرز الأول. لكنه بيعامل الجنيه اللي جاي بعد خمس سنين زي الجنيه اللي في إيدك النهارده.'},
+    {i:1,t:'PBP',full:'Payback Period',en:'Payback Period. The time expected before an investment is returned in the form of income. When comparing projects, managers prefer the shorter payback.',f:'PBP = Initial investment ÷ Annual cash inflow (even flows)',ar:'السؤال البسيط: فلوسي هترجع إمتى؟ بس مشروع بيسترد في سنتين ويقف ممكن يكون أسوأ من مشروع بيسترد في أربعة ويفضل يكسب عشرين سنة.'},
+    {i:1,t:'NPV',full:'Net Present Value',en:'Net Present Value. The difference between the present value of cash inflows and the present value of cash outflows over a period. Accept if NPV > 0.',f:'NPV = Σ CFt ÷ (1 + k)^t − CF0',ar:'بترجّع كل الفلوس اللي المشروع هيجيبها لقيمتها النهارده، وتطرح منها اللي دفعته. لو الناتج موجب، المشروع بيزوّد ثروتك فعلًا.'},
+    {i:1,t:'IRR',full:'Internal Rate of Return',en:'Internal Rate of Return. The discount rate at which NPV equals zero, used to decide which projects are investment-worthy and to rank them. Accept if IRR > cost of capital.',ar:'ده العائد الحقيقي للمشروع كنسبة. لو 15% وفلوسك بتكلفك 10%، المشروع بيكسب. لو 8%، يبقى كأنك بتستلف بـ 10 عشان تكسب 8.'},
     {i:2,t:'Financial analysis',en:'Evaluating businesses, projects, budgets and transactions to judge performance and suitability. It tests whether the firm earns a return at least equal to its cost of capital and generates enough cash to meet obligations and pursue opportunities.',ar:'كشف شامل على الشركة بمؤشرين: هل بتكسب أكتر من تكلفة فلوسها؟ وهل عندها سيولة تكفي؟ لو واحد منهم مش سليم، الشركة في خطر حتى لو التاني ممتاز.'},
     {i:2,t:'Three financial statements',en:'Income statement, balance sheet and cash flow statement. Together they show where money came from, where it went and where it is now.',ar:'قائمة الدخل بتقولك كسبت ولا خسرت، والميزانية بتقولك عندك إيه وعليك إيه، وقائمة التدفقات بتقولك الكاش دخل وخرج منين فعلًا.'},
     {i:2,t:'Sources of funds',en:'Inflows of cash or financing: operating cash flows, bank loans, issuing shares, issuing bonds or other debt, sale of assets, retained earnings.',ar:'السؤال هنا: الفلوس جاية منين؟ من شغلنا نفسه، ولا من البنك، ولا من المساهمين، ولا بعنا أصل؟ وكل مصدر ليه تكلفة ومخاطرة مختلفة.'},
@@ -638,10 +724,15 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
     {i:2,t:'Limits of vertical analysis',en:'It does not follow accounting standards and principles, and it cannot measure the company’s liquidity.',ar:'بيوريك تركيبة القائمة كويس، لكنه مايقولكش الشركة هتقدر تدفع المرتبات والموردين الشهر الجاي ولا لأ.'},
     {i:2,t:'Ratio analysis',en:'A quantitative method of gaining insight into a company’s liquidity, operational efficiency and profitability; a cornerstone of fundamental equity analysis.',ar:'النسب هي التحاليل المعملية للشركة: نسبة للسيولة، ونسبة للكفاءة، ونسبة للربحية، والصورة الكاملة بتطلع لما تقراهم مع بعض.'},
     {i:2,t:'Network of ratios',en:'Also called a pyramid of ratios or the DuPont system. It links ratios so one cascades into or multiplies another, revealing the root cause of performance.',f:'ROE = Net margin × Asset turnover × Equity multiplier',ar:'زي شجرة الأعطال في الصيانة: العائد نزل؟ تنزل خطوة خطوة لحد ما توصل للسبب، هامش ولا دوران ولا ديون.'},
-    {i:2,t:'MVA',en:'Market Value Added. Total wealth created for investors since inception: market value of equity and debt minus the total capital they contributed. Positive creates wealth; negative destroys it.',f:'MVA = Market value (equity + debt) − Total capital invested',ar:'المستثمرين حطوا 400 مليون، والسوق شايف الشركة بـ 600. الـ 200 مليون الفرق هي الثروة اللي الإدارة صنعتها.'},
-    {i:2,t:'EVA',en:'Economic Value Added. The economic profit for a period after charging the full cost of capital, both debt and equity.',f:'EVA = NOPAT − (Capital invested × WACC)',ar:'الشركة ممكن تكون كسبانة في الدفاتر وفي الحقيقة بتخسر، لو ربحها التشغيلي أقل من تكلفة الفلوس اللي شغالة بيها.'},
+    {i:2,t:'MVA',full:'Market Value Added',en:'Market Value Added. Total wealth created for investors since inception: market value of equity and debt minus the total capital they contributed. Positive creates wealth; negative destroys it.',f:'MVA = Market value (equity + debt) − Total capital invested',ar:'المستثمرين حطوا 400 مليون، والسوق شايف الشركة بـ 600. الـ 200 مليون الفرق هي الثروة اللي الإدارة صنعتها.'},
+    {i:2,t:'EVA',full:'Economic Value Added',en:'Economic Value Added. The economic profit for a period after charging the full cost of capital, both debt and equity.',f:'EVA = NOPAT − (Capital invested × WACC)',ar:'الشركة ممكن تكون كسبانة في الدفاتر وفي الحقيقة بتخسر، لو ربحها التشغيلي أقل من تكلفة الفلوس اللي شغالة بيها.'},
     {i:2,t:'MVA vs EVA',en:'MVA reflects market perception and is cumulative over the company’s life. EVA reflects internal efficiency and is measured per period.',ar:'الـ EVA شهادة الأداء بتاعة السنة دي، والـ MVA رأي السوق في المشوار كله.'},
-    {i:2,t:'Retained earnings',en:'Cumulative profits kept in the business instead of being paid out as dividends; listed as a source of funds.',ar:'مش كاش في البنك، ده رقم بيقول الشركة احتجزت أرباح بالقيمة دي. في مثال ABC، الربح زاد 66% والمحتجز زاد 3% بس، يعني أغلب الربح اتوزع أو اتصرف.'}
+    {i:2,t:'Retained earnings',en:'Cumulative profits kept in the business instead of being paid out as dividends; listed as a source of funds.',ar:'مش كاش في البنك، ده رقم بيقول الشركة احتجزت أرباح بالقيمة دي. في مثال ABC، الربح زاد 66% والمحتجز زاد 3% بس، يعني أغلب الربح اتوزع أو اتصرف.'},
+    {i:2,t:'ROE',full:'Return on Equity',en:'The profit earned on the shareholders\u2019 own money (share capital plus retained earnings).',f:'ROE = Net income ÷ Shareholders\u2019 equity × 100',ar:'أصحاب الشركة حاطين 50 مليون، والشركة كسبت 7.5 مليون، يبقى الـ ROE يساوي 15%. يعني كل 100 جنيه من فلوسهم جابت 15 جنيه. ولو شهادة البنك بتدّي أكتر من كده من غير مخاطرة، يبقى المساهم كان أحسنله يحط فلوسه في البنك.'},
+    {i:2,t:'ROA',full:'Return on Assets',en:'The profit earned on all the assets the company uses, whether financed by shareholders or by debt.',f:'ROA = Net income ÷ Total assets × 100',ar:'نفس الـ 7.5 مليون ربح، بس على أصول 100 مليون، نصها بقروض، يبقى الـ ROA يساوي 7.5%. والفرق بينه وبين الـ ROE بيوريك قد إيه الشركة معتمدة على الديون.'},
+    {i:2,t:'DuPont system',en:'Splits ROE into three drivers: net profit margin (pricing and cost control), asset turnover (operating efficiency) and equity multiplier (financial leverage).',f:'ROE = (Net income ÷ Sales) × (Sales ÷ Total assets) × (Total assets ÷ Equity)',ar:'شركتين العائد عندهم 15%: واحدة بتكسب من سعر وتشغيل كويس ومن غير ديون، والتانية هامشها 3% بس وبتعوّض بالتشغيل والقروض. نفس الرقم، والمخاطرة مختلفة خالص.'},
+    {i:2,t:'NOPAT',full:'Net Operating Profit After Tax',en:'Profit from the core business after tax and before interest on loans, so it measures operations regardless of financing.',f:'NOPAT = EBIT × (1 − Tax rate)',ar:'ربح تشغيلي 20 مليون وضريبة 22.5%، يبقى الـ NOPAT يساوي 15.5 مليون. ومابنطرحش الفوايد، لأن تكلفة القروض داخلة أصلًا في الـ WACC في معادلة الـ EVA.'},
+    {i:2,t:'CapEx vs OpEx',full:'Capital Expenditure vs Operating Expenditure',en:'CapEx buys assets that serve more than a year; it is recorded on the balance sheet, depreciated over its life and shown under investing activities. OpEx covers day-to-day costs and is expensed in the year.',ar:'مضخة بـ 5 مليون عمرها 10 سنين: الكاش بيخرج كله مرة واحدة، لكن الربح بينزل 500 ألف إهلاك كل سنة. أما السولار والمرتبات، فبيتخصموا من ربح السنة نفسها على طول.'}
   ];
 
   var QUIZ=[
@@ -700,19 +791,42 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
     {i:2,s:'Two firms both report ROE of 15%. Firm X: margin 15%, asset turnover 1.0, equity multiplier 1.0. Firm Y: margin 3%, asset turnover 2.5, equity multiplier 2.0. What does the network of ratios reveal?',
      o:[['Firm Y reaches the same ROE through high turnover and heavy debt, so it carries more financial risk','3% × 2.5 × 2.0 = 15%; a multiplier of 2 means half its assets are debt-financed.',1],['The two firms are identical because ROE is the same','The network exists to show that the same ROE can come from different causes.'],['Firm X is riskier because its margin is higher','A high margin with no debt is the safer profile.'],['Firm Y has the better pricing power','Its 3% margin is far weaker than X’s 15%.']],
      st:'X: 15% × 1.0 × 1.0 = 15%\nY:  3% × 2.5 × 2.0 = 15%',
-     ar:'مريضين نتيجة التحليل النهائي عندهم واحدة، لكن واحد سليم طبيعي والتاني ماشي على دوا قوي. نفس الـ ROE، بس Y معتمدة على الديون، وأي مشكلة في السوق هتأثر فيها أسرع.'}
+     ar:'مريضين نتيجة التحليل النهائي عندهم واحدة، لكن واحد سليم طبيعي والتاني ماشي على دوا قوي. نفس الـ ROE، بس Y معتمدة على الديون، وأي مشكلة في السوق هتأثر فيها أسرع.'},
+    {i:2,s:'A plant company has shareholders\u2019 equity of 40M and net income of 6M this year. What is its ROE?',
+     o:[['15%','6M ÷ 40M × 100 = 15%.',1],['6.67','This divides equity by net income (40 ÷ 6). ROE puts net income on top: 6 ÷ 40.'],['40%','This confuses the equity figure with a percentage.'],['Cannot be calculated without total assets','Total assets are needed for ROA, not ROE.']],
+     st:'ROE = 6M ÷ 40M × 100 = 15%',
+     ar:'كل 100 جنيه من فلوس أصحاب الشركة جابت 15 جنيه ربح في السنة. وده الرقم اللي المساهم بيقارنه بأي بديل تاني، زي شهادة البنك.'},
+    {i:2,s:'Two companies each earn net income of 10M on total assets of 100M. Company X is funded entirely by equity; Company Y is funded 50M equity and 50M debt. Which statement is correct?',
+     o:[['Both have ROA of 10%, but Y has ROE of 20% because debt finances half its assets','ROA = 10M ÷ 100M for both; ROE = 10M ÷ 100M for X and 10M ÷ 50M for Y.',1],['Both have the same ROE because their profit is the same','ROE divides by equity, and Y has half the equity of X.'],['X has the higher ROE because it has no debt','Without debt, X\u2019s equity is larger, so its ROE is lower.'],['Y has the higher ROA because it uses debt','ROA divides by total assets, which are equal, so ROA is the same.']],
+     st:'ROA: X = Y = 10M ÷ 100M = 10%\nROE: X = 10M ÷ 100M = 10%\n     Y = 10M ÷ 50M  = 20%\nEquity multiplier: X = 1.0, Y = 2.0',
+     ar:'الديون بتعلّي الـ ROE من غير ما الشغل نفسه يتحسن، لأن الربح بيتقسم على فلوس مساهمين أقل. وعشان كده الـ ROE العالي محتاج دايمًا تسأل: جاي منين؟'},
+    {i:2,s:'A firm reports EBIT of 30M, interest of 6M and a tax rate of 22.5%. What is its NOPAT?',
+     o:[['23.25M','30M × (1 − 0.225) = 23.25M. Interest is not deducted.',1],['18.6M','This deducts interest first: (30M − 6M) × 0.775. That is closer to net income, not NOPAT.'],['30M','This ignores tax; NOPAT is after tax.'],['24M','This deducts interest but ignores tax.']],
+     st:'NOPAT = EBIT × (1 − Tax rate)\n      = 30M × 0.775 = 23.25M',
+     ar:'الـ NOPAT بيقيس التشغيل بس، فمابيطرحش الفوايد. تكلفة القروض بتتحسب بعدين جوه الـ WACC في معادلة الـ EVA، ولو طرحناها هنا، هنكون حاسبينها مرتين.'},
+    {i:2,s:'Using the NOPAT of 23.25M from a firm with 150M of invested capital and a WACC of 14%, what is its EVA?',
+     o:[['+2.25M: it creates value above its full cost of capital','150M × 14% = 21M; 23.25M − 21M = +2.25M.',1],['+23.25M','This ignores the capital charge.'],['−126.75M','This subtracts the capital itself instead of its cost.'],['−2.25M','The sign is reversed: NOPAT is larger than the capital charge.']],
+     st:'Capital charge = 150M × 14% = 21M\nEVA = 23.25M − 21M = +2.25M',
+     ar:'الشركة غطّت تكلفة كل الفلوس اللي شغالة بيها، ديون ومساهمين، وفضل معاها 2.25 مليون زيادة. ده معناه إنها بتخلق قيمة فعلًا، مش بس كسبانة على الورق.'},
+    {i:2,s:'A ready-mix company buys a new truck mixer for 3,000,000 in cash. It expects to use it for 6 years. How does this affect the first year?',
+     o:[['Cash falls by 3M now, but profit falls only by 500K of depreciation this year','It is CapEx: recorded as an asset and depreciated, 3M ÷ 6 = 500K a year.',1],['Profit falls by 3M this year','That would treat it as OpEx; an asset that serves 6 years is CapEx.'],['Neither cash nor profit changes until the truck is used','The cash is paid at purchase, and depreciation starts with use in the first year.'],['Cash falls by 500K a year for 6 years','Depreciation spreads the expense, not the cash; the cash was paid at once.']],
+     st:'CapEx → asset on the balance sheet\nDepreciation = 3,000,000 ÷ 6 = 500,000 a year\nCash flow: −3,000,000 in year 1 (investing activities)',
+     ar:'الكاش والربح مش نفس الحاجة. الفلوس خرجت كلها النهارده، لكن الربح بيتحمّل المكسر على 6 سنين، لأن العربية هتشتغل وتجيب إيراد طول المدة دي.'}
   ];
 
   var FORMULAS=[
-    {i:1,t:'Payback period',f:'PBP = Initial investment ÷ Annual cash inflow',r:'Prefer the shorter payback. For uneven flows, add the yearly inflows until they recover the investment.'},
-    {i:1,t:'Net present value',f:'NPV = Σ CFt ÷ (1 + k)^t − CF0',r:'Accept if NPV > 0; choose the highest positive NPV.'},
-    {i:1,t:'Internal rate of return',f:'Find r such that Σ CFt ÷ (1 + r)^t − CF0 = 0',r:'Accept if IRR > cost of capital (WACC).'},
-    {i:1,t:'Simple rate of return',f:'SRR compares the initial investment to its final value',r:'A basic indication of profitability; ignores timing.'},
+    {i:1,t:'Payback period (PBP)',f:'PBP = Initial investment ÷ Annual cash inflow',r:'Prefer the shorter payback. For uneven flows, add the yearly inflows until they recover the investment.'},
+    {i:1,t:'Net present value (NPV)',f:'NPV = Σ CFt ÷ (1 + k)^t − CF0',r:'Accept if NPV > 0; choose the highest positive NPV.'},
+    {i:1,t:'Internal rate of return (IRR)',f:'Find r such that Σ CFt ÷ (1 + r)^t − CF0 = 0',r:'Accept if IRR > cost of capital (WACC).'},
+    {i:1,t:'Simple rate of return (SRR)',f:'SRR compares the initial investment to its final value',r:'A basic indication of profitability; ignores timing.'},
     {i:2,t:'Horizontal analysis',f:'% change = (Current − Base) ÷ Base × 100',r:'Base year is often the oldest.'},
     {i:2,t:'Vertical analysis',f:'% = Item ÷ Total sales × 100',r:'Net sales is the usual benchmark (100%).'},
-    {i:2,t:'Market value added',f:'MVA = Market value (equity + debt) − Total capital invested',r:'Positive: wealth created. Negative: wealth destroyed.'},
-    {i:2,t:'Economic value added',f:'EVA = NOPAT − (Capital invested × WACC)',r:'Positive: the period’s profit exceeds the full cost of capital.'},
-    {i:2,t:'DuPont return on equity',f:'ROE = (Net income ÷ Revenue) × (Revenue ÷ Total assets) × (Total assets ÷ Equity)',r:'Margin × turnover × leverage: shows which driver produced the ROE.'}
+    {i:2,t:'Market value added (MVA)',f:'MVA = Market value (equity + debt) − Total capital invested',r:'Positive: wealth created. Negative: wealth destroyed.'},
+    {i:2,t:'Economic value added (EVA)',f:'EVA = NOPAT − (Capital invested × WACC)',r:'Positive: the period’s profit exceeds the full cost of capital.'},
+    {i:2,t:'DuPont: return on equity (ROE)',f:'ROE = (Net income ÷ Revenue) × (Revenue ÷ Total assets) × (Total assets ÷ Equity)',r:'Margin × turnover × leverage: shows which driver produced the ROE.'},
+    {i:2,t:'Return on equity (ROE)',f:'ROE = Net income ÷ Shareholders\u2019 equity × 100',r:'Return on the shareholders\u2019 own money.'},
+    {i:2,t:'Return on assets (ROA)',f:'ROA = Net income ÷ Total assets × 100',r:'Return on all assets, however financed.'},
+    {i:2,t:'Net operating profit after tax (NOPAT)',f:'NOPAT = EBIT × (1 − Tax rate)',r:'Operating profit after tax, before interest; feeds EVA.'}
   ];
 
   /* ===== Ticker ===== */
@@ -762,8 +876,8 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
     var c=CARDS[order[pos]];
     fc.classList.toggle('known',!!known[c.t]);
     fc.innerHTML=!flipped
-      ?'<div class="side"><span class="tg">'+issueTag(c.i)+'</span><p class="front-term">'+esc(c.t)+'</p><p class="hint">Tap to see the answer</p></div>'
-      :'<div class="side"><span class="tg">'+issueTag(c.i)+'</span><p class="back-term">'+esc(c.t)+'</p><p class="en">'+esc(c.en)+'</p>'+(c.f?'<div class="formula">'+esc(c.f)+'</div>':'')+'<p class="ar" lang="ar">'+esc(c.ar)+'</p></div>';
+      ?'<div class="side"><span class="tg">'+issueTag(c.i)+'</span><p class="front-term">'+esc(c.t)+'</p>'+'<p class="front-full">'+esc(c.full||'')+'</p>'+'<p class="hint">Tap to see the answer</p></div>'
+      :'<div class="side"><span class="tg">'+issueTag(c.i)+'</span><p class="back-term">'+esc(c.t)+(c.full?' · '+esc(c.full):'')+'</p><p class="en">'+esc(c.en)+'</p>'+(c.f?'<div class="formula">'+esc(c.f)+'</div>':'')+'<p class="ar" lang="ar">'+esc(c.ar)+'</p></div>';
     $('fc-pos').textContent=(pos+1)+' / '+order.length;
     $('fc-mark').textContent=known[c.t]?'Unmark':'Mark as known';
     $('fc-prev').disabled=pos===0; $('fc-next').disabled=pos===order.length-1;

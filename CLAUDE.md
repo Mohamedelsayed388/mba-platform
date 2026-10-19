@@ -16,7 +16,7 @@ MBA Platform is Mohamed Elsayed's installable study app (PWA) for his Executive 
    - Add an `ISSUES` entry `{n, title, sub}` and update `NEXT`.
    - Add an `<article data-issue-body="N">` in the Issues section, and a button `<button aria-pressed="false" data-issue="N">` in `#issue-seg`. The newest issue is the one shown by default (`aria-pressed="true"`, and the others `hidden`).
    - Update the masthead "Latest" card (`Latest · Issue NN`, title, 3 bullets, and the `data-open-issue` value).
-   - Append to `CARDS` (`{i, t, en, f?, ar}`), `QUIZ` (`{i, s, o:[[text, why, 1 for correct]], st, ar}`) and `FORMULAS` (`{i, t, f, r}`), tagging every item with the issue number `i`.
+   - Append to `CARDS` (`{i, t, full?, en, f?, ar}`; give every abbreviation a `full` name, and never rename an existing `t`, because saved progress is keyed on it), `QUIZ` (`{i, s, o:[[text, why, 1 for correct]], st, ar}`) and `FORMULAS` (`{i, t, f, r}`), tagging every item with the issue number `i`.
    - Update the CFO-task tree statuses and the course-part pillars if the lecture moves the course forward.
 3. Build, bump the `sw.js` version, check that the page script parses (`node --check`) and do a single phone-width screenshot.
 4. Commit and push to `main`. GitHub Pages redeploys within about a minute.
@@ -26,13 +26,15 @@ MBA Platform is Mohamed Elsayed's installable study app (PWA) for his Executive 
 
 Clear each item once it has shipped.
 
-- **CapEx vs OpEx** (requested by Mohamed on 2026-10-17). Add a flashcard tagged `i: 2` that defines CapEx (assets lasting more than a year, recorded on the balance sheet and depreciated, shown under investing activities in the cash flow statement) and OpEx (day-to-day costs expensed in the year), with a ready-mix plant example. Add one scenario quiz question tagged `i: 2`, for example a 5M pump with a 10-year life: the cash goes out now, but profit falls by 500K of depreciation a year. Optionally add a short note in Issue 02 next to "Capital expenditures (CapEx)" in the Uses list.
+- (empty)
 
 ## Content style (agreed with Mohamed)
 
 - Each section starts in English, MBA style: definitions, formulas, worked numbers.
 - It then moves straight into an Egyptian Arabic explanation of the practical logic, written as an experienced Egyptian lecturer would say it. There are **no** headings such as "Arabic intuition" or "Medical analogy".
 - Engineering or medical analogies are woven into the sentence itself, because the cohort is mostly engineers and doctors.
+- Every abbreviation shows its full name where it first appears (headings, tool tiles, card fronts), not only inside the explanation.
+- Any section with a formula gets a worked numeric example and a slow explanation of each part, not just a definition.
 - Quiz questions are scenario-based, with step-by-step working and a reason why each wrong option is wrong.
 - Stay faithful to the slides. Where a slide looks wrong (for example slide 17 of lecture 2, "horizontal" listed under vertical analysis), flag it in a note instead of silently fixing it.
 - Never reproduce slides verbatim. Never present the platform as an official Academy publication; the footer disclaimer stays.

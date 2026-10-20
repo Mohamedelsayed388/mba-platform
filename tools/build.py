@@ -74,10 +74,25 @@ sheet='''
   });
   document.getElementById('sheet-close').addEventListener('click',function(){sheet.hidden=true;});
   sheet.addEventListener('click',function(e){if(e.target===sheet)sheet.hidden=true;});
+  /* Anonymous visit and event counts (GoatCounter: no cookies, no personal data) */
+  var GCQ=[];
+  function gc(path,title){GCQ.push({path:path,title:title||path,event:true});flush();}
+  function flush(){ if(window.goatcounter&&window.goatcounter.count){ while(GCQ.length){ try{window.goatcounter.count(GCQ.shift());}catch(e){} } } else { setTimeout(flush,1500); } }
+  if(standalone) gc('launch-installed-app','Opened as installed app');
+  window.addEventListener('appinstalled',function(){gc('app-installed','App installed');});
+  if(btn) btn.addEventListener('click',function(){gc('install-button','Install button tapped');});
+  document.addEventListener('click',function(e){
+    var t=e.target.closest&&e.target.closest('.bar button[aria-controls]');
+    if(t) gc('tab-'+t.getAttribute('aria-controls'),'Tab: '+t.textContent.trim());
+    var l=e.target.closest&&e.target.closest('[data-open-issue],#issue-seg button[data-issue]');
+    if(l){ var n=l.getAttribute('data-open-issue')||l.getAttribute('data-issue'); gc('lecture-'+n,'Lecture '+n+' opened'); }
+  },true);
+  var qz=document.getElementById('qz-left'), done=false;
+  if(qz && window.MutationObserver) new MutationObserver(function(){ if(!done && /^All \\d+ answered/.test(qz.textContent)){ done=true; var seg=document.querySelector('#qz-seg button[aria-pressed="true"]'); gc('quiz-completed','Quiz completed: '+(seg?seg.textContent:'')); } if(!/^All/.test(qz.textContent)) done=false; }).observe(qz,{childList:true,characterData:true,subtree:true});
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 })();
 </script>
 '''
 assert 'id="install-btn"' in s, 'install button not inserted'
-s=s+sheet+'</body>\n</html>\n'
+s=s+sheet+'<script data-goatcounter="https://mba-platform.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>\n</body>\n</html>\n'
 open(dst,'w').write(s)

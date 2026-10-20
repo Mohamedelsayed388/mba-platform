@@ -283,11 +283,11 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
       <p class="tag">Now running: <b style="color:var(--on-mast);font-weight:600">Finance for Non-Financial Managers</b>, issued lecture by lecture with a structured summary, flashcards, a scenario quiz and a growing formula sheet.</p>
       <div class="byline"><span>Built by <b>Mohamed Elsayed</b>, AI Instructor</span><span>Course lecturer: Dr. Ahmed Amin Hashim</span></div>
     </div>
-    <aside class="latest" aria-label="Latest issue">
-      <span class="label">Latest · Issue 03</span>
+    <aside class="latest" aria-label="Latest lecture">
+      <span class="label">Latest · Lecture 03</span>
       <h2>The Three Financial Statements <span class="h-ar" lang="ar">القوائم المالية الثلاث</span></h2>
       <ul><li>Balance sheet: Assets = Liabilities + Equity</li><li>Income statement: from revenue to net income</li><li>Cash flow statement: operating, investing, financing</li></ul>
-      <button class="btn brass" data-open-issue="3">Read issue 03</button>
+      <button class="btn brass" data-open-issue="3">Read lecture 03</button>
     </aside>
   </div>
   <div class="ticker" aria-hidden="true"><div class="run" id="ticker"></div></div>
@@ -297,7 +297,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
   <div class="wrap">
     <nav role="tablist" aria-label="Digest sections">
       <button role="tab" id="t-home" aria-controls="home" aria-selected="true">Overview</button>
-      <button role="tab" id="t-issues" aria-controls="issues" aria-selected="false">Issues</button>
+      <button role="tab" id="t-issues" aria-controls="issues" aria-selected="false">Lectures</button>
       <button role="tab" id="t-cards" aria-controls="cards" aria-selected="false">Flashcards</button>
       <button role="tab" id="t-quiz" aria-controls="quiz" aria-selected="false">Quiz</button>
       <button role="tab" id="t-formulas" aria-controls="formulas" aria-selected="false">Formula Sheet</button>
@@ -311,16 +311,16 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
 <!-- OVERVIEW -->
 <section class="panel" id="home" role="tabpanel" aria-labelledby="t-home">
   <div class="block">
-    <span class="label">Issues so far</span>
-    <h2>One issue per lecture, one bank for the exam</h2>
-    <p class="lead">Each issue covers one lecture. Every flashcard, question and formula also joins the course-wide bank, so by exam time the whole course is in one place.</p>
+    <span class="label">Lectures so far</span>
+    <h2>One page per lecture, one bank for the exam</h2>
+    <p class="lead">Each lecture has its own page. Every flashcard, question and formula also joins the course-wide bank, so by exam time the whole course is in one place.</p>
     <div class="issues" id="issue-cards"></div>
   </div>
 
   <div class="block">
     <span class="label">How to study with it</span>
     <div class="steps3">
-      <div class="step"><b>Read the issue</b><p>The lecture in a clear structure, with the slide examples worked through.</p><p class="ar">اقرا الإصدار بعد المحاضرة بيوم، والأفكار لسه طازة.</p></div>
+      <div class="step"><b>Read the lecture</b><p>The lecture in a clear structure, with the slide examples worked through.</p><p class="ar">اقرا الإصدار بعد المحاضرة بيوم، والأفكار لسه طازة.</p></div>
       <div class="step"><b>Drill the flashcards</b><p>Terms and formulas in English, with the intuition in Arabic.</p><p class="ar">خمس دقايق في المواصلات أو بين الحالات تكفي.</p></div>
       <div class="step"><b>Apply in the quiz</b><p>Scenario questions with worked solutions and why each option is wrong.</p><p class="ar">الغلط هنا أرخص بكتير من الغلط في الامتحان.</p></div>
     </div>
@@ -331,7 +331,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
     <div class="stats">
       <div class="stat"><b id="s-known">0</b><span>flashcards marked as known</span></div>
       <div class="stat"><b id="s-best">–</b><span>best score on the full quiz</span></div>
-      <div class="stat"><b id="s-issues">2</b><span>issues published</span></div>
+      <div class="stat"><b id="s-issues">2</b><span>lectures published</span></div>
     </div>
   </div>
 
@@ -351,7 +351,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
     <div class="col">
       <span class="role">Founder · AI Instructor</span>
       <h3>Mohamed Elsayed</h3>
-      <p>Engineer and plant manager in ready-mix concrete operations, Executive MBA student, and certified AI Ambassador (Ministry of Communications &amp; IT). I build these issues with AI tools and check them against the lecture slides, to show how AI can turn a lecture into structured, testable study material within a day.</p>
+      <p>Engineer and plant manager in ready-mix concrete operations, Executive MBA student, and certified AI Ambassador (Ministry of Communications &amp; IT). I build these lecture pages with AI tools and check them against the lecture slides, to show how AI can turn a lecture into structured, testable study material within a day.</p>
       <p class="ar">الهدف إن كل زميل في الدفعة، مهندس أو دكتور أو إداري، يلاقي المادة متقسمة بلغة يفهمها، ويراجع في دقايق من الموبايل. ولو لقيت أي غلطة أو عندك اقتراح، ابعتهولي على الجروب.</p>
     </div>
   </div>
@@ -360,19 +360,19 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
 <!-- ISSUES -->
 <section class="panel" id="issues" role="tabpanel" aria-labelledby="t-issues" hidden>
   <div class="issuebar">
-    <div class="seg" id="issue-seg" role="group" aria-label="Choose issue">
-      <button aria-pressed="false" data-issue="1">Issue 01 · Introduction</button>
-      <button aria-pressed="false" data-issue="2">Issue 02 · Financial Analysis</button>
-      <button aria-pressed="true" data-issue="3">Issue 03 · Financial Statements</button>
+    <div class="seg" id="issue-seg" role="group" aria-label="Choose lecture">
+      <button aria-pressed="false" data-issue="1">Lecture 01 · Introduction</button>
+      <button aria-pressed="false" data-issue="2">Lecture 02 · Financial Analysis</button>
+      <button aria-pressed="true" data-issue="3">Lecture 03 · Financial Statements</button>
     </div>
   </div>
 
   <!-- Issue 01 -->
   <article data-issue-body="1" hidden>
     <div class="ihead">
-      <span class="label">Issue 01 · Part One · Introduction</span>
+      <span class="label">Lecture 01 · Part One · Introduction</span>
       <h2>Finance, the CFO and the six tasks <span class="h-ar" lang="ar">المالية والمدير المالي ومهامه الست</span></h2>
-      <p class="lead">Finance is completely different from accounting. This issue sets the map for the whole course: who the CFO is, what the CFO does, and the tools behind each task.</p>
+      <p class="lead">Finance is completely different from accounting. This lecture sets the map for the whole course: who the CFO is, what the CFO does, and the tools behind each task.</p>
       <p class="ar callout">الهدف من المادة مش إنك تبقى محاسب بيسجّل قيود. الهدف إنك تفكر بعقلية القيادة: هل الشركة بتكسب عائد أعلى من تكلفة فلوسها، وعندها سيولة تكفي التزاماتها والفرص اللي قدامها؟</p>
     </div>
 
@@ -409,11 +409,11 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
         <div class="root"><b>CFO</b><span>Accounting + Finance</span></div>
         <div class="stem"></div>
         <div class="branches">
-          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial statements</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · Market Value Added</span><span class="chip">EVA · Economic Value Added</span></div><span class="st done">Issues 02–03</span></div>
+          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial statements</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · Market Value Added</span><span class="chip">EVA · Economic Value Added</span></div><span class="st done">Lectures 02–03</span></div>
           <div class="branch"><h3><span class="num">2</span>Financial Forecasting</h3><div class="chips"><span class="chip">Forecasted financial position</span><span class="chip">% of sales method</span><span class="chip">Linear regression</span></div><span class="st">Coming up</span></div>
           <div class="branch"><h3><span class="num">3</span>Planning &amp; Control</h3><div class="chips"><span class="chip">Budgeting</span><span class="chip">Breakeven analysis</span><span class="chip">Operating leverage</span></div><span class="st">Coming up</span></div>
           <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC · Weighted Average Cost of Capital</span></div><span class="st">Part 2 · Cost of capital</span></div>
-          <div class="branch"><h3><span class="num">5</span>Investment Decisions</h3><div class="chips"><span class="chip">SRR</span><span class="chip">PBP</span><span class="chip">NPV</span><span class="chip">IRR</span></div><span class="st done">Defined in issue 01</span></div>
+          <div class="branch"><h3><span class="num">5</span>Investment Decisions</h3><div class="chips"><span class="chip">SRR</span><span class="chip">PBP</span><span class="chip">NPV</span><span class="chip">IRR</span></div><span class="st done">Defined in lecture 01</span></div>
           <div class="branch"><h3><span class="num">6</span>Asset Management</h3><div class="chips"><span class="chip">To be detailed</span></div><span class="st">Coming up</span></div>
         </div>
       </div>
@@ -444,7 +444,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
   <!-- Issue 02 -->
   <article data-issue-body="2" hidden>
     <div class="ihead">
-      <span class="label">Issue 02 · Part One · Lecture 2</span>
+      <span class="label">Lecture 02 · Part One</span>
       <h2>Financial Analysis and Capital Budgeting <span class="h-ar" lang="ar">التحليل المالي والموازنة الرأسمالية</span></h2>
       <p class="lead">The first CFO task in depth: where money comes from and goes, how to read statements across years and within a year, and how ratios and value metrics show whether a firm creates wealth.</p>
     </div>
@@ -650,7 +650,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
   <!-- Issue 03 -->
   <article data-issue-body="3">
     <div class="ihead">
-      <span class="label">Issue 03 · Part One · Lecture 3</span>
+      <span class="label">Lecture 03 · Part One</span>
       <h2>The Three Financial Statements <span class="h-ar" lang="ar">القوائم المالية الثلاث</span></h2>
       <p class="lead">Financial statements are a set of documents that show a company's financial position at a point in time: what it owns and owes, and how much money it has earned and spent. Management uses them internally to guide decisions; investors, creditors and other stakeholders use them externally to judge whether the business is heading in the right direction.</p>
       <p class="ar callout">القوائم المالية هي التحاليل اللي بنطلبها قبل أي قرار. الميزانية بتقول الشركة عندها إيه وعليها إيه النهارده، وقائمة الدخل بتقول كسبت ولا خسرت خلال السنة، وقائمة التدفقات بتقول الكاش دخل منين وخرج فين. ولو بصيت على واحدة بس، هيفوتك جزء من الصورة.</p>
@@ -770,7 +770,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
           <div class="formula">Net profit margin = Net income ÷ Total net sales × 100</div>
           <div class="formula">94,680 ÷ 365,817 × 100 ≈ 25.9% ≈ 26%</div>
           <p class="note">Slide 16 divides by 356,318, which looks like a typo for 365,817 (the digits are swapped). The 26% answer is right either way; use 365,817 in the exam.</p>
-          <p class="ar">من كل 100 دولار مبيعات، آبل بيفضلها حوالي 26 دولار ربح صافي بعد كل المصاريف والضرايب. وده نفس هامش الربح اللي بيبدأ بيه تحليل DuPont في Issue 02.</p>
+          <p class="ar">من كل 100 دولار مبيعات، آبل بيفضلها حوالي 26 دولار ربح صافي بعد كل المصاريف والضرايب. وده نفس هامش الربح اللي بيبدأ بيه تحليل DuPont في المحاضرة التانية.</p>
         </div>
       </div>
       <p class="ar callout">قائمة الدخل زي كشف حساب مستشفى آخر الشهر: إيراد الكشوفات والعمليات والتحاليل، ناقص الأدوية والمستلزمات وأجور الأطباء على الحالات، يطلع مجمل الربح. وبعدين ناقص مرتبات الإدارة والإيجار وحملات التسويق، يطلع الربح التشغيلي. وفي الآخر ناقص الفوايد والضرايب، يطلع صافي الربح. وكل خطوة بتوريك المكسب بيضيع فين.</p>
@@ -784,7 +784,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
         <div class="s"><b>Investing activities</b><span>CFI · Cash Flow from Investing</span><span class="sd">Buying or selling PP&amp;E, investing in securities.</span></div>
         <div class="s"><b>Financing activities</b><span>CFF · Cash Flow from Financing</span><span class="sd">Issuing new equity, taking out loans, repaying debt, paying dividends.</span></div>
       </div>
-      <p class="note">The slides abbreviate cash flow from operating activities as CFO. Do not confuse it with CFO, the Chief Financial Officer, from Issue 01.</p>
+      <p class="note">The slides abbreviate cash flow from operating activities as CFO. Do not confuse it with CFO, the Chief Financial Officer, from Lecture 01.</p>
       <div class="two">
         <div class="pane">
           <h3>Case: Apple Inc., 2021 (in $ millions)</h3>
@@ -805,7 +805,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
           <p>Most of Apple's financing outflow was buying back its own shares (85,971) and paying dividends (14,467).</p>
         </div>
       </div>
-      <p class="ar callout">ليه صافي الربح (94,680) مش هو الكاش من التشغيل (104,038)؟ لأن فيه مصروفات بتقلل الربح من غير ما كاش يخرج، زي الإهلاك، وده اللي شفناه في مثال جهاز الرنين في Issue 02. وفيه كاش بيتأخر، زي مستحقات شركات التأمين الطبي اللي لسه ماتحصّلتش. عشان كده شركة ممكن تبقى كسبانة في قائمة الدخل، وفي نفس الوقت الكاش عندها قليل، وده بالظبط اللي قائمة التدفقات بتكشفه.</p>
+      <p class="ar callout">ليه صافي الربح (94,680) مش هو الكاش من التشغيل (104,038)؟ لأن فيه مصروفات بتقلل الربح من غير ما كاش يخرج، زي الإهلاك، وده اللي شفناه في مثال جهاز الرنين في المحاضرة التانية. وفيه كاش بيتأخر، زي مستحقات شركات التأمين الطبي اللي لسه ماتحصّلتش. عشان كده شركة ممكن تبقى كسبانة في قائمة الدخل، وفي نفس الوقت الكاش عندها قليل، وده بالظبط اللي قائمة التدفقات بتكشفه.</p>
     </div>
 
     <div class="block">
@@ -818,7 +818,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
         <div class="r"><span class="n">4</span><b>Profitability</b><span>How much profit does it make?</span></div>
         <div class="r"><span class="n">5</span><b>Market value</b><span>How does the market price it?</span></div>
       </div>
-      <p class="ar callout">الـ DuPont اللي أخدناه في Issue 02 بيستخدم 3 عائلات منهم: الهامش من الربحية، ودوران الأصول من الكفاءة، والرافعة المالية من المديونية. يعني كل حاجة بنبنيها على بعض.</p>
+      <p class="ar callout">الـ DuPont اللي أخدناه في المحاضرة التانية بيستخدم 3 عائلات منهم: الهامش من الربحية، ودوران الأصول من الكفاءة، والرافعة المالية من المديونية. يعني كل حاجة بنبنيها على بعض.</p>
     </div>
   </article>
 </section>
@@ -863,9 +863,9 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
 <!-- FORMULAS -->
 <section class="panel" id="formulas" role="tabpanel" aria-labelledby="t-formulas" hidden>
   <div class="block">
-    <span class="label">Grows with every issue</span>
+    <span class="label">Grows with every lecture</span>
     <h2>Formula sheet</h2>
-    <p class="lead">Every formula and decision rule from the course so far, tagged with the issue it came from.</p>
+    <p class="lead">Every formula and decision rule from the course so far, tagged with the lecture it came from.</p>
     <div class="fgrid" id="f-grid"></div>
   </div>
 </section>
@@ -1100,14 +1100,14 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
   [].forEach.call(document.querySelectorAll('#issue-seg button'),function(b){b.addEventListener('click',function(){openIssue(+b.dataset.issue);});});
   var ic=ISSUES.map(function(s){
     var nc=CARDS.filter(function(c){return c.i===s.n;}).length, nq=QUIZ.filter(function(q){return q.i===s.n;}).length;
-    return '<div class="issue"><span class="no">'+(s.n<10?'0':'')+s.n+'</span><h3>'+esc(s.title)+'</h3><p class="note">'+esc(s.sub)+'</p><div class="counts"><span>'+nc+' cards</span><span>'+nq+' questions</span></div><button class="btn go" data-open-issue="'+s.n+'">Open issue</button></div>';
+    return '<div class="issue"><span class="no">'+(s.n<10?'0':'')+s.n+'</span><h3>'+esc(s.title)+'</h3><p class="note">'+esc(s.sub)+'</p><div class="counts"><span>'+nc+' cards</span><span>'+nq+' questions</span></div><button class="btn go" data-open-issue="'+s.n+'">Open lecture</button></div>';
   }).join('');
-  ic+='<div class="issue soon"><span class="no">'+(ISSUES.length<9?'0':'')+(ISSUES.length+1)+'</span><h3>Next issue</h3><p class="note">'+esc(NEXT)+'. Published within 48 hours of the lecture.</p></div>';
+  ic+='<div class="issue soon"><span class="no">'+(ISSUES.length<9?'0':'')+(ISSUES.length+1)+'</span><h3>Next lecture</h3><p class="note">'+esc(NEXT)+'. Published within 48 hours of the lecture.</p></div>';
   $('issue-cards').innerHTML=ic;
 
   /* ===== Segments (deck filters) ===== */
   function segs(el,cb,cur){
-    var opts=[{v:0,l:'Whole course'}].concat(ISSUES.map(function(s){return {v:s.n,l:'Issue '+(s.n<10?'0':'')+s.n};}));
+    var opts=[{v:0,l:'Whole course'}].concat(ISSUES.map(function(s){return {v:s.n,l:'Lecture '+(s.n<10?'0':'')+s.n};}));
     el.innerHTML=opts.map(function(o){return '<button aria-pressed="'+(o.v===cur?'true':'false')+'" data-v="'+o.v+'">'+o.l+'</button>';}).join('');
     el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(el.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});cb(+b.dataset.v);});
   }
@@ -1116,7 +1116,7 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
   var KK='afd-known-v1', known=store(KK)||{};
   var deck=0, order=[], pos=0, flipped=false, fc=$('fc');
   function pool(){return CARDS.map(function(_,i){return i;}).filter(function(i){return !deck||CARDS[i].i===deck;});}
-  function issueTag(n){return 'Issue '+(n<10?'0':'')+n;}
+  function issueTag(n){return 'Lecture '+(n<10?'0':'')+n;}
   function render(){
     var p=pool(), k=p.filter(function(i){return known[CARDS[i].t];}).length;
     $('fc-known').textContent=k+' of '+p.length+' known';

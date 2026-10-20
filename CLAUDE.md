@@ -38,4 +38,5 @@ Clear each item once it has shipped.
 - Any section with a formula gets a worked numeric example and a slow explanation of each part, not just a definition.
 - Quiz questions are scenario-based, with step-by-step working and a reason why each wrong option is wrong.
 - Stay faithful to the slides. Where a slide looks wrong (for example slide 17 of lecture 2, "horizontal" listed under vertical analysis), flag it in a note instead of silently fixing it.
+- On screen, call each lecture page a **Lecture** ("Lecture 03"), never an "Issue". The code still uses `issue` names (`ISSUES`, `data-issue`, `issueTag`); leave those as they are.
 - Never reproduce slides verbatim. Never present the platform as an official Academy publication; the footer disclaimer stays.

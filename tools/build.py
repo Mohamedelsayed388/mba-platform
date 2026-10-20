@@ -13,7 +13,7 @@ head='''<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MBA Platform</title>
 <meta name="description" content="MBA Platform by Mohamed Elsayed: AI-built study companion for Finance for Non-Financial Managers, with lecture issues, bilingual flashcards, a scenario quiz and a formula sheet.">
-<meta name="theme-color" content="#0f2440">
+<meta name="theme-color" content="#0e2347">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">

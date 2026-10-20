@@ -32,7 +32,8 @@ Clear each item once it has shipped.
 
 - Each section starts in English, MBA style: definitions, formulas, worked numbers.
 - It then moves straight into an Egyptian Arabic explanation of the practical logic, written as an experienced Egyptian lecturer would say it. There are **no** headings such as "Arabic intuition" or "Medical analogy".
-- Engineering or medical analogies are woven into the sentence itself, because the cohort is mostly engineers and doctors.
+- Examples and analogies come from **medicine and hospitals** and from **marketing**, woven into the sentence itself. Do not use ready-mix concrete or plant examples: Mohamed is the only one in the cohort from that field.
+- Arabic is a first-class audience (students on the Arabic track): every section gets an Egyptian Arabic explanation after it, every issue heading has an Arabic subtitle (`<span class="h-ar">`), and every card and formula has an Arabic name (`tAr`).
 - Every abbreviation shows its full name where it first appears (headings, tool tiles, card fronts), not only inside the explanation.
 - Any section with a formula gets a worked numeric example and a slow explanation of each part, not just a definition.
 - Quiz questions are scenario-based, with step-by-step working and a reason why each wrong option is wrong.

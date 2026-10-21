@@ -84,6 +84,8 @@ sheet='''
   document.addEventListener('click',function(e){
     var t=e.target.closest&&e.target.closest('.bar button[aria-controls]');
     if(t) gc('tab-'+t.getAttribute('aria-controls'),'Tab: '+t.textContent.trim());
+    var k=e.target.closest&&e.target.closest('[data-ask]');
+    if(k) gc('ask-assistant-'+k.getAttribute('data-ask'),'Course assistant opened ('+k.getAttribute('data-ask')+')');
     var l=e.target.closest&&e.target.closest('[data-open-issue],#issue-seg button[data-issue]');
     if(l){ var n=l.getAttribute('data-open-issue')||l.getAttribute('data-issue'); gc('lecture-'+n,'Lecture '+n+' opened'); }
   },true);

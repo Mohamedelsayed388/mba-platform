@@ -1,5 +1,5 @@
 /* MBA Platform: offline cache. Bump VERSION when publishing a new issue. */
-var VERSION = 'mbap-v9';
+var VERSION = 'mbap-v10';
 var CORE = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png', './favicon.png'];
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(CORE); }).then(function () { return self.skipWaiting(); }));

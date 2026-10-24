@@ -344,6 +344,7 @@ body::before{background:var(--mast)}
     <nav role="tablist" aria-label="Digest sections">
       <button role="tab" id="t-home" aria-controls="home" aria-selected="true">Overview</button>
       <button role="tab" id="t-issues" aria-controls="issues" aria-selected="false">Lectures</button>
+      <button role="tab" id="t-midterm" aria-controls="midterm" aria-selected="false">Midterm Guide</button>
       <button role="tab" id="t-cards" aria-controls="cards" aria-selected="false">Flashcards</button>
       <button role="tab" id="t-quiz" aria-controls="quiz" aria-selected="false">Quiz</button>
       <button role="tab" id="t-formulas" aria-controls="formulas" aria-selected="false">Formula Sheet</button>
@@ -370,6 +371,13 @@ body::before{background:var(--mast)}
       <div class="step"><b>Drill the flashcards</b><p>Terms and formulas in English, with the intuition in Arabic.</p><p class="ar">خمس دقايق في المواصلات أو بين الحالات تكفي.</p></div>
       <div class="step"><b>Apply in the quiz</b><p>Scenario questions with worked solutions and why each option is wrong.</p><p class="ar">الغلط هنا أرخص بكتير من الغلط في الامتحان.</p></div>
     </div>
+  </div>
+
+  <div class="askcard">
+    <span class="label" style="color:var(--gold)">New · Midterm project</span>
+    <h3>Midterm Guide: analyse a real company, step by step</h3>
+    <p class="ar">مش عارف تبدأ مشروع الميد تيرم منين؟ الدليل ده بيمشي معاك على شركة حقيقية محلولة، من أول ما تجيب القوائم المالية لحد ما تكتب الخلاصة، ومعاه قالب إكسيل بيحسب كل النسب لوحده.</p>
+    <button class="btn brass" type="button" data-go-tab="midterm">Open the Midterm Guide</button>
   </div>
 
   <div class="askcard">
@@ -1109,6 +1117,261 @@ body::before{background:var(--mast)}
   </article>
 </section>
 
+
+<!-- MIDTERM GUIDE -->
+<section class="panel" id="midterm" role="tabpanel" aria-labelledby="t-midterm" hidden>
+  <div class="block">
+    <span class="label">Midterm project · مشروع الميد تيرم</span>
+    <h2>Analyse a real company, step by step <span class="h-ar" lang="ar">تحليل شركة حقيقية خطوة بخطوة</span></h2>
+    <p class="lead">For the midterm, each group chooses a company and assesses its financial position using what the course has covered so far. This guide walks through the whole process on one real company, Cleopatra Hospitals Group, from finding the annual report to writing the conclusion. Follow the same steps for your own company.</p>
+    <p class="ar callout">أغلبنا عارف النسب لوحدها، بس مش عارف يبدأ منين لما يمسك شركة حقيقية. الدليل ده بيمشي معاك من أول ما تختار الشركة لحد ما تكتب الخلاصة، على مثال واحد محلول: مجموعة مستشفيات كليوباترا. خد منه <b>الطريقة</b>، وطبّقها على شركتك. أما التحليل والتعليقات في تقريركم، فلازم تبقى بكلامكم إنتم وعلى أرقام شركتكم، لأن ده بالظبط اللي الدكتور هيقيّمه.</p>
+    <div class="two">
+      <div class="pane">
+        <h3>Excel template <span class="h-ar" lang="ar">قالب الإكسيل</span></h3>
+        <p>Enter your company's figures in the yellow cells. Horizontal and vertical analysis, every ratio and DuPont calculate themselves. It comes pre-filled with the Cleopatra example.</p>
+        <p class="ar">حط أرقام شركتك في الخانات الصفرا، والباقي بيتحسب لوحده.</p>
+        <a class="btn brass" href="guide/MBA-Midterm-Template.xlsx" download data-gc="midterm-template-download">⬇ Download the template (.xlsx)</a>
+      </div>
+      <div class="pane">
+        <h3>Stuck on a step? <span class="h-ar" lang="ar">وقفت عند خطوة؟</span></h3>
+        <p>The course assistant knows this guide. Ask it, for example, "how do I calculate the quick ratio for my company?" or "what does a falling asset turnover mean?"</p>
+        <a class="btn" href="https://notebook.google.com/notebook/bc0daf56-8425-4185-8a30-b8250d51d2c7" target="_blank" rel="noopener" data-ask="midterm">🤖 <span lang="ar">اسأل مساعد المادة</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>The route <span class="h-ar" lang="ar">الطريق من الأول للآخر</span></h2>
+    <div class="scroll"><table class="cmp">
+      <thead><tr><th>Step</th><th>What you do</th><th>From</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Choose the company and find its annual reports<br><span lang="ar">اختار الشركة وهات تقاريرها السنوية</span></td><td>—</td></tr>
+        <tr><td>1</td><td>Collect the numbers into the template<br><span lang="ar">انقل الأرقام للقالب</span></td><td>—</td></tr>
+        <tr><td>2</td><td>Read the three statements as one story<br><span lang="ar">اقرا القوائم الثلاث كقصة واحدة</span></td><td>Lecture 03</td></tr>
+        <tr><td>3</td><td>Horizontal analysis<br><span lang="ar">التحليل الأفقي</span></td><td>Lecture 02</td></tr>
+        <tr><td>4</td><td>Vertical analysis<br><span lang="ar">التحليل الرأسي</span></td><td>Lecture 02</td></tr>
+        <tr><td>5</td><td>Financial ratios: the four families<br><span lang="ar">النسب المالية: العائلات الأربع</span></td><td>Lecture 04</td></tr>
+        <tr><td>6</td><td>DuPont: what drives ROE<br><span lang="ar">ديبونت: إيه اللي محرّك العائد</span></td><td>Lecture 02</td></tr>
+        <tr><td>7</td><td>Cash flow: how growth is financed<br><span lang="ar">التدفقات: التوسع ممول منين</span></td><td>Lecture 03</td></tr>
+        <tr><td>8</td><td>Conclusion and report<br><span lang="ar">الخلاصة والتقرير</span></td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block">
+    <h2>Step 0 · Choose the company <span class="h-ar" lang="ar">الخطوة 0: اختيار الشركة</span></h2>
+    <div class="two">
+      <div class="pane">
+        <h3>A good choice has</h3>
+        <ul style="margin:0;padding-left:20px">
+          <li>Published, audited financial statements, so a listed company</li>
+          <li>At least three years of statements: four balance sheets, so the first year can feed the averages</li>
+          <li>A business your group understands</li>
+          <li>Listed competitors you can compare it with</li>
+        </ul>
+        <p class="note">Avoid banks and insurers for this exercise. Their statements have no inventory or ordinary current assets, so most of the ratios from Lecture 04 do not apply.</p>
+      </div>
+      <div class="pane">
+        <h3>Where to find the statements</h3>
+        <ul style="margin:0;padding-left:20px">
+          <li>The company website: <b>Investor Relations</b> → financial statements, annual reports, earnings releases</li>
+          <li>The Egyptian Exchange (EGX) disclosures, for Egyptian listed companies</li>
+          <li>SEC EDGAR (the 10-K annual report), for US companies</li>
+        </ul>
+        <p class="note">Data websites are useful for a quick look, but take your figures from the company's own audited statements and cite them.</p>
+      </div>
+    </div>
+    <p class="ar callout">لو جروبكم فيه دكاترة، شركة مستشفيات أو أدوية هتبقى أسهل في الفهم والنقاش. ولو فيه حد شغال في تسويق أو اتصالات، اختاروا شركة من مجاله. المهم إن حد في الجروب يفهم الشغل نفسه، عشان التعليق على الأرقام يطلع منطقي. ودوّر على كلمة <b>Investor Relations</b> في موقع الشركة، هتلاقي تحتها القوائم المالية والتقارير ربع السنوية.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 1 · Collect the numbers <span class="h-ar" lang="ar">الخطوة 1: جمع الأرقام</span></h2>
+    <p class="lead">Use the consolidated statements, keep one unit (here EGP millions), and copy only the lines the analysis needs. The template lists them.</p>
+    <div class="pane">
+      <h3>Cleopatra Hospitals Group · key figures (EGP millions)</h3>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>Item</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue</td><td>3,595.0</td><td>5,420.4</td><td>7,227.3</td></tr>
+          <tr><td>Gross profit</td><td>1,208.0</td><td>2,013.3</td><td>2,858.5</td></tr>
+          <tr><td>Operating profit (EBIT)</td><td>649.0</td><td>1,162.8</td><td>1,499.8</td></tr>
+          <tr><td>Net profit</td><td>469.0</td><td>817.0</td><td>967.9</td></tr>
+          <tr><td>Total current assets</td><td>1,767.1</td><td>2,458.2</td><td>2,363.3</td></tr>
+          <tr><td>Total assets</td><td>4,488.0</td><td>7,589.8</td><td>10,241.3</td></tr>
+          <tr><td>Total current liabilities</td><td>1,431.1</td><td>2,324.5</td><td>3,310.3</td></tr>
+          <tr><td>Total liabilities</td><td>2,041.8</td><td>4,412.0</td><td>6,200.9</td></tr>
+          <tr><td>Total equity</td><td>2,446.3</td><td>3,177.8</td><td>4,040.4</td></tr>
+          <tr><td>Operating cash flow</td><td>521.6</td><td>1,500.0</td><td>1,891.9</td></tr>
+          <tr><td>Investing cash flow</td><td>(797.7)</td><td>(2,665.8)</td><td>(2,599.3)</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Sources: Cleopatra Hospitals Group earnings releases for FY2023 and FY2025, and the audited consolidated statements for 2025 (cash flows 2024–2025), from the company's Investor Relations page. The 2022 balance sheet, used only for averages, is in the template. Releases can reclassify a few lines, so figures may differ slightly from other sources; always say which source you used.</p>
+    </div>
+    <p class="ar callout">أهم 3 غلطات في الخطوة دي: إنك تخلط وحدات (ألف جنيه في سنة ومليون في التانية)، أو تاخد أرقام سنة من مصدر وسنة من مصدر تاني من غير ما تقول، أو تنسى الميزانية الرابعة. المتوسطات محتاجة رصيد أول السنة وآخرها، فلو هتحلل 2023 لـ 2025، محتاج ميزانية 2022 كمان. وفي القالب، سطر Balance check لازم يطلع صفر: الأصول = الالتزامات + حقوق الملكية. ولو مش صفر، يبقى فيه رقم اتنقل غلط.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 2 · Read the three statements as one story <span class="h-ar" lang="ar">الخطوة 2: اقرا القوائم كقصة واحدة</span></h2>
+    <p class="lead">Before any ratio, write three sentences: how the business grew (income statement), what it now owns and owes (balance sheet), and where the cash came from and went (cash flow).</p>
+    <div class="stmt3">
+      <div class="s"><b>Income statement</b><span>قائمة الدخل</span><span class="sd">Revenue doubled from 3.6 to 7.2 billion in two years; net profit rose from 469 to 968 million.</span></div>
+      <div class="s"><b>Balance sheet</b><span>الميزانية</span><span class="sd">Total assets rose from 4.5 to 10.2 billion, mostly new hospitals; liabilities tripled.</span></div>
+      <div class="s"><b>Cash flow</b><span>التدفقات النقدية</span><span class="sd">Operations generated cash, but investing used about 2.6 billion a year; borrowing filled the gap.</span></div>
+    </div>
+    <p class="ar callout">القصة باختصار: مجموعة مستشفيات بتكبر بسرعة. الإيرادات اتضاعفت، وبتبني وتشتري مستشفيات جديدة بمليارات، وجزء كبير من التوسع ده ممول بقروض. الجملة دي هي اللي هتمشي وراها في باقي التحليل: كل نسبة هتأكدها أو تعدّلها. ولو بدأت بالنسب على طول من غير القصة، هتطلع بجدول أرقام من غير معنى.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 3 · Horizontal analysis <span class="h-ar" lang="ar">الخطوة 3: التحليل الأفقي</span></h2>
+    <div class="formula">Change % = (This year − Last year) ÷ Last year × 100</div>
+    <div class="scroll"><table class="mini">
+      <thead><tr><th>Item</th><th>2024 vs 2023</th><th>2025 vs 2024</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue</td><td>+50.8%</td><td>+33.3%</td></tr>
+        <tr><td>Operating profit (EBIT)</td><td>+79.2%</td><td>+29.0%</td></tr>
+        <tr><td>Net profit</td><td>+74.2%</td><td>+18.5%</td></tr>
+        <tr><td>G&amp;A and other operating expenses</td><td>+46.9%</td><td>+67.5%</td></tr>
+        <tr><td>Interest expense</td><td>+74.3%</td><td>+86.3%</td></tr>
+        <tr><td>Fixed assets</td><td>+113.3%</td><td>+52.4%</td></tr>
+        <tr><td>Total borrowings (short + long)</td><td>+216.6%</td><td>+50.2%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ar callout">الجدول ده بيقول حاجة مهمة: في 2024 الربح زاد أسرع من الإيرادات، وده معناه إن الكفاءة اتحسنت. لكن في 2025 حصل العكس: الإيرادات زادت 33%، وصافي الربح 18.5% بس. ليه؟ بص على السطرين اللي تحت: المصاريف الإدارية زادت 67.5%، والفوايد 86.3%، وده أثر المستشفيات الجديدة والقروض اللي اتمولت بيها. وده بالظبط شكل التعليق المطلوب: الرقم، وبعدين السبب. وسؤال يستاهل تفكروا فيه في تقريركم: قد إيه من نمو الإيرادات جاي من زيادة عدد المرضى، وقد إيه جاي من زيادة الأسعار مع التضخم؟ تقرير الشركة نفسه فيه أعداد المرضى والحالات، وتقدروا تستخدموها.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 4 · Vertical analysis <span class="h-ar" lang="ar">الخطوة 4: التحليل الرأسي</span></h2>
+    <p class="lead">Income items as a % of revenue; balance sheet items as a % of total assets.</p>
+    <div class="scroll"><table class="mini">
+      <thead><tr><th>Item</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr><td>Cost of revenue ÷ Revenue</td><td>66.4%</td><td>62.9%</td><td>60.4%</td></tr>
+        <tr><td>G&amp;A and other ÷ Revenue</td><td>15.2%</td><td>14.8%</td><td>18.6%</td></tr>
+        <tr><td>Interest ÷ Revenue</td><td>1.9%</td><td>2.3%</td><td>3.1%</td></tr>
+        <tr><td>Fixed assets ÷ Total assets</td><td>48.5%</td><td>61.2%</td><td>69.1%</td></tr>
+        <tr><td>Current assets ÷ Total assets</td><td>39.4%</td><td>32.4%</td><td>23.1%</td></tr>
+        <tr><td>Total liabilities ÷ Total assets</td><td>45.5%</td><td>58.1%</td><td>60.5%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ar callout">من كل 100 جنيه إيراد، تكلفة علاج الحالة نفسها نزلت من 66 لـ 60 جنيه، وده تحسن واضح في الكفاءة. بس الإدارة والمصاريف التشغيلية رجعت زادت لـ 18.6 جنيه في 2025. وفي الميزانية، الأصول الثابتة بقت 69% من الأصول، يعني الشركة بقت تقريبًا مباني وأجهزة، والأصول المتداولة اللي بتتحول لكاش بسرعة قلّت. والجملة دي هتشرحلك نسب السيولة في الخطوة الجاية.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 5 · Financial ratios <span class="h-ar" lang="ar">الخطوة 5: النسب المالية</span></h2>
+    <p class="lead">Calculate each family for every year, then read the trend. Averages use (opening + closing balance) ÷ 2.</p>
+    <div class="scroll"><table class="cmp">
+      <thead><tr><th>Ratio</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr><td colspan="4" style="background:var(--soft)"><b>Liquidity · السيولة</b></td></tr>
+        <tr><td style="border-bottom:0"><b>Current ratio</b></td><td style="border-bottom:0">1.24</td><td style="border-bottom:0">1.06</td><td style="border-bottom:0">0.71</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Below 1 in 2025: current liabilities exceed current assets.</td></tr>
+        <tr><td style="border-bottom:0"><b>Quick ratio</b></td><td style="border-bottom:0">1.03</td><td style="border-bottom:0">0.92</td><td style="border-bottom:0">0.63</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Little inventory in a hospital, so close to the current ratio.</td></tr>
+        <tr><td style="border-bottom:0"><b>Cash ratio</b></td><td style="border-bottom:0">0.25</td><td style="border-bottom:0">0.20</td><td style="border-bottom:0">0.17</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Cash covers 17% of short-term obligations.</td></tr>
+        <tr><td colspan="4" style="background:var(--soft)"><b>Activity · النشاط</b></td></tr>
+        <tr><td style="border-bottom:0"><b>Collection period</b></td><td style="border-bottom:0">58 days</td><td style="border-bottom:0">57 days</td><td style="border-bottom:0">58 days</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Stable: insurers and corporate clients pay in about two months.</td></tr>
+        <tr><td style="border-bottom:0"><b>Inventory turnover</b></td><td style="border-bottom:0">11.9×</td><td style="border-bottom:0">11.1×</td><td style="border-bottom:0">14.5×</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Medicines and supplies renewed about every 25–33 days.</td></tr>
+        <tr><td style="border-bottom:0"><b>Fixed asset turnover</b></td><td style="border-bottom:0">1.92×</td><td style="border-bottom:0">1.59×</td><td style="border-bottom:0">1.23×</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">New hospitals not yet at full capacity.</td></tr>
+        <tr><td style="border-bottom:0"><b>Total asset turnover</b></td><td style="border-bottom:0">0.93×</td><td style="border-bottom:0">0.90×</td><td style="border-bottom:0">0.81×</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Same story: assets grew faster than revenue.</td></tr>
+        <tr><td colspan="4" style="background:var(--soft)"><b>Profitability · الربحية</b></td></tr>
+        <tr><td style="border-bottom:0"><b>Gross margin</b></td><td style="border-bottom:0">33.6%</td><td style="border-bottom:0">37.1%</td><td style="border-bottom:0">39.6%</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Improving every year.</td></tr>
+        <tr><td style="border-bottom:0"><b>Net margin</b></td><td style="border-bottom:0">13.0%</td><td style="border-bottom:0">15.1%</td><td style="border-bottom:0">13.4%</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Fell in 2025 with higher G&amp;A and interest.</td></tr>
+        <tr><td style="border-bottom:0"><b>ROA</b></td><td style="border-bottom:0">12.1%</td><td style="border-bottom:0">13.5%</td><td style="border-bottom:0">10.9%</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Profit per pound of assets fell as assets grew.</td></tr>
+        <tr><td style="border-bottom:0"><b>ROE</b></td><td style="border-bottom:0">21.0%</td><td style="border-bottom:0">29.1%</td><td style="border-bottom:0">26.8%</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">High, and helped by debt (see DuPont).</td></tr>
+        <tr><td style="border-bottom:0"><b>EPS (EGP)</b></td><td style="border-bottom:0">–</td><td style="border-bottom:0">0.39</td><td style="border-bottom:0">0.46</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">As reported by the company.</td></tr>
+        <tr><td colspan="4" style="background:var(--soft)"><b>Leverage · المديونية</b></td></tr>
+        <tr><td style="border-bottom:0"><b>Debt ratio</b></td><td style="border-bottom:0">45.5%</td><td style="border-bottom:0">58.1%</td><td style="border-bottom:0">60.5%</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Liabilities now finance 60% of assets.</td></tr>
+        <tr><td style="border-bottom:0"><b>Debt-to-equity</b></td><td style="border-bottom:0">0.83×</td><td style="border-bottom:0">1.39×</td><td style="border-bottom:0">1.53×</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Almost doubled in two years.</td></tr>
+        <tr><td style="border-bottom:0"><b>Interest coverage</b></td><td style="border-bottom:0">9.3×</td><td style="border-bottom:0">9.5×</td><td style="border-bottom:0">6.6×</td></tr>
+        <tr><td colspan="4" style="padding-top:0;font-size:13px;color:var(--muted)">Still comfortable, but falling.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Credit sales and purchases are not disclosed, so receivables turnover uses total revenue and accounts payable turnover is not calculated. Say so in your report when you use a substitute, as Lecture 04 recommends.</p>
+    <p class="ar callout">اقرا النسب كعائلات مش كأرقام منفصلة. الربحية بتقول إن الشغل نفسه كويس وبيتحسن، والهامش الإجمالي طالع كل سنة. لكن السيولة والمديونية بيقولوا إن الشركة بتجري أسرع من فلوسها: نسبة التداول نزلت تحت 1، والديون بقت ضعف حقوق الملكية تقريبًا. ودوران الأصول بيشرح السبب: مستشفيات جديدة لسه مااشتغلتش بطاقتها الكاملة. ده مش حكم إن الشركة "كويسة" أو "وحشة"، ده وصف للمرحلة اللي هي فيها. ولو عندكم منافس مدرج، حطوا نسبه جنبها، ودي المقارنة المقطعية (Cross-sectional) اللي أخدناها.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 6 · DuPont: what drives ROE <span class="h-ar" lang="ar">الخطوة 6: ديبونت</span></h2>
+    <div class="formula">ROE = Net profit margin × Total asset turnover × Equity multiplier</div>
+    <div class="scroll"><table class="mini">
+      <thead><tr><th>Component</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr><td>Net profit margin</td><td>13.0%</td><td>15.1%</td><td>13.4%</td></tr>
+        <tr><td>× Total asset turnover</td><td>0.93</td><td>0.90</td><td>0.81</td></tr>
+        <tr><td>× Equity multiplier (avg assets ÷ avg equity)</td><td>1.73</td><td>2.15</td><td>2.47</td></tr>
+        <tr><td><b>= ROE</b></td><td><b>21.0%</b></td><td><b>29.1%</b></td><td><b>26.8%</b></td></tr>
+      </tbody>
+    </table></div>
+    <p class="ar callout">هنا بتظهر قيمة ديبونت: الـ ROE طالع من 21% لحوالي 27%، بس لو فكّيته هتلاقي إن الهامش رجع لنفس مستواه تقريبًا، ودوران الأصول نزل. اللي رفع العائد فعلًا هو المضاعف، يعني الديون. فعائد الملاك العالي ده جزء منه جاي من الرافعة المالية، مش من تحسن التشغيل بس. وده تعليق قوي لو كتبتوه في تقريركم بأرقام شركتكم.</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 7 · Cash flow: how is growth financed? <span class="h-ar" lang="ar">الخطوة 7: التوسع ممول منين؟</span></h2>
+    <div class="scroll"><table class="mini">
+      <thead><tr><th>Item (EGP mn)</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr><td>Operating cash flow ÷ Net profit</td><td>1.11×</td><td>1.84×</td><td>1.95×</td></tr>
+        <tr><td>Operating + investing cash flow</td><td>(276.1)</td><td>(1,165.8)</td><td>(707.4)</td></tr>
+        <tr><td>Financing cash flow</td><td>291.1</td><td>1,281.2</td><td>784.2</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ar callout">خبر كويس وخبر محتاج متابعة. الكويس إن الكاش من التشغيل أعلى من صافي الربح، يعني الربح حقيقي وبيتحول فلوس، وجزء من الفرق ده الإهلاك اللي بيقلل الربح من غير ما كاش يخرج. اللي محتاج متابعة إن التشغيل + الاستثمار بالسالب كل سنة: الشركة بتصرف على التوسع أكتر من اللي بتولّده، والفرق بيتغطى من التمويل، يعني قروض. السؤال اللي يستاهل تقفلوا بيه: لما المستشفيات الجديدة تشتغل بطاقتها، الإيرادات هتغطي الأقساط والفوايد؟</p>
+  </div>
+
+  <div class="block">
+    <h2>Step 8 · Conclusion and report <span class="h-ar" lang="ar">الخطوة 8: الخلاصة وشكل التقرير</span></h2>
+    <div class="two">
+      <div class="pane">
+        <h3>A clear conclusion answers four questions</h3>
+        <ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px">
+          <li><b>Strengths:</b> what the numbers show the company does well</li>
+          <li><b>Weaknesses:</b> which ratios worsened, and why</li>
+          <li><b>Risks:</b> what could go wrong next (debt, liquidity, competition)</li>
+          <li><b>Recommendations:</b> what management or an investor should do or watch</li>
+        </ol>
+        <p class="ar">ولكل نقطة، استشهد بنسبة أو رقم من التحليل. الخلاصة من غير أرقام كلام إنشا.</p>
+      </div>
+      <div class="pane">
+        <h3>A report outline that works</h3>
+        <ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px">
+          <li>Cover: company, course, group members</li>
+          <li>Company profile: activity, size, market, competitors</li>
+          <li>Data and method: sources, years, units, averages</li>
+          <li>Horizontal and vertical analysis</li>
+          <li>Ratio analysis by family, with a comment per ratio</li>
+          <li>DuPont and cash flow</li>
+          <li>Conclusion and recommendations</li>
+          <li>References and an appendix with the spreadsheet</li>
+        </ol>
+      </div>
+    </div>
+    <div class="pane">
+      <h3>Common mistakes <span class="h-ar" lang="ar">غلطات منتشرة</span></h3>
+      <ul style="margin:0;padding-left:20px">
+        <li>A table of ratios with no comment. Every ratio needs one line: what changed, why, what it means.</li>
+        <li>Judging from one ratio. Lecture 04's investor case showed how the debt ratio can reverse a conclusion.</li>
+        <li>Mixing units or sources without saying so.</li>
+        <li>Using year-end balances in one ratio and averages in another without explaining.</li>
+        <li>Calling a company "good" or "bad". Describe its position and its risks instead.</li>
+      </ul>
+    </div>
+    <p class="note">Economic value added (EVA) and the capital budgeting tools need a cost of capital and project cash flows that annual reports rarely give. Include them only if the lecturer asks, and state your assumptions.</p>
+    <p class="note">This guide is an independent study aid built from public company reports. It is not an official Academy publication and it is not investment advice.</p>
+  </div>
+</section>
+
 <!-- FLASHCARDS -->
 <section class="panel" id="cards" role="tabpanel" aria-labelledby="t-cards" hidden>
   <div class="block">
@@ -1440,6 +1703,7 @@ body::before{background:var(--mast)}
     if(id==='home')refreshStats();
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'));window.scrollTo(0,0);});});
+  document.addEventListener('click',function(e){var g=e.target.closest('[data-go-tab]');if(g){show(g.getAttribute('data-go-tab'));window.scrollTo(0,0);}});
 
   /* ===== Issues ===== */
   function openIssue(n){
@@ -1588,6 +1852,8 @@ body::before{background:var(--mast)}
     if(t) gc('tab-'+t.getAttribute('aria-controls'),'Tab: '+t.textContent.trim());
     var k=e.target.closest&&e.target.closest('[data-ask]');
     if(k) gc('ask-assistant-'+k.getAttribute('data-ask'),'Course assistant opened ('+k.getAttribute('data-ask')+')');
+    var g=e.target.closest&&e.target.closest('[data-gc]');
+    if(g) gc(g.getAttribute('data-gc'),g.getAttribute('data-gc'));
     var l=e.target.closest&&e.target.closest('[data-open-issue],#issue-seg button[data-issue]');
     if(l){ var n=l.getAttribute('data-open-issue')||l.getAttribute('data-issue'); gc('lecture-'+n,'Lecture '+n+' opened'); }
   },true);

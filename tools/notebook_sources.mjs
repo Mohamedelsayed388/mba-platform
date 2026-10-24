@@ -8,6 +8,7 @@ await p.goto('http://localhost:8769/',{waitUntil:'load'}); await p.waitForTimeou
 const data = await p.evaluate(()=>{
   const out={};
   document.querySelectorAll('[data-issue-body]').forEach(a=>{ a.hidden=false; out['lecture'+a.dataset.issueBody]=a.innerText; });
+  const m=document.getElementById('midterm'); if(m){ m.hidden=false; out.midterm=m.innerText; }
   return out;
 });
 const src = fs.readFileSync('src/hub.html','utf8');
@@ -25,5 +26,11 @@ for (const L of I){
   const esc=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const body=clean.split('\n').map(l=>l?'<p>'+esc(l)+'</p>':'').join('\n');
   fs.writeFileSync(`notebook/lecture-${String(L.n).padStart(2,'0')}.html`, `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(clean.split('\n')[1])} · MBA Platform study source</title></head><body>\n${body}\n</body></html>\n`);
+}
+if (data.midterm){
+  const esc=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const t=`MBA Platform · Finance for Non-Financial Managers\nMidterm Guide: analysing a real company step by step (worked example: Cleopatra Hospitals Group)\n(Independent study companion by Mohamed Elsayed. Not an official Academy publication. Not investment advice.)\n\n`+data.midterm;
+  const clean=t.split('\n').map(l=>l.trim()).filter((l,i,a)=>l||a[i-1]).join('\n').trim();
+  fs.writeFileSync('notebook/midterm-guide.html', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Midterm Guide · MBA Platform study source</title></head><body>\n${clean.split('\n').map(l=>l?'<p>'+esc(l)+'</p>':'').join('\n')}\n</body></html>\n`);
 }
 await b.close();

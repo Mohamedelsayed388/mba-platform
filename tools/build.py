@@ -86,6 +86,8 @@ sheet='''
     if(t) gc('tab-'+t.getAttribute('aria-controls'),'Tab: '+t.textContent.trim());
     var k=e.target.closest&&e.target.closest('[data-ask]');
     if(k) gc('ask-assistant-'+k.getAttribute('data-ask'),'Course assistant opened ('+k.getAttribute('data-ask')+')');
+    var g=e.target.closest&&e.target.closest('[data-gc]');
+    if(g) gc(g.getAttribute('data-gc'),g.getAttribute('data-gc'));
     var l=e.target.closest&&e.target.closest('[data-open-issue],#issue-seg button[data-issue]');
     if(l){ var n=l.getAttribute('data-open-issue')||l.getAttribute('data-issue'); gc('lecture-'+n,'Lecture '+n+' opened'); }
   },true);

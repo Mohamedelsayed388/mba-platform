@@ -7,6 +7,7 @@ MBA Platform is Mohamed Elsayed's installable study app (PWA) for his Executive 
 - `src/hub.html` is the **only file to edit by hand**: the page markup, styles, issue articles and the data arrays.
 - `tools/build.py` wraps `src/hub.html` into `index.html`, adding the app metadata, install button and offline worker registration. Run `python3 tools/build.py src/hub.html index.html` after every edit, and never edit `index.html` directly.
 - `sw.js` is the offline cache. **Bump `VERSION`** (for example `mbap-v1` to `mbap-v2`) on every publish so installed phones pick up the new issue.
+- The **Midterm Guide** tab (`#midterm` panel in `src/hub.html`) walks through a full company analysis on Cleopatra Hospitals Group. Its Excel template is `guide/MBA-Midterm-Template.xlsx` (built by a script outside the repo; recalculate after changes). `tools/notebook_sources.mjs` also exports it as `notebook/midterm-guide.html`.
 - `manifest.webmanifest` and the icon PNGs rarely change. `tools/icons.py` regenerates the icons.
 
 ## Adding a new lecture (the weekly task)

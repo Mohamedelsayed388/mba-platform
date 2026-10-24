@@ -178,6 +178,7 @@ article{display:flex;flex-direction:column;gap:40px}
 .mini{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
 .mini th,.mini td{padding:6px 7px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
 .mini th:first-child,.mini td:first-child{text-align:left}
+.mini td:first-child{white-space:normal}
 .mini th{font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
 .neg{color:var(--bad)} .pos{color:var(--good)}
 .cmp{width:100%;border-collapse:collapse;font-size:14.5px}
@@ -329,10 +330,10 @@ body::before{background:var(--mast)}
       <div class="byline"><span>Built by <b>Mohamed Elsayed</b>, AI Instructor</span><span>Course lecturer: Dr. Ahmed Amin Hashim</span></div>
     </div>
     <aside class="latest" aria-label="Latest lecture">
-      <span class="label">Latest · Lecture 03</span>
-      <h2>The Three Financial Statements <span class="h-ar" lang="ar">القوائم المالية الثلاث</span></h2>
-      <ul><li>Balance sheet: Assets = Liabilities + Equity</li><li>Income statement: from revenue to net income</li><li>Cash flow statement: operating, investing, financing</li></ul>
-      <button class="btn brass" data-open-issue="3">Read lecture 03</button>
+      <span class="label">Latest · Lecture 04</span>
+      <h2>Financial Ratio Analysis <span class="h-ar" lang="ar">التحليل المالي بالنسب</span></h2>
+      <ul><li>Liquidity: current, quick and cash ratios</li><li>Activity: turnovers and collection days</li><li>Profitability and leverage, with a full exam case</li></ul>
+      <button class="btn brass" data-open-issue="4">Read lecture 04</button>
     </aside>
   </div>
   <div class="ticker" aria-hidden="true"><div class="run" id="ticker"></div></div>
@@ -416,7 +417,8 @@ body::before{background:var(--mast)}
     <div class="seg" id="issue-seg" role="group" aria-label="Choose lecture">
       <button aria-pressed="false" data-issue="1">Lecture 01 · Introduction</button>
       <button aria-pressed="false" data-issue="2">Lecture 02 · Financial Analysis</button>
-      <button aria-pressed="true" data-issue="3">Lecture 03 · Financial Statements</button>
+      <button aria-pressed="false" data-issue="3">Lecture 03 · Financial Statements</button>
+      <button aria-pressed="true" data-issue="4">Lecture 04 · Financial Ratios</button>
     </div>
   </div>
 
@@ -462,7 +464,7 @@ body::before{background:var(--mast)}
         <div class="root"><b>CFO</b><span>Accounting + Finance</span></div>
         <div class="stem"></div>
         <div class="branches">
-          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial statements</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · Market Value Added</span><span class="chip">EVA · Economic Value Added</span></div><span class="st done">Lectures 02–03</span></div>
+          <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial statements</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · Market Value Added</span><span class="chip">EVA · Economic Value Added</span></div><span class="st done">Lectures 02–04</span></div>
           <div class="branch"><h3><span class="num">2</span>Financial Forecasting</h3><div class="chips"><span class="chip">Forecasted financial position</span><span class="chip">% of sales method</span><span class="chip">Linear regression</span></div><span class="st">Coming up</span></div>
           <div class="branch"><h3><span class="num">3</span>Planning &amp; Control</h3><div class="chips"><span class="chip">Budgeting</span><span class="chip">Breakeven analysis</span><span class="chip">Operating leverage</span></div><span class="st">Coming up</span></div>
           <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC · Weighted Average Cost of Capital</span></div><span class="st">Part 2 · Cost of capital</span></div>
@@ -701,7 +703,7 @@ body::before{background:var(--mast)}
     </div>
   </article>
   <!-- Issue 03 -->
-  <article data-issue-body="3">
+  <article data-issue-body="3" hidden>
     <div class="ihead">
       <span class="label">Lecture 03 · Part One</span>
       <h2>The Three Financial Statements <span class="h-ar" lang="ar">القوائم المالية الثلاث</span></h2>
@@ -716,7 +718,7 @@ body::before{background:var(--mast)}
         <div class="s"><b>Income Statement</b><span>P&amp;L · Profit and Loss statement</span><span class="sd">Did we make a profit over the period? Income and expenses.</span></div>
         <div class="s"><b>Cash Flow Statement</b><span>CFS</span><span class="sd">Where did the cash come from and go? Cash inflows and outflows.</span></div>
       </div>
-      <p class="ar callout">تخيّل مستشفى خاص. الميزانية صورة يوم 31 ديسمبر: عنده مبنى وأجهزة وأدوية في الصيدلية، وعليه قروض وفلوس للموردين. قائمة الدخل فيلم السنة كلها: كام دخل من الكشوفات والعمليات، وكام اتصرف، وكسب ولا خسر. وقائمة التدفقات بتتابع الكاش نفسه: دخل منين، وراح فين، وفاضل كام في البنك.</p>
+      <p class="ar callout">تخيّل مستشفى خاص. الميزانية بتوصفه في يوم واحد، زي 31 ديسمبر: عنده مبنى وأجهزة وأدوية في الصيدلية، وعليه قروض وفلوس للموردين. وقائمة الدخل بتغطي السنة كلها: كام دخل من الكشوفات والعمليات، وكام اتصرف، وكسب ولا خسر. وقائمة التدفقات بتتابع الكاش نفسه: دخل منين، وراح فين، وفاضل كام في البنك.</p>
     </div>
 
     <div class="block">
@@ -874,6 +876,237 @@ body::before{background:var(--mast)}
       <p class="ar callout">الـ DuPont اللي أخدناه في المحاضرة التانية بيستخدم 3 عائلات منهم: الهامش من الربحية، ودوران الأصول من الكفاءة، والرافعة المالية من المديونية. يعني كل حاجة بنبنيها على بعض.</p>
     </div>
   </article>
+
+  <article data-issue-body="4">
+    <div class="ihead">
+      <span class="label">Lecture 04 · Financial Ratios</span>
+      <h2>Financial Analysis Using Financial Ratios <span class="h-ar" lang="ar">التحليل المالي باستخدام النسب المالية</span></h2>
+      <p class="lead">Ratio analysis turns the numbers in the three financial statements into a small set of indicators that support decisions and planning. The three main tools of financial statement analysis are ratio analysis, horizontal analysis and vertical analysis; this lecture is about the first. A single figure, such as net profit, can mislead. A ratio puts that figure next to the resource that produced it.</p>
+      <p class="ar callout">في المحاضرة التالتة اتعلمنا نقرا القوائم المالية. النهارده هنحوّل أرقامها لنسب، لأن الرقم لوحده ممكن يضحك عليك. شركة كسبت 10 مليون شكلها أحسن من شركة كسبت مليون، لحد ما تعرف إن الأولى محتاجة 100 مليون عشان تكسبهم، والتانية 5 مليون بس. النسبة بتحط كل رقم جنب الحاجة اللي جابته، وساعتها المقارنة تبقى عادلة.</p>
+      <p class="note">The cover of the slides says "Part two", while the course outline from Lecture 01 places financial analysis in Part 1. Check with the lecturer which part this lecture belongs to.</p>
+    </div>
+
+    <div class="block">
+      <h2>The ratio families <span class="h-ar" lang="ar">عائلات النسب المالية</span></h2>
+      <p class="lead">Each family answers one management question.</p>
+      <div class="ratios5">
+        <div class="r"><span class="n">1</span><b>Liquidity</b><span lang="ar" dir="rtl" style="color:var(--brass);font-weight:600">السيولة</span><span>Can we pay what is due within the year?</span></div>
+        <div class="r"><span class="n">2</span><b>Activity (efficiency)</b><span lang="ar" dir="rtl" style="color:var(--brass);font-weight:600">النشاط (الكفاءة)</span><span>How well do we use our assets?</span></div>
+        <div class="r"><span class="n">3</span><b>Profitability (performance)</b><span lang="ar" dir="rtl" style="color:var(--brass);font-weight:600">الربحية (الأداء)</span><span>How much profit do we earn on sales, assets and equity?</span></div>
+        <div class="r"><span class="n">4</span><b>Leverage (debt management)</b><span lang="ar" dir="rtl" style="color:var(--brass);font-weight:600">الرافعة المالية (إدارة الديون)</span><span>How much of the business is financed by debt?</span></div>
+        <div class="r"><span class="n">5</span><b>Market</b><span lang="ar" dir="rtl" style="color:var(--brass);font-weight:600">السوق</span><span>How does the market price the share? (P/E and M/B, in the Whole Foods case)</span></div>
+      </div>
+      <p class="note">Slide 5 lists four types: Liquidity, Activity, Profitability and "Operating". The lecture then explains Leverage ratios as the fourth family, and Lecture 03 listed five families including market value. "Operating" probably means Leverage; check with the lecturer.</p>
+      <p class="ar callout">فكّر فيها زي كشف دوري شامل لمريض: السيولة بتقيس هل عنده كاش يكفيه الشهر ده، والنشاط بيقيس هل أصوله شغالة ولا نايمة، والربحية بتقيس هل الشغل بيكسب أصلًا، والمديونية بتقيس هو شايل ديون قد إيه. ومفيش نسبة واحدة تكفي للتشخيص، لازم تبص على الكشف كله.</p>
+    </div>
+
+    <div class="block">
+      <h2>1. Liquidity ratios <span class="h-ar" lang="ar">نسب السيولة</span></h2>
+      <p class="lead">Liquidity ratios measure the short-term ability to pay obligations and meet unexpected needs for cash. They move from the widest test to the strictest.</p>
+      <div class="stmt3">
+        <div class="s"><b>Current ratio</b><span>نسبة التداول</span><span class="sd">Current assets ÷ Current liabilities</span></div>
+        <div class="s"><b>Quick ratio (acid-test)</b><span>نسبة السيولة السريعة</span><span class="sd">(Current assets − Inventory) ÷ Current liabilities</span></div>
+        <div class="s"><b>Cash ratio</b><span>نسبة النقدية</span><span class="sd">(Cash + Cash equivalents) ÷ Current liabilities</span></div>
+      </div>
+      <div class="two">
+        <div class="pane">
+          <h3>Worked example: current ratio</h3>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>Cash</td><td>$15M</td></tr>
+            <tr><td>Marketable securities</td><td>$20M</td></tr>
+            <tr><td>Inventory</td><td>$25M</td></tr>
+            <tr><td><b>Current assets</b></td><td><b>$60M</b></td></tr>
+            <tr><td>Short-term debt</td><td>$15M</td></tr>
+            <tr><td>Accounts payable</td><td>$15M</td></tr>
+            <tr><td><b>Current liabilities</b></td><td><b>$30M</b></td></tr>
+          </tbody></table></div>
+          <div class="formula">Current ratio = 60 ÷ 30 = 2.0×</div>
+          <p>The company holds $2 of current assets for every $1 due within the year. Above 1 signals financial health, but a very high ratio can mean idle cash that is not being invested.</p>
+        </div>
+        <div class="pane">
+          <h3>Same company, stricter tests</h3>
+          <div class="formula">Quick ratio = (60 − 25) ÷ 30 = 1.17×</div>
+          <div class="formula">Cash ratio = (15 + 20) ÷ 30 = 1.17×</div>
+          <p>Here inventory is the only item removed, so both stricter ratios match. In the slides' second example, ABC Company held $30.2B cash and $23.5B securities against $123B of current liabilities:</p>
+          <div class="formula">Cash ratio = 53.7 ÷ 123 ≈ 0.43</div>
+          <p>ABC can pay 43% of its short-term obligations today, without selling inventory or collecting receivables.</p>
+        </div>
+      </div>
+      <p class="note">Slide 9 writes the quick ratio as "(Current assets − inventory / Current liabilities" with a missing bracket. Inventory is subtracted first, then the result is divided: (CA − Inventory) ÷ CL.</p>
+      <p class="ar callout">مستشفى عنده أصول متداولة 9 مليون، منهم أدوية ومستلزمات في المخزن بـ 4 مليون، وعليه 5 مليون مستحقين خلال السنة. نسبة التداول ⁦9 ÷ 5 = 1.8⁩، شكلها مريحة. بس لو المورد طالب فلوسه بكرة، مش هتعرف تدفعله بعلب أدوية على الرف. فالنسبة السريعة بتشيل المخزون: ⁦(9 − 4) ÷ 5 = 1⁩، يعني الكاش والحاجات اللي تتحصل بسرعة يادوب مغطية الالتزامات. ونسبة النقدية أقسى واحدة، بتسأل: لو كله طالب فلوسه النهارده، الخزنة والبنك يكفّوا كام في المية؟</p>
+    </div>
+
+    <div class="block">
+      <h2>2. Activity ratios (efficiency ratios) <span class="h-ar" lang="ar">نسب النشاط (نسب الكفاءة)</span></h2>
+      <p class="lead">Activity ratios measure how efficiently a company uses its assets to generate cash and revenue. A turnover answers "how many times a year?", and 365 ÷ turnover converts it to "how many days?".</p>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Ratio</th><th>Formula</th><th>Reading</th></tr></thead>
+        <tbody>
+          <tr><td><b>Inventory turnover</b><br><span lang="ar">معدل دوران المخزون</span></td><td>COGS ÷ Average inventory<br>(or Net sales ÷ Average inventory)</td><td>Too low: stock moves slowly. Too high: risk of shortages and lost sales.</td></tr>
+          <tr><td><b>Receivables turnover</b><br><span lang="ar">معدل دوران الذمم المدينة</span></td><td>Net credit sales ÷ Average accounts receivable</td><td>How many times a year customers' credit is collected.</td></tr>
+          <tr><td><b>Average collection period</b><br><span lang="ar">متوسط فترة التحصيل</span></td><td>365 ÷ Receivables turnover</td><td>Days, on average, to collect from customers.</td></tr>
+          <tr><td><b>Fixed asset turnover</b><br><span lang="ar">معدل دوران الأصول الثابتة</span></td><td>Net sales ÷ Average fixed assets</td><td>Sales generated by each pound of fixed assets.</td></tr>
+          <tr><td><b>Total asset turnover</b><br><span lang="ar">معدل دوران إجمالي الأصول</span></td><td>Net sales ÷ Average total assets</td><td>Sales generated by each pound of all assets.</td></tr>
+          <tr><td><b>Accounts payable turnover</b><br><span lang="ar">معدل دوران الذمم الدائنة</span></td><td>Net credit purchases ÷ Average accounts payable</td><td>How many times a year suppliers are paid; 365 ÷ it gives payment days.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">When COGS or credit sales are not disclosed, analysts use net sales or total revenue instead and treat the result as an estimate.</p>
+      <div class="two">
+        <div class="pane">
+          <h3>Worked example: receivables</h3>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>Gross credit sales − Returns</td><td>100,000 − 10,000</td></tr>
+            <tr><td><b>Net credit sales</b></td><td><b>90,000</b></td></tr>
+            <tr><td>Average AR = (10,000 + 15,000) ÷ 2</td><td>12,500</td></tr>
+          </tbody></table></div>
+          <div class="formula">Receivables turnover = 90,000 ÷ 12,500 = 7.2 times</div>
+          <div class="formula">Collection period = 365 ÷ 7.2 ≈ 51 days</div>
+          <p class="note">Slide 16 writes 365 ÷ 7.5, a typo for 7.2. Its answer, 50.7 ≈ 51 days, is the right one for 7.2.</p>
+        </div>
+        <div class="pane">
+          <h3>Worked example: payables</h3>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td>Credit purchases − Returns</td><td>123,555 − 10,000</td></tr>
+            <tr><td><b>Net credit purchases</b></td><td><b>113,555</b></td></tr>
+            <tr><td>Average AP = (12,555 + 25,121) ÷ 2</td><td>18,838</td></tr>
+          </tbody></table></div>
+          <div class="formula">AP turnover = 113,555 ÷ 18,838 ≈ 6.03 times</div>
+          <div class="formula">Payment period = 365 ÷ 6.03 ≈ 61 days</div>
+          <p>The company pays its suppliers about 6 times a year, roughly every two months.</p>
+        </div>
+      </div>
+      <p class="ar callout">قارن الرقمين دول ببعض، لأن ده الدرس الحقيقي: الشركة دي بتحصّل من عملائها كل 51 يوم، وبتدفع لمورديها كل 61 يوم. يعني الفلوس بتدخلها قبل ما تطلع بعشر أيام، وده وضع مريح للكاش. وفي مستشفى، الصورة غالبًا بالعكس: شركات التأمين بتدفع بعد 90 يوم، ومورد الأدوية عاوز فلوسه في 30. وعشان كده مستشفيات كسبانة بتقع في أزمة سيولة. ونفس المنطق في وكالة تسويق: لو بتصرف على الإعلانات من جيبها والعميل بيدفع بعد 3 شهور، كل حملة جديدة بتسحب من الكاش.</p>
+      <p class="ar">ودوران المخزون في صيدلية المستشفى: لو تكلفة الأدوية المصروفة في السنة 12 مليون، ومتوسط المخزون 1.5 مليون، يبقى الدوران 8 مرات، يعني المخزن بيتجدد كل ⁦365 ÷ 8 ≈ 46⁩ يوم. لو الرقم نزل، يبقى فيه أدوية راكدة وممكن تنتهي صلاحيتها. ولو طلع أوي، يبقى المخزون على الحافة، وأي تأخير من المورد هيعمل عجز.</p>
+    </div>
+
+    <div class="block">
+      <h2>3. Profitability ratios (performance ratios) <span class="h-ar" lang="ar">نسب الربحية (نسب الأداء)</span></h2>
+      <p class="lead">Profitability ratios measure the ability to earn profits on sales, assets and equity, and they shape how attractive the shares are to investors. You met ROE and ROA in Lecture 02 and net profit margin in Lecture 03.</p>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Ratio</th><th>Formula</th><th>Answers</th></tr></thead>
+        <tbody>
+          <tr><td><b>Gross profit margin</b><br><span lang="ar">هامش مجمل الربح</span></td><td>(Net sales − COGS) ÷ Net sales × 100</td><td>Profit after direct costs, before operating expenses, interest and taxes.</td></tr>
+          <tr><td><b>Net profit margin</b><br><span lang="ar">هامش صافي الربح</span></td><td>Net income ÷ Net sales × 100</td><td>Profit left after all costs, as a % of sales.</td></tr>
+          <tr><td><b>ROA</b> · Return on Assets<br><span lang="ar">العائد على الأصول</span></td><td>Net income ÷ Average total assets × 100</td><td>Profit earned on everything the company uses.</td></tr>
+          <tr><td><b>ROE</b> · Return on Equity<br><span lang="ar">العائد على حقوق الملكية</span></td><td>Net income ÷ Average common equity × 100</td><td>Profit earned on the owners' money.</td></tr>
+          <tr><td><b>EPS</b> · Earnings Per Share<br><span lang="ar">ربحية السهم</span></td><td>(Net income − Preferred dividends) ÷ Weighted average common shares</td><td>Profit earned by each common share.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="pane">
+        <h3>Worked example: a private hospital's year</h3>
+        <div class="scroll"><table class="mini"><tbody>
+          <tr><td>Revenue</td><td>50M</td></tr>
+          <tr><td>Medicines, supplies and doctors' fees per case (COGS)</td><td>30M</td></tr>
+          <tr><td>Net income</td><td>5M</td></tr>
+          <tr><td>Average total assets · Average equity</td><td>40M · 25M</td></tr>
+          <tr><td>Preferred dividends · Common shares</td><td>1M · 2M shares</td></tr>
+        </tbody></table></div>
+        <div class="formula">Gross margin = (50 − 30) ÷ 50 = 40%</div>
+        <div class="formula">Net margin = 5 ÷ 50 = 10%</div>
+        <div class="formula">ROA = 5 ÷ 40 = 12.5% · ROE = 5 ÷ 25 = 20%</div>
+        <div class="formula">EPS = (5 − 1) ÷ 2 = 2 per share</div>
+      </div>
+      <p class="ar callout">اقرا الأرقام دي كقصة واحدة: من كل 100 جنيه بيدخلوا المستشفى، 60 بيروحوا على تكلفة الحالة نفسها، و30 كمان بيروحوا على الإدارة والإيجار والتسويق والفوايد والضرايب، ويفضل 10 مكسب صافي. الأصول كلها جابت 12.5%، لكن فلوس الملاك جابت 20%، لأن جزء من الأصول ممول بديون. وربحية السهم بتطرح الأول نصيب الأسهم الممتازة، لأنها بتاخد حقها قبل الأسهم العادية، وبعدين تقسم الباقي على عدد الأسهم.</p>
+    </div>
+
+    <div class="block">
+      <h2>4. Leverage ratios (debt management ratios) <span class="h-ar" lang="ar">نسب الرافعة المالية (نسب إدارة الديون)</span></h2>
+      <p class="lead">Leverage ratios measure how much the firm relies on debt financing and its ability to service that debt. They show whether assets are financed by debt or by equity.</p>
+      <div class="two">
+        <div class="pane">
+          <h3>Debt ratio (debt-to-assets) <span class="h-ar" lang="ar">نسبة المديونية</span></h3>
+          <div class="formula">Debt ratio = Total debt ÷ Total assets</div>
+          <p>The share of assets financed by short- and long-term debt. A higher ratio means higher leverage.</p>
+        </div>
+        <div class="pane">
+          <h3>Debt-to-equity (D/E) <span class="h-ar" lang="ar">نسبة الديون إلى حقوق الملكية</span></h3>
+          <div class="formula">D/E = Total liabilities ÷ Total equity</div>
+          <p>Debt for every pound of the owners' money. Higher D/E means higher financial risk. Apple, FY 2025: 285,508 ÷ 73,733 ≈ <b>3.87</b>.</p>
+        </div>
+      </div>
+      <p class="note">Slide 30 defines D/E as long-term debt ÷ total equity, but the Apple example and the Whole Foods table both use total liabilities. Slide 31 also writes "$285,508 Billion"; the figures are in millions ($285.5 billion). Ask the lecturer which definition the exam uses.</p>
+      <p class="ar callout">نسبة 3.87 معناها إن آبل قصاد كل دولار من فلوس المساهمين، شايلة حوالي 3.87 دولار التزامات. ده رقم كبير، بس الدكتور نبّه إن النسبة لوحدها مش حكم. لازم تقارنها بشركات زيها. ونفس الكلام في عيادة: دكتور فتح عيادة بمليون من جيبه ومليونين قرض، نسبة الديون لحقوق ملكيته 2. لو الشغل ماشي، القرض بيكبّر عائده على فلوسه. ولو الحالات قلّت، الأقساط مش هتستنى.</p>
+    </div>
+
+    <div class="block">
+      <h2>Case: where should 1,000,000 pounds go? <span class="h-ar" lang="ar">حالة: تستثمر المليون فين؟</span></h2>
+      <p class="lead">An investor compares two companies before investing 1M pounds. The case shows why one figure is never enough.</p>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>Indicator</th><th>Company A</th><th>Company B</th></tr></thead>
+        <tbody>
+          <tr><td>Net profit</td><td>10,000,000</td><td>1,000,000</td></tr>
+          <tr><td>Equity</td><td>100,000,000</td><td>5,000,000</td></tr>
+          <tr><td><b>ROE</b> = Net profit ÷ Equity</td><td><b>10%</b></td><td><b>20%</b></td></tr>
+          <tr><td>Total assets</td><td>105,000,000</td><td>10,000,000</td></tr>
+          <tr><td><b>ROA</b> = Net profit ÷ Assets</td><td><b>9.5%</b></td><td><b>10%</b></td></tr>
+          <tr><td>Debt = Assets − Equity</td><td>5,000,000</td><td>5,000,000</td></tr>
+          <tr><td><b>Debt ratio</b> = Debt ÷ Assets</td><td><b>4.76%</b></td><td><b>50%</b></td></tr>
+        </tbody>
+      </table></div>
+      <ol style="padding-left:20px;margin:10px 0;display:flex;flex-direction:column;gap:4px">
+        <li><b>Net profit alone</b> says A, by ten times.</li>
+        <li><b>ROE</b> says B: 1M invested earns about 200,000 a year in B, against 100,000 in A.</li>
+        <li><b>ROA</b> still favours B, slightly: 10% against 9.5%.</li>
+        <li><b>Debt ratio</b> flips the picture: half of B's assets are financed by debt, against under 5% for A.</li>
+      </ol>
+      <p class="note">Slide 41 gives A's debt ratio as 4.50%. 5 ÷ 105 = 4.76%. The conclusion does not change. The slides also label the profit row "Net profit margin", but the figures are net profit amounts.</p>
+      <p class="ar callout">القرار هنا مش رياضة، ده شخصية المستثمر. اللي بيحب المخاطرة هيروح لـ B عشان الـ 20%، وهو عارف إن نص أصولها ديون، ولو السوق وقع البنك هياخد حقه الأول. واللي عاوز ينام مرتاح هيختار A، عائد أقل بس شركة شبه خالية من الديون. وده نفس اللي بيحصل لما مستشفى يقرر يفتح فرع جديد بقرض كبير: لو الفرع نجح، عائد الملاك هيطير، ولو اتعثر، الديون هتخنق المستشفى الأصلي كمان.</p>
+    </div>
+
+    <div class="block">
+      <h2>How to compare ratios <span class="h-ar" lang="ar">إزاي نقارن النسب</span></h2>
+      <div class="stmt3">
+        <div class="s"><b>Trend (time-series) analysis</b><span>تحليل الاتجاه (السلاسل الزمنية)</span><span class="sd">The same firm over time: this year against last year.</span></div>
+        <div class="s"><b>Cross-sectional analysis</b><span>التحليل المقطعي</span><span class="sd">The firm against other firms in its industry or the industry average.</span></div>
+        <div class="s"><b>Benchmarking</b><span>المقارنة المرجعية</span><span class="sd">Cross-sectional, but against a key competitor or a group the firm wants to emulate.</span></div>
+      </div>
+      <div class="pane">
+        <h3>Case: Whole Foods Market, 2015 → 2016 (selected ratios)</h3>
+        <div class="scroll"><table class="mini">
+          <thead><tr><th>Ratio</th><th>2015</th><th>2016</th><th>Industry 2016</th></tr></thead>
+          <tbody>
+            <tr><td>Current ratio</td><td>1.23</td><td>1.47</td><td>1.32</td></tr>
+            <tr><td>Quick ratio</td><td>0.83</td><td>1.09</td><td>0.76</td></tr>
+            <tr><td>Total asset turnover</td><td>2.68</td><td>2.48</td><td>2.40</td></tr>
+            <tr><td>Debt ratio</td><td>34%</td><td>49%</td><td>60%</td></tr>
+            <tr><td>Net profit margin</td><td>3.4%</td><td>3.2%</td><td>2.1%</td></tr>
+            <tr><td>ROE</td><td>14.2%</td><td>15.7%</td><td>13.8%</td></tr>
+          </tbody>
+        </table></div>
+        <p>Liquidity rose in 2016; asset turnover slowed; debt rose sharply but stayed below the grocery average; profitability beat the industry on every measure; P/E and M/B fell, so investors were a little less confident, though both stayed above the industry average.</p>
+      </div>
+      <p class="ar callout">لو مستشفى نسبة تداوله السنة دي 1.5 والسنة اللي فاتت 1.2، ده تحليل اتجاه، بيقولك الوضع بيتحسن. لو قارنتها بمتوسط المستشفيات الخاصة في مصر، ده تحليل مقطعي، بيقولك إنت فين من السوق. ولو اخترت أحسن مستشفى في البلد وقارنت نفسك بيه بالذات، ده Benchmarking. ونفس الكلام في التسويق: معدل التحويل بتاع حملتك النهارده قصاد حملتك السابقة، ولا قصاد متوسط السوق، ولا قصاد أقوى منافس؟ كل سؤال بيدّيك قرار مختلف.</p>
+    </div>
+
+    <div class="block">
+      <h2>Exam-style case: Port Said Container &amp; Cargo Handling <span class="h-ar" lang="ar">حالة على طريقة الامتحان: شركة بورسعيد لتداول الحاويات</span></h2>
+      <p class="lead">Calculate five ratios for 2020 and 2021 and comment on performance. Figures in thousands of pounds.</p>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>Item</th><th>2020</th><th>2021</th></tr></thead>
+        <tbody>
+          <tr><td>Total current assets</td><td>112,224</td><td>84,168</td></tr>
+          <tr><td>of which inventories</td><td>11,808</td><td>10,080</td></tr>
+          <tr><td>Total fixed assets</td><td>271,776</td><td>203,832</td></tr>
+          <tr><td>Current liabilities</td><td>91,776</td><td>41,952</td></tr>
+          <tr><td>Equity</td><td>220,800</td><td>179,040</td></tr>
+          <tr><td>Sales revenue</td><td>144,000</td><td>172,800</td></tr>
+          <tr><td>Net profit</td><td>43,296</td><td>57,600</td></tr>
+        </tbody>
+      </table></div>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Ratio</th><th>2020</th><th>2021</th><th>Comment</th></tr></thead>
+        <tbody>
+          <tr><td><b>Current ratio</b></td><td><b>1.22</b><br><span style="font-size:12px;color:var(--muted)">112,224 ÷ 91,776</span></td><td><b>2.01</b><br><span style="font-size:12px;color:var(--muted)">84,168 ÷ 41,952</span></td><td>Liquidity improved strongly.</td></tr>
+          <tr><td><b>Quick ratio</b></td><td><b>1.09</b><br><span style="font-size:12px;color:var(--muted)">100,416 ÷ 91,776</span></td><td><b>1.77</b><br><span style="font-size:12px;color:var(--muted)">74,088 ÷ 41,952</span></td><td>Can cover short-term debts without selling inventory.</td></tr>
+          <tr><td><b>Net profit margin</b></td><td><b>30.1%</b><br><span style="font-size:12px;color:var(--muted)">43,296 ÷ 144,000</span></td><td><b>33.3%</b><br><span style="font-size:12px;color:var(--muted)">57,600 ÷ 172,800</span></td><td>Better cost control; above 30% is very strong.</td></tr>
+          <tr><td><b>Total asset turnover</b></td><td><b>0.375</b><br><span style="font-size:12px;color:var(--muted)">144,000 ÷ 384,000</span></td><td><b>0.60</b><br><span style="font-size:12px;color:var(--muted)">172,800 ÷ 288,000</span></td><td>More sales from each pound of assets.</td></tr>
+          <tr><td><b>ROE</b></td><td><b>19.6%</b><br><span style="font-size:12px;color:var(--muted)">43,296 ÷ 220,800</span></td><td><b>32.2%</b><br><span style="font-size:12px;color:var(--muted)">57,600 ÷ 179,040</span></td><td>Shareholders' return rose sharply.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Two points to check with the lecturer. Slide 55 gives the 2020 net margin as 30.6%; 43,296 ÷ 144,000 = 30.07%. Slide 56 titles the ratio "Fixed Asset Turnover" but divides by total assets (fixed + current) at year end, which is total asset turnover. The slides also write "Year 2121" for 2021.</p>
+      <p class="ar callout">في الامتحان، الحل بيمشي على 3 خطوات لكل نسبة: اكتب القانون، وعوّض بأرقام السنتين، واكتب تعليق من سطر. والتعليق هو اللي بيفرق: الشركة دي في 2021 بقت أقوى في كل حاجة. السيولة اتضاعفت تقريبًا، والهامش زاد، وكل جنيه أصول بقى بيجيب مبيعات أكتر، وعائد الملاك قفز من 20% لـ 32%. وخد بالك إن جزء من قفزة الـ ROE جاي من إن حقوق الملكية نفسها قلّت، مش من الربح بس. وده سؤال كويس تسأله للدكتور.</p>
+    </div>
+  </article>
 </section>
 
 <!-- FLASHCARDS -->
@@ -945,9 +1178,10 @@ body::before{background:var(--mast)}
   var ISSUES=[
     {n:1,title:'Finance, the CFO and the six tasks',sub:'Introduction · Accounting vs finance · GAAP & IFRS · CFO tasks · Capital budgeting tools'},
     {n:2,title:'Financial Analysis & Capital Budgeting',sub:'Sources & uses · Horizontal & vertical · Ratios & DuPont · MVA & EVA'},
-    {n:3,title:'The Three Financial Statements',sub:'Balance sheet · Income statement · Cash flow statement · Five ratio families'}
+    {n:3,title:'The Three Financial Statements',sub:'Balance sheet · Income statement · Cash flow statement · Five ratio families'},
+    {n:4,title:'Financial Ratio Analysis',sub:'Liquidity · Activity · Profitability · Leverage · Trend vs cross-sectional · Exam case'}
   ];
-  var NEXT='Part 1 continues: the five families of financial ratios';
+  var NEXT='Next topic to be confirmed at the lecture';
 
   var CARDS=[
     {i:1,t:'CFO',tAr:'المدير المالي',full:'Chief Financial Officer',en:'Chief Financial Officer. Leads the finance function and reports to the CEO. Both Accounting and Finance report to the CFO.',ar:'المدير المالي مش رئيس الحسابات وبس. هو اللي بيقرر الفلوس تيجي منين وتروح فين، وتحته فرعين: المحاسبة اللي بتسجّل، والمالية اللي بتخطط وتقرر.'},
@@ -999,7 +1233,24 @@ body::before{background:var(--mast)}
     {i:3,t:'Operating cash flow',tAr:'التدفق النقدي من الأنشطة التشغيلية',full:'CFO · Cash Flow from Operating activities',en:'Cash generated or used by ongoing business operations: payments from customers, salaries paid, cash paid to suppliers.',ar:'خد بالك: الـ CFO هنا معناها التدفق من التشغيل، مش المدير المالي. ودي أهم سطر في القائمة، لأنها بتقول الشغل نفسه بيجيب كاش ولا لأ.'},
     {i:3,t:'CFI',tAr:'التدفق النقدي من الأنشطة الاستثمارية',full:'Cash Flow from Investing activities',en:'Cash generated or used by investing: buying or selling property, plant and equipment, or investing in securities.',ar:'لما المستشفى يشتري جهاز رنين جديد بـ 5 مليون، الفلوس دي بتظهر هنا بالسالب. وعشان كده شركة بتتوسع غالبًا بيبقى الرقم ده سالب، وده مش عيب.'},
     {i:3,t:'CFF',tAr:'التدفق النقدي من الأنشطة التمويلية',full:'Cash Flow from Financing activities',en:'Cash generated or used by financing: issuing new equity, taking out loans, repaying debt, paying dividends or buying back shares.',ar:'قرض جديد من البنك بيدخل هنا بالموجب، وسداد القسط أو توزيع الأرباح بيخرج بالسالب.'},
-    {i:3,t:'Five ratio families',tAr:'العائلات الخمس للنسب المالية',en:'Liquidity, leverage, efficiency, profitability and market value ratios.',ar:'زي التحاليل الدورية: سيولة يعني تقدر تدفع اللي عليك قريب؟ مديونية يعني معتمد على الديون قد إيه؟ كفاءة يعني بتشغّل أصولك كويس؟ ربحية يعني بتكسب كام؟ وقيمة سوقية يعني السوق شايفك بكام؟'}
+    {i:3,t:'Five ratio families',tAr:'العائلات الخمس للنسب المالية',en:'Liquidity, leverage, efficiency, profitability and market value ratios.',ar:'زي التحاليل الدورية: سيولة يعني تقدر تدفع اللي عليك قريب؟ مديونية يعني معتمد على الديون قد إيه؟ كفاءة يعني بتشغّل أصولك كويس؟ ربحية يعني بتكسب كام؟ وقيمة سوقية يعني السوق شايفك بكام؟'},
+    {i:4,t:"Ratio families",tAr:"عائلات النسب المالية",en:"Liquidity, activity (efficiency), profitability (performance), leverage (debt management) and market ratios. Each answers one management question.",ar:"كل عيلة بتسأل سؤال: السيولة: هتدفع اللي عليك قريب؟ النشاط: أصولك شغالة ولا نايمة؟ الربحية: بتكسب كام؟ المديونية: شايل ديون قد إيه؟ والسوق: المستثمرين مقيّمينك بكام؟"},
+    {i:4,t:"Current ratio",tAr:"نسبة التداول",en:"Current assets divided by current liabilities. Above 1 suggests the firm can meet obligations due within a year; a very high ratio may mean idle cash.",f:"Current ratio = Current assets ÷ Current liabilities",ar:"مستشفى عنده أصول متداولة 9 مليون وعليه 5 مليون خلال السنة، النسبة 1.8، يعني قصاد كل جنيه مستحق عنده 1.8 جنيه. بس لو النسبة عالية أوي، يبقى فيه كاش نايم المفروض يتشغّل."},
+    {i:4,t:"Quick ratio",tAr:"نسبة السيولة السريعة",full:"Acid-test ratio",en:"Current assets minus inventory, divided by current liabilities. It excludes inventory because stock can be slow to turn into cash.",f:"Quick ratio = (Current assets − Inventory) ÷ Current liabilities",ar:"المورد مش هياخد فلوسه علب أدوية من على الرف. فبنشيل المخزون ونشوف الكاش والحاجات اللي تتحصل بسرعة يكفّوا ولا لأ. أكبر من 1 كويس، وأقل من 1 يبقى ممكن تضطر تبيع أصول عشان تسدد."},
+    {i:4,t:"Cash ratio",tAr:"نسبة النقدية",en:"Cash and cash equivalents (marketable securities) divided by current liabilities. The strictest liquidity test.",f:"Cash ratio = (Cash + Cash equivalents) ÷ Current liabilities",ar:"أقسى اختبار: لو كل اللي ليهم فلوس طلبوها النهارده، الخزنة والبنك والأوراق المالية يغطّوا كام؟ نسبة 0.43 يعني تقدر تدفع 43% فورًا من غير ما تبيع مخزون أو تحصّل من حد."},
+    {i:4,t:"Inventory turnover",tAr:"معدل دوران المخزون",en:"How many times inventory is sold and replaced in a year. Too low means slow-moving stock; too high risks shortages and lost sales.",f:"Inventory turnover = COGS ÷ Average inventory",ar:"صيدلية مستشفى صرفت أدوية تكلفتها 12 مليون في السنة، ومتوسط مخزونها 1.5 مليون، يبقى المخزون بيلف 8 مرات، يعني بيتجدد كل 46 يوم تقريبًا. لو قلّ، فيه أدوية راكدة ممكن صلاحيتها تخلص."},
+    {i:4,t:"Receivables turnover",tAr:"معدل دوران الذمم المدينة",full:"Accounts Receivable Turnover",en:"Net credit sales divided by average accounts receivable: how many times a year credit customers are collected.",f:"Receivables turnover = Net credit sales ÷ Average accounts receivable",ar:"بيقيس سرعة التحصيل. وكالة تسويق مبيعاتها الآجلة 90 ألف ومتوسط فلوسها عند العملاء 12,500، يبقى بتحصّل 7.2 مرة في السنة. وكل ما الرقم يزيد، كل ما الكاش بيرجع أسرع."},
+    {i:4,t:"Average collection period",tAr:"متوسط فترة التحصيل",en:"365 divided by receivables turnover: the average number of days to collect from customers.",f:"Collection period = 365 ÷ Receivables turnover",ar:"نفس المعلومة بالأيام: ⁦365 ÷ 7.2 = 51⁩ يوم. يعني العميل بيدفع بعد حوالي شهر وتلت أسابيع. ولو مستشفى شركات التأمين بتدفعله بعد 90 يوم، يبقى لازم يكون عنده كاش يكفّي التلات شهور دول."},
+    {i:4,t:"Accounts payable turnover",tAr:"معدل دوران الذمم الدائنة",full:"AP · Accounts Payable Turnover",en:"Net credit purchases divided by average accounts payable: how many times a year suppliers are paid. 365 ÷ the ratio gives payment days.",f:"AP turnover = Net credit purchases ÷ Average accounts payable",ar:"عكس اللي فات: بيقيس إنت بتدفع لمورديك بسرعة قد إيه. لو بتحصّل من عملائك كل 51 يوم وبتدفع لمورديك كل 61، الفلوس بتدخلك قبل ما تخرج، وده وضع مريح للكاش."},
+    {i:4,t:"Fixed asset turnover",tAr:"معدل دوران الأصول الثابتة",en:"Net sales divided by average fixed assets: sales generated by each pound invested in fixed assets.",f:"Fixed asset turnover = Net sales ÷ Average fixed assets",ar:"مستشفى اشترى أجهزة ومبنى بـ 100 مليون وبيعمل إيراد 50 مليون، يبقى كل جنيه في الأصول الثابتة بيجيب نص جنيه مبيعات. لو الرقم زاد السنة الجاية، يبقى الإدارة بتشغّل الأجهزة أحسن."},
+    {i:4,t:"Total asset turnover",tAr:"معدل دوران إجمالي الأصول",en:"Net sales divided by average total assets: sales generated by every pound of assets. It is the asset-turnover link in DuPont.",f:"Total asset turnover = Net sales ÷ Average total assets",ar:"زي اللي فاتت بس على الأصول كلها، الثابتة والمتداولة. ودي نفس الحلقة التانية في معادلة DuPont من المحاضرة التانية."},
+    {i:4,t:"Gross profit margin",tAr:"هامش مجمل الربح",en:"Net sales minus COGS, as a percentage of net sales: profit after direct costs, before operating expenses, interest and taxes.",f:"Gross profit margin = (Net sales − COGS) ÷ Net sales × 100",ar:"مستشفى إيراده 50 مليون، وتكلفة الحالات نفسها (أدوية ومستلزمات وأتعاب أطباء) 30 مليون، يبقى الهامش 40%. ده اللي فاضل عشان يغطي الإدارة والإيجار والتسويق وفي الآخر يكسب."},
+    {i:4,t:"EPS",tAr:"ربحية السهم",full:"Earnings Per Share",en:"Net income minus preferred dividends, divided by the weighted average number of common shares outstanding. Higher EPS generally means a more profitable company.",f:"EPS = (Net income − Preferred dividends) ÷ Weighted average common shares",ar:"صافي ربح 5 مليون، ونصيب الأسهم الممتازة مليون، يبقى فاضل 4 مليون للأسهم العادية. لو عددها 2 مليون سهم، كل سهم كسب 2 جنيه. والأسهم الممتازة بتتطرح الأول لأنها بتاخد حقها قبل العادية."},
+    {i:4,t:"Debt ratio",tAr:"نسبة المديونية",full:"Debt-to-assets ratio",en:"Total debt divided by total assets: the share of assets financed by short- and long-term debt. Higher means more leverage.",f:"Debt ratio = Total debt ÷ Total assets",ar:"شركة أصولها 10 مليون وعليها 5 مليون ديون، يبقى نص أصولها ممول بفلوس غيرها. وفي حالة المستثمر في المحاضرة، النسبة دي هي اللي قلبت القرار: الشركة اللي عائدها أعلى طلعت هي الأخطر."},
+    {i:4,t:"Debt-to-equity ratio",tAr:"نسبة الديون إلى حقوق الملكية",full:"D/E · Debt-to-Equity",en:"Total liabilities divided by total equity: debt for every pound of the owners' money. Apple FY 2025: 285,508 ÷ 73,733 ≈ 3.87. Slide 30 defines it with long-term debt only; check which the exam uses.",f:"D/E = Total liabilities ÷ Total equity",ar:"دكتور فتح عيادة بمليون من جيبه ومليونين قرض، يبقى الـ D/E بتاعه 2. لو الشغل ماشي، القرض بيكبّر عائده. ولو الحالات قلّت، الأقساط مش هتستنى. والنسبة لوحدها مش حكم، لازم تقارنها بشركات زيك."},
+    {i:4,t:"Trend analysis",tAr:"تحليل الاتجاه",full:"Time-series analysis",en:"Evaluating the same firm's ratios over time, for example 2015 against 2016.",ar:"بتقارن نفسك بنفسك: نسبة تداول المستشفى السنة دي 1.5 والسنة اللي فاتت 1.2، يبقى الوضع بيتحسن. بيقولك إنت ماشي في أنهي اتجاه."},
+    {i:4,t:"Cross-sectional analysis",tAr:"التحليل المقطعي",en:"Comparing the firm's ratios with other firms in its industry or with the industry average, at the same point in time.",ar:"بتقارن نفسك بالسوق في نفس السنة: هامش ربح المستشفى 10%، ومتوسط المستشفيات الخاصة 7%، يبقى إنت أحسن من المتوسط."},
+    {i:4,t:"Benchmarking",tAr:"المقارنة المرجعية",en:"A type of cross-sectional analysis comparing the firm's ratios with a key competitor, or a group of competitors, that it wants to emulate.",ar:"مش بتقارن بالمتوسط، بتقارن بالأحسن بالذات: الوكالة تقارن معدل التحويل في حملاتها بأقوى وكالة في السوق، عشان تعرف الفجوة قد إيه."}
   ];
 
   var QUIZ=[
@@ -1110,7 +1361,39 @@ body::before{background:var(--mast)}
     {i:3,s:'A company reports net income of 10M, but its operating cash flow is only 4M. What is the most likely reason?',
      o:[['Customers have not yet paid much of what they bought, so receivables grew','Revenue counts in profit when earned, but cash arrives only when customers pay.',1],['The company must have made an error, since profit always equals cash','Profit and cash differ because of timing and non-cash items like depreciation.'],['Depreciation was too high','Depreciation reduces profit but not cash, so it pushes operating cash above profit, not below.'],['The company paid a large dividend','Dividends are financing activities and do not affect operating cash flow.']],
      st:'Net income 10M\n− increase in receivables (cash not yet collected)\n= operating cash flow 4M',
-     ar:'ده كابوس أي مدير مستشفى: الحالات اتعالجت والإيراد اتسجل، بس شركات التأمين لسه مادفعتش. الربح موجود في قائمة الدخل، والكاش مش موجود في البنك. وده بالظبط ليه بنقرا القوائم التلاتة مع بعض.'}
+     ar:'ده كابوس أي مدير مستشفى: الحالات اتعالجت والإيراد اتسجل، بس شركات التأمين لسه مادفعتش. الربح موجود في قائمة الدخل، والكاش مش موجود في البنك. وده بالظبط ليه بنقرا القوائم التلاتة مع بعض.'},
+    {i:4,s:"A private hospital has current assets of 9M, of which 4M is medicines and supplies in stock. Its current liabilities are 5M. Which statement is correct?",
+     o:[["Current ratio 1.8 and quick ratio 1.0: the hospital can just cover short-term debts without selling stock","Current = 9 ÷ 5 = 1.8; quick = (9 − 4) ÷ 5 = 1.0.",1],["Current ratio 1.0 and quick ratio 1.8","The two are swapped: the quick ratio removes inventory, so it can never be higher than the current ratio."],["Quick ratio 0.8, because inventory is divided, not subtracted","Inventory is subtracted from current assets first: (9 − 4) ÷ 5."],["Both ratios are 1.8, because inventory is a current asset","Inventory is current, but the quick ratio deliberately excludes it because it is slow to turn into cash."]],
+     st:"Current ratio = 9 ÷ 5 = 1.8\nQuick ratio = (9 − 4) ÷ 5 = 5 ÷ 5 = 1.0",
+     ar:"نسبة التداول شكلها مريحة، بس النسبة السريعة بتقول الحقيقة: من غير المخزون، الكاش والمستحقات يادوب مغطيين الالتزامات. لو المورد طالب فلوسه كلها مرة واحدة، مفيش هامش أمان."},
+    {i:4,s:"A hospital's net credit sales to insurance companies were 36M. Receivables were 5M at the start of the year and 7M at the end. About how many days does it take to collect?",
+     o:[["About 61 days","Average AR = 6M; turnover = 36 ÷ 6 = 6 times; 365 ÷ 6 ≈ 61 days.",1],["About 51 days","This uses only the opening 5M: 36 ÷ 5 = 7.2 times. Turnover must use average receivables."],["About 71 days","This uses only the closing 7M: 36 ÷ 7 ≈ 5.1 times. Use the average of 5 and 7."],["6 days","6 is the turnover in times per year, not days. Divide 365 by it."]],
+     st:"Average AR = (5 + 7) ÷ 2 = 6M\nTurnover = 36 ÷ 6 = 6 times\nCollection period = 365 ÷ 6 ≈ 61 days",
+     ar:"شركات التأمين بتدفع للمستشفى كل شهرين تقريبًا. يعني لازم المستشفى يمول شهرين من المرتبات والأدوية من جيبه لحد ما الفلوس توصل، وده بالظبط ليه السيولة مهمة حتى في مستشفى كسبان."},
+    {i:4,s:"A hospital pharmacy dispensed medicines costing 12M this year, with an average inventory of 1.5M. Last year the turnover was 12 times. What does this year's figure show?",
+     o:[["Turnover fell to 8 times: stock now sits about 46 days instead of about 30, so slow-moving or expiring stock is a risk","12 ÷ 1.5 = 8; 365 ÷ 8 ≈ 46 days against 365 ÷ 12 ≈ 30 days.",1],["Turnover rose to 18 times, which is more efficient","Dividing 12 by 1.5 gives 8, not 18."],["Turnover is 0.125, which is too low to interpret","That is 1.5 ÷ 12, the formula upside down."],["A lower turnover always means better service because stock never runs out","Too low a turnover ties up cash and risks expiry; the slides warn only that too high a turnover risks shortages."]],
+     st:"Inventory turnover = COGS ÷ Average inventory = 12 ÷ 1.5 = 8 times\nDays = 365 ÷ 8 ≈ 46 days (last year 365 ÷ 12 ≈ 30 days)",
+     ar:"المخزون بقى بيقعد في الصيدلية شهر ونص بدل شهر. يعني فلوس محبوسة على الرفوف، وأدوية ممكن صلاحيتها تخلص. والحل مش إنك تفضّي المخزن، لأن الدوران العالي أوي بيعمل عجز."},
+    {i:4,s:"A marketing agency earned net income of 2.4M. Its average total assets were 20M and its average equity was 12M. Which pair is correct?",
+     o:[["ROA 12% and ROE 20%","ROA = 2.4 ÷ 20 = 12%; ROE = 2.4 ÷ 12 = 20%.",1],["ROA 20% and ROE 12%","The two are swapped: assets are the larger base, so ROA is the smaller ratio."],["ROA 8% and ROE 12%","ROA would be 8% only if net income were 1.6M on 20M assets."],["ROE cannot exceed ROA","ROE exceeds ROA whenever part of the assets is financed by debt, as here (20M assets, 12M equity)."]],
+     st:"ROA = 2.4 ÷ 20 × 100 = 12%\nROE = 2.4 ÷ 12 × 100 = 20%\nGap: 8M of assets financed by liabilities",
+     ar:"الأصول كلها جابت 12%، بس فلوس الملاك جابت 20%، لأن 8 مليون من الأصول ممولين بفلوس غيرهم. ودي الرافعة المالية اللي شفناها في DuPont: بتكبّر العائد، وبتكبّر المخاطرة معاه."},
+    {i:4,s:"An investor with 1M compares two companies. A: net profit 10M, equity 100M, assets 105M. B: net profit 1M, equity 5M, assets 10M. What is the correct conclusion?",
+     o:[["B gives the higher ROE (20% vs 10%) but carries far more risk: its debt ratio is 50% against about 4.8% for A","ROE A = 10%, ROE B = 20%; debt A = 5 ÷ 105 = 4.76%, debt B = 5 ÷ 10 = 50%.",1],["A is clearly better because its net profit is ten times larger","Net profit alone ignores the capital needed to earn it; that is the trap the lecture warns against."],["B is clearly better because both its ROE and ROA are higher","True for returns, but it ignores B's heavy debt, which the debt ratio reveals."],["The two are identical because both have 5M of debt","Same debt amount, but very different relative to assets: 4.76% against 50%."]],
+     st:"ROE A = 10 ÷ 100 = 10%; ROE B = 1 ÷ 5 = 20%\nROA A = 10 ÷ 105 ≈ 9.5%; ROA B = 1 ÷ 10 = 10%\nDebt = Assets − Equity = 5M each\nDebt ratio A = 5 ÷ 105 ≈ 4.76%; B = 5 ÷ 10 = 50%",
+     ar:"القرار بيرجع لشخصية المستثمر: اللي بيحب المخاطرة هيختار B عشان الـ 20%، واللي عاوز أمان هيختار A. والدرس الأهم إنك ماتحكمش من رقم واحد، لازم تكمّل التحليل للآخر."},
+    {i:4,s:"A private clinic group has total liabilities of 30M and total equity of 20M. Which statement is correct?",
+     o:[["D/E = 1.5 and debt ratio = 60%","D/E = 30 ÷ 20 = 1.5; total assets = 30 + 20 = 50, so debt ratio = 30 ÷ 50 = 60%.",1],["D/E = 0.67 and debt ratio = 40%","These are the inverses: equity ÷ liabilities and equity ÷ assets."],["D/E = 1.5 and debt ratio = 150%","The debt ratio divides by total assets (50M), not by equity."],["The debt ratio cannot be found without total assets","Total assets follow from the accounting equation: liabilities + equity = 50M."]],
+     st:"Total assets = Liabilities + Equity = 30 + 20 = 50M\nD/E = 30 ÷ 20 = 1.5\nDebt ratio = 30 ÷ 50 = 60%",
+     ar:"لاحظ إنك مش محتاج رقم الأصول يتقالك: معادلة الميزانية من المحاضرة التالتة بتجيبهولك. يعني قصاد كل جنيه من الملاك فيه جنيه ونص ديون، و60% من الأصول ممولة بفلوس غيرهم."},
+    {i:4,s:"A hospital compares its current ratio this year with the average of private hospitals in Egypt for the same year. What kind of analysis is this?",
+     o:[["Cross-sectional analysis","It compares the firm with its industry at the same point in time.",1],["Trend (time-series) analysis","Trend analysis compares the same firm across years, not with other firms."],["Benchmarking","Benchmarking compares with a specific key competitor or chosen leaders, not the industry average."],["Vertical analysis","Vertical analysis expresses items as a % of a base within one statement; it is not a comparison with peers."]],
+     st:"Same year + other firms or industry average → cross-sectional\nSame firm over years → trend\nOne chosen leader → benchmarking",
+     ar:"اسأل نفسك سؤالين: بقارن بمين؟ وفي أنهي وقت؟ لو بنفسي في سنين مختلفة يبقى اتجاه، لو بالسوق في نفس السنة يبقى مقطعي، ولو بمنافس معيّن عاوز أوصله يبقى Benchmarking."},
+    {i:4,s:"A company earned net income of 10M, paid 2M of preferred dividends, and had a weighted average of 4M common shares outstanding. What is its EPS?",
+     o:[["2.0 per share","(10 − 2) ÷ 4 = 2.",1],["2.5 per share","This ignores preferred dividends: 10 ÷ 4."],["3.0 per share","This adds the preferred dividends instead of subtracting them: 12 ÷ 4."],["0.5 per share","This divides 2M of preferred dividends by 4M shares."]],
+     st:"Earnings for common shareholders = 10 − 2 = 8M\nEPS = 8 ÷ 4 = 2.0",
+     ar:"الأسهم الممتازة بتاخد حقها الأول، والباقي بيتقسم على الأسهم العادية. عشان كده بنطرح توزيعاتها قبل القسمة."}
   ];
 
   var FORMULAS=[
@@ -1130,7 +1413,20 @@ body::before{background:var(--mast)}
     {i:3,t:'Book value',tAr:'القيمة الدفترية',f:'Book value = Total assets − Total liabilities',r:'The owners\u2019 residual share (net assets).'},
     {i:3,t:'Gross profit',tAr:'مجمل الربح',f:'Gross profit = Revenue − COGS',r:'Profit after the direct cost of goods sold.'},
     {i:3,t:'Net profit margin',tAr:'هامش صافي الربح',f:'Net profit margin = Net income ÷ Total net sales × 100',r:'Apple 2021: 94,680 ÷ 365,817 ≈ 26%.'},
-    {i:3,t:'Net change in cash',tAr:'صافي التغير في النقدية',f:'Net change = Operating + Investing + Financing cash flows',r:'Ending cash = Beginning cash + Net change.'}
+    {i:3,t:'Net change in cash',tAr:'صافي التغير في النقدية',f:'Net change = Operating + Investing + Financing cash flows',r:'Ending cash = Beginning cash + Net change.'},
+    {i:4,t:"Current ratio",tAr:"نسبة التداول",f:"Current ratio = Current assets ÷ Current liabilities",r:"Above 1 suggests short-term solvency; very high may mean idle cash."},
+    {i:4,t:"Quick ratio (acid-test)",tAr:"نسبة السيولة السريعة",f:"Quick ratio = (Current assets − Inventory) ÷ Current liabilities",r:"Above 1: can pay short-term debts without selling inventory."},
+    {i:4,t:"Cash ratio",tAr:"نسبة النقدية",f:"Cash ratio = (Cash + Cash equivalents) ÷ Current liabilities",r:"Share of short-term debts payable immediately from cash."},
+    {i:4,t:"Inventory turnover",tAr:"معدل دوران المخزون",f:"Inventory turnover = COGS ÷ Average inventory",r:"Net sales may replace COGS when COGS is not available. Days = 365 ÷ turnover."},
+    {i:4,t:"Receivables turnover",tAr:"معدل دوران الذمم المدينة",f:"Receivables turnover = Net credit sales ÷ Average accounts receivable",r:"Revenue may replace credit sales as an estimate. Average AR = (opening + closing) ÷ 2."},
+    {i:4,t:"Average collection period",tAr:"متوسط فترة التحصيل",f:"Collection period = 365 ÷ Receivables turnover",r:"Average days to collect from customers."},
+    {i:4,t:"Accounts payable turnover",tAr:"معدل دوران الذمم الدائنة",f:"AP turnover = Net credit purchases ÷ Average accounts payable",r:"Payment days = 365 ÷ AP turnover."},
+    {i:4,t:"Fixed asset turnover",tAr:"معدل دوران الأصول الثابتة",f:"Fixed asset turnover = Net sales ÷ Average fixed assets",r:"Sales per pound of fixed assets; rising means better use."},
+    {i:4,t:"Total asset turnover",tAr:"معدل دوران إجمالي الأصول",f:"Total asset turnover = Net sales ÷ Average total assets",r:"Sales per pound of all assets; the turnover link in DuPont."},
+    {i:4,t:"Gross profit margin",tAr:"هامش مجمل الربح",f:"Gross margin = (Net sales − COGS) ÷ Net sales × 100",r:"Profit after direct costs, before operating expenses, interest and taxes."},
+    {i:4,t:"Earnings per share (EPS)",tAr:"ربحية السهم",f:"EPS = (Net income − Preferred dividends) ÷ Weighted average common shares",r:"Profit earned by each common share; higher is generally better."},
+    {i:4,t:"Debt ratio",tAr:"نسبة المديونية",f:"Debt ratio = Total debt ÷ Total assets",r:"Share of assets financed by debt; higher means more leverage and risk."},
+    {i:4,t:"Debt-to-equity (D/E)",tAr:"نسبة الديون إلى حقوق الملكية",f:"D/E = Total liabilities ÷ Total equity",r:"Debt per pound of equity. Slide 30 uses long-term debt only; confirm with the lecturer."}
   ];
 
   /* ===== Ticker ===== */

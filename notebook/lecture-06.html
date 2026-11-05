@@ -1,0 +1,364 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Lecture 06: The Cost of Capital · MBA Platform study source</title></head><body>
+<p>MBA Platform · Finance for Non-Financial Managers</p>
+<p>Lecture 06: The Cost of Capital</p>
+<p>(Independent study companion by Mohamed Elsayed. Not an official Academy publication.)</p>
+
+<p>=== LECTURE NOTES ===</p>
+
+<p>Lecture 06 · Part Two</p>
+<p>The Cost of Capital: debt, equity and bonds تكلفة رأس المال: الديون وحقوق الملكية والسندات</p>
+<p>The cost of capital is the minimum return a company must earn on its assets to satisfy everyone who funded them: lenders, owners and other providers of capital. It is a blended rate of two main sources, debt and equity, and that blend is the WACC (Weighted Average Cost of Capital). Lecture 05 used WACC inside EVA; this lecture shows how each piece of it is calculated, including the cost of bank loans and of bonds.</p>
+<p>أي فلوس داخلة الشركة ليها صاحب، وصاحبها مستني عائد. البنك مستني فوايده، والمساهم مستني عائد يعوّضه عن المخاطرة. تكلفة رأس المال هي أقل عائد لازم الشركة تجيبه عشان ترضي الاتنين. يعني لو مستشفى تكلفة الفلوس اللي فيه 12%، وعاوز يفتح قسم أشعة جديد، القسم ده لازم يجيب أكتر من 12%، وإلا يبقى المستشفى بيشتغل عشان يدفع للممولين وبس، والمساهم مش هيطلع بحاجة.</p>
+<p>This lecture is "Part Two · Cost of Capital", which matches the course outline from Lecture 01. The two exercises at the end of the slides are the cohort's assignment, so this page explains the method on the lecture's solved cases and on separate practice numbers, and leaves the assignment for you to solve.</p>
+
+<p>1. The rule behind every investment القاعدة اللي ورا أي قرار استثمار</p>
+
+<p>Minimum required returnالحد الأدنى للعائد المطلوبThe return suppliers of capital require as compensation for providing it.</p>
+<p>Return &gt; cost of capitalالعائد أكبر من التكلفةA project must earn more than the cost of the capital that finances it, or it gives investors nothing.</p>
+<p>The investor's viewمن وجهة نظر المستثمرAn estimate of the return expected from buying shares or any investment, often with best- and worst-case scenarios.</p>
+
+<p>Worked example: a new cath lab</p>
+<p>A hospital's WACC is 12%. Two proposals:</p>
+<p>Cath lab: expected return 15% &gt; 12% → accept</p>
+<p>Second car park: expected return 9% &lt; 12% → reject</p>
+<p>The car park still makes money, but less than the money costs.</p>
+
+<p>Same company, two names</p>
+<p>For the company it is a cost: what it pays to use the money. For the investor it is a required return: what they expect to receive. It is one number seen from both sides of the table.</p>
+<p>That is also why it is the discount rate in NPV and the bar for IRR from Lecture 01.</p>
+
+<p>الجراج هيكسب، آه، بس 9% بس، والفلوس اللي اتصرفت عليه تكلفتها 12%. يعني كل سنة المستشفى بيخسر 3% من غير ما يحس، لأن الدفاتر هتقول إن الجراج كسبان. ده نفس منطق الـ EVA اللي أخدناه في المحاضرة اللي فاتت، بس هنا بنستخدمه قبل ما ندفع الفلوس، مش بعدها. وده بالظبط معنى "hurdle rate": الحاجز اللي أي مشروع لازم ينطّه.</p>
+
+<p>2. Cost of debt, after tax تكلفة الديون بعد الضريبة</p>
+<p>The cost of debt is the interest rate the company pays on its debt, such as bank loans and bonds. Because interest is deducted before tax is calculated, the government effectively pays part of it. So the cost of debt is always used after tax.</p>
+<p>Cost of debt = (Interest expense ÷ Total debt) × (1 − T)</p>
+<p>T is the company's marginal tax rate. Interest expense is the interest paid on the firm's current debt.</p>
+
+<p>Worked example: a hospital group</p>
+<p>Interest expense 12M ÷ Total debt 80M = 15% before tax</p>
+<p>After tax = 15% × (1 − 22.5%) = 15% × 0.775 = 11.6%</p>
+
+<p>Where the saving comes from: the tax shield</p>
+<p>Tax saving = Interest × T = 12M × 22.5% = 2.7M</p>
+<p>Net cost = 12M − 2.7M = 9.3M → 9.3 ÷ 80 = 11.6%</p>
+<p>The lecture calls this the tax saving: a financial idea used when comparing options, not an accounting entry.</p>
+
+<p>ليه بنضرب في ⁦(1 − T)⁩؟ لأن الفوايد بتتخصم من الربح قبل ما نحسب الضريبة. المستشفى دفع 12 مليون فوايد، فالربح اللي عليه ضريبة قلّ 12 مليون، والضريبة قلّت ⁦2.7⁩ مليون. يعني التكلفة الحقيقية للدين 9.3 مليون بس، مش 12. والميزة دي مش موجودة لفلوس المساهمين: الأرباح اللي بتتوزع عليهم مش بتتخصم من الضريبة. عشان كده الدين غالبًا أرخص من حقوق الملكية.</p>
+
+<p>3. Cost of equity: CAPM تكلفة حقوق الملكية: نموذج تسعير الأصول الرأسمالية</p>
+<p>The cost of equity is the return shareholders expect in exchange for their money and their risk. It is usually estimated with the CAPM (Capital Asset Pricing Model), which uses beta to measure risk.</p>
+<p>Cost of equity = Rf + β × (Rm − Rf)</p>
+
+<p>PartMeaning</p>
+
+<p>Rf · Risk-free rateالعائد الخالي من المخاطرWhat you earn with almost no risk, such as government treasury bills.</p>
+<p>Rm · Market rate of returnعائد السوقThe average return of the stock market as a whole.</p>
+<p>Rm − Rf · Market risk premiumعلاوة مخاطر السوقThe extra return investors want for leaving the safe option for the market.</p>
+<p>β · Betaمعامل بيتاHow strongly the share moves with the market. β = 1 moves with it; above 1 swings more; below 1 swings less.</p>
+
+<p>Worked example: two listed companies</p>
+<p>Rf = 18%, Rm = 25%, so the market premium is 7%.</p>
+<p>Pharmacy chain, β = 0.8: 18% + 0.8 × 7% = 23.6%</p>
+<p>Advertising agency, β = 1.4: 18% + 1.4 × 7% = 27.8%</p>
+
+<p>Link to Lecture 05</p>
+<p>Lecture 05 wrote the cost of equity as risk-free rate + risk allowance. CAPM is the same idea, with the risk allowance calculated as β × (Rm − Rf) instead of given.</p>
+
+<p>الناس بتشتري دوا لما الاقتصاد كويس ولما يكون وحش، فسهم سلسلة صيدليات بيتهز أقل من السوق، والبيتا بتاعته أقل من 1. لكن أول حاجة الشركات بتقطعها في الأزمة هي ميزانية الإعلانات، فسهم وكالة الإعلانات بيطلع وينزل أكتر من السوق، والبيتا بتاعته أكبر من 1. المساهم في الوكالة شايل مخاطرة أكبر، فطبيعي يطلب عائد أعلى: ⁦27.8%⁩ بدل ⁦23.6%⁩. والعائد الخالي من المخاطر هو اللي أي حد ياخده من أذون الخزانة وهو قاعد في بيته، فأي استثمار تاني لازم يدّيه أكتر من كده.</p>
+
+<p>4. Putting them together: WACC نجمعهم: متوسط تكلفة رأس المال المرجح</p>
+<p>WACC = (E/V × Re) + (D/V × Rd × (1 − Tc))</p>
+<p>E and D are the market values of equity and debt, V = E + D, Re is the cost of equity, Rd the cost of debt and Tc the income tax rate. Only the debt term is multiplied by (1 − Tc).</p>
+
+<p>The lecture's quick example</p>
+<p>70% equity at 10%, 30% debt at 7% after tax:</p>
+<p>WACC = 0.7 × 10% + 0.3 × 7% = 7% + 2.1% = 9.1%</p>
+
+<p>Example 1: ABC raises $1.5 million</p>
+<p>$800,000 from shares (cost 5%), $700,000 from 700 bonds of $1,000 (cost 10%), tax 25%.</p>
+<p>Equity: 800/1,500 × 5% = 0.5333 × 5% = 2.67%</p>
+<p>Debt: 700/1,500 × 10% × 0.75 = 3.50%</p>
+<p>WACC = 2.67% + 3.50% = 6.17%</p>
+
+<p>Points to check with the lecturer: one slide writes "Cost of debt + Cost of equity = Overall cost of capital". It is a weighted sum, as every example in the lecture calculates (the same point appeared in Lecture 05). Example 1 shows the result as 0.061 ("6.1"); the exact figure is 0.0617, about 6.2%.</p>
+<p>الـ WACC زي متوسط سعر الدوا في صيدلية بتشتري من موردين: لو جبت 70% من البضاعة من مورد غالي و30% من مورد أرخص، متوسط التكلفة مش مجموع السعرين ولا متوسطهم العادي. لازم كل سعر يتضرب في نسبته. وهنا نفس الكلام: فلوس المساهمين وفلوس البنك، كل واحد بتكلفته وبوزنه. وخلي بالك إن ⁦(1 − T)⁩ بتتضرب في جزء الدين بس، لأن هو بس اللي بيوفر ضريبة.</p>
+
+<p>5. WACC with four sources متوسط التكلفة مع أربع مصادر تمويل</p>
+<p>Real companies have more than two sources. The method stays the same: weight = amount ÷ total, weighted cost = weight × after-tax cost, WACC = the sum of the weighted costs.</p>
+
+<p>SourceAmount (Rs.)WeightAfter-tax costWeighted cost</p>
+
+<p>Equity share capitalرأس مال الأسهم العادية800,0000.33316%5.33%</p>
+<p>Retained earningsالأرباح المحتجزة400,0000.16715%2.50%</p>
+<p>Preference share capitalرأس مال الأسهم الممتازة600,0000.2512%3.00%</p>
+<p>Debentures / bondsالسندات600,0000.259%2.25%</p>
+<p>Total2,400,0001.0013.08% ≈ 13%</p>
+
+<p>What the four sources are</p>
+<p>Preference shares get a fixed dividend paid before ordinary shareholders, but carry no tax saving. Retained earnings are profits kept in the business; they belong to the owners, so they have a cost even though no one is paid interest on them.</p>
+
+<p>Reading the 13%</p>
+<p>Every pound in ABC costs about 13 piasters a year. A new project must beat 13% to add value.</p>
+<p>The slide rounds the weights to 0.34 and 0.16 and shows 0.024 for retained earnings; with exact weights it is 0.025. The total, 13%, is the same either way.</p>
+
+<p>لاحظ ترتيب التكاليف: السندات أرخص حاجة (9%)، وبعدها الأسهم الممتازة (12%)، وبعدها الأرباح المحتجزة (15%)، وأغلى حاجة الأسهم العادية (16%). ده منطقي: صاحب السند بياخد فوايده الأول ومضمونة أكتر، فبيقبل بعائد أقل، والمساهم العادي آخر واحد بياخد، فبيطلب أكتر. والأرباح المحتجزة هنا أرخص من إصدار أسهم جديدة، لأن الشركة مش بتدفع مصاريف إصدار، وده نفس الكلام اللي قلناه عن الـ pecking order: الشركة بتبدأ بفلوسها هي الأول.</p>
+
+<p>6. The cost of several bank loans تكلفة أكتر من قرض بنكي</p>
+<p>When a company has several loans at different rates, its cost of bank debt is the weighted average of the rates, using each loan's share of total loans, then adjusted for tax. Example 3: an Egyptian company, tax rate 40%.</p>
+
+<p>LoanAmountWeightInterestWeighted cost</p>
+
+<p>1500,0000.1498%1.19%</p>
+<p>21,200,0000.3589%3.22%</p>
+<p>3750,0000.2249.5%2.13%</p>
+<p>4900,0000.26911%2.96%</p>
+<p>Total3,350,0001.009.50% before tax</p>
+
+<p>After tax = 9.5% × (1 − 40%) = 9.5% × 0.6 = 5.7%</p>
+<p>One slide in this example is headed "the cost of bank loans before tax" but shows the after-tax formula, written as "Interest expense × (1 − Tax rate)". The formula should use the interest rate (interest ÷ debt), and its result is the cost after tax.</p>
+<p>الغلطة الشائعة هنا إنك تاخد متوسط عادي للفوايد: ⁦(8 + 9 + 9.5 + 11) ÷ 4 = 9.375%⁩. ده غلط، لأن قرض المليون و200 ألف تأثيره أكبر بكتير من قرض النص مليون. زي ما في المستشفى متوسط مدة الإقامة بيتحسب على عدد المرضى في كل قسم، مش متوسط الأقسام. فبنوزن كل قرض بحجمه، فيطلع 9.5%، وبعد التوفير الضريبي التكلفة الحقيقية ⁦5.7%⁩ بس.</p>
+
+<p>7. The cost of bonds: proceeds and YTM تكلفة السندات: صافي حصيلة الإصدار والعائد حتى الاستحقاق</p>
+<p>A bond is a loan the company takes from the public. It promises a fixed yearly interest (the coupon) and repays the face value at maturity. If investors can earn more elsewhere at the same risk, the company must sell the bond below face value, at a discount, and it also pays issuance (flotation) costs.</p>
+
+<p>TermMeaning</p>
+
+<p>FV · Face valueالقيمة الاسميةThe amount repaid at maturity, usually 1,000.</p>
+<p>Coupon rateمعدل الكوبونYearly interest as a % of face value. C = FV × coupon rate.</p>
+<p>Discountالإصدار بخصمSelling below face value because the market rate is higher than the coupon.</p>
+<p>Issuance costsمصاريف الإصدارFees to issue the bond, here a % of face value.</p>
+<p>NP · Net issuance proceedsصافي حصيلة الإصدارWhat the company actually receives: issue price − issuance costs.</p>
+<p>YTM · Yield to maturityالعائد حتى تاريخ الاستحقاقThe yearly return on the bond if held to maturity: the company's before-tax cost of the bond.</p>
+
+<p>Net proceeds = Issue price − (FV × issuance cost %)</p>
+<p>YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]</p>
+<p>After-tax cost of bonds = YTM × (1 − T)</p>
+<p>n is the number of years to maturity. The formula is an approximation, which is why the lecture writes "≈".</p>
+
+<p>Lecture example: 10 years, 7% coupon</p>
+<p>FV 1,000, sold for 966, issuance cost 2% of FV, tax 25%.</p>
+<p>NP = 966 − (1,000 × 2%) = 966 − 20 = 946</p>
+<p>C = 1,000 × 7% = 70</p>
+<p>YTM ≈ [70 + (1,000 − 946) ÷ 10] ÷ [(1,000 + 946) ÷ 2]</p>
+<p>= (70 + 5.4) ÷ 973 = 75.4 ÷ 973 = 7.75%</p>
+<p>After tax = 7.8% × (1 − 25%) = 5.85%</p>
+
+<p>Case 2 (model answer): 8 years, 8% coupon</p>
+<p>FV 1,000, sold for 940, issuance cost 3% of FV.</p>
+<p>NP = 940 − 30 = 910</p>
+<p>C = 1,000 × 8% = 80</p>
+<p>YTM ≈ [80 + (1,000 − 910) ÷ 8] ÷ [(1,000 + 910) ÷ 2]</p>
+<p>= (80 + 11.25) ÷ 955 = 91.25 ÷ 955 = 9.56%</p>
+<p>Issued at a discount, so YTM (9.56%) is higher than the 8% coupon.</p>
+
+<p>Points to check with the lecturer: in the first example the slide shows "70 (1000 − 946)/10" without the plus sign; it is 70 + 5.4. The YTM is 7.749%; the after-tax step uses the rounded 7.8%, giving 5.85% (with 7.75% it is 5.81%). The YTM slide also lists the years as "t" while the formula writes "n"; they are the same thing.</p>
+<p>خلينا نفهم كل جزء في المعادلة بالراحة. البسط هو اللي الشركة بتدفعه في السنة فعلًا: الكوبون، يعني الفوايد السنوية، زائد حتة صغيرة. الحتة دي جاية من إن الشركة استلمت ⁦946⁩ بس، وهترجّع ⁦1,000⁩ كاملة في الآخر. الفرق ده، ⁦54⁩ جنيه، تكلفة زيادة عليها، فبنوزعه على العشر سنين: ⁦5.4⁩ في السنة. والمقام هو متوسط الفلوس اللي الشركة شايلاها طول المدة: بين اللي استلمته واللي هترجّعه. ونقسم الاتنين على بعض، يطلع العائد السنوي. والفكرة ببساطة إن الشركة كاتبة على السند 7%، لكن لأنها باعته بخصم ودفعت مصاريف، التكلفة الحقيقية عليها قبل الضريبة حوالي 7.8%. زي حملة تسويق: سعر الإعلان المكتوب حاجة، والتكلفة الحقيقية بعد العمولات والخصومات حاجة تانية.</p>
+
+<p>Bank loans vs bonds in the lecture</p>
+
+<p>Before taxAfter tax</p>
+<p>Bank loans (tax 40%)9.5%5.7%</p>
+<p>Bonds (tax 25%)7.8%5.85%</p>
+
+<p>The lesson in the comparison</p>
+<p>Loans look more expensive before tax, but cost less after tax because the tax rate in that example is higher. Always compare sources after tax.</p>
+
+<p>8. Practice, then your assignment تمرين محلول، وبعدين الـ assignment</p>
+
+<p>Practice: a hospital bond</p>
+<p>FV 1,000, 5 years, coupon 10%, sold for 960, issuance cost 2% of FV, tax 22.5%.</p>
+<p>1. NP = 960 − 20 = 940</p>
+<p>2. C = 1,000 × 10% = 100</p>
+<p>YTM ≈ [100 + (1,000 − 940) ÷ 5] ÷ [(1,000 + 940) ÷ 2]</p>
+<p>= (100 + 12) ÷ 970 = 11.55%</p>
+<p>3. After tax = 11.55% × 0.775 = 8.95%</p>
+
+<p>The assignment (two exercises in the slides)</p>
+<p>Bonds: follow the same three steps: net proceeds (watch: the issuance cost is a % of face value), then YTM with n = 12, then multiply by (1 − 35%).</p>
+<p>WACC with four sources: the weights are given, so multiply each weight by its cost and add. Apply the tax only to debt. Note that 5.58% is exactly 9.3% × (1 − 40%), so it looks like it is already after tax; confirm with the lecturer before multiplying it by (1 − 40%) again.</p>
+
+<p>الـ assignment حلّوه بنفسكم، لأن ده اللي هيثبّت الفكرة. اتبعوا نفس خطوات التمرين المحلول فوق، خطوة خطوة. وفي تمرين الـ WACC خلي بالك من حاجة مهمة: الضريبة بتتطبق على الدين بس، مش على الأسهم الممتازة ولا العادية ولا الأرباح المحتجزة، لأن توزيعاتهم مش بتتخصم من الضريبة. والرقم ⁦5.58%⁩ بالظبط يساوي ⁦9.3% × 0.6⁩، فغالبًا هو أصلًا بعد الضريبة، فاتأكدوا من الدكتور قبل ما تضربوه في ⁦(1 − 40%)⁩ تاني. ولو وقفت عند خطوة، اسأل مساعد المادة عن الطريقة، مش عن الرقم النهائي.</p>
+
+<p>=== KEY TERMS (flashcards) ===</p>
+
+<p>• Cost of capital — تكلفة رأس المال</p>
+<p>The minimum return a firm must earn on its assets to satisfy its lenders, owners and other providers of capital. A blended rate of debt and equity, also called the hurdle rate.</p>
+<p>شرح: أقل عائد لازم الشركة تجيبه عشان ترضي البنك والمساهمين. لو المستشفى تكلفة فلوسه 12%، أي قسم جديد لازم يجيب أكتر من 12%، وإلا يبقى شغال للممولين وبس.</p>
+
+<p>• Return vs cost of capital rule — قاعدة العائد مقابل التكلفة</p>
+<p>A project should earn more than the cost of the capital that finances it. If it earns less, it gives investors nothing, even if it shows a profit.</p>
+<p>Formula: Accept if expected return &gt; WACC</p>
+<p>شرح: جراج بيكسب 9% وتكلفة فلوسه 12%: الدفاتر بتقول كسبان، والحقيقة إنه بياكل 3% من فلوس الملاك كل سنة.</p>
+
+<p>• Tax shield (Tax savings on interest) — الوفر الضريبي</p>
+<p>Interest is deducted before tax, so it lowers the tax bill by Interest × T. The lecture calls it the tax saving: a financial term used to compare options, not an accounting one.</p>
+<p>Formula: Tax saving = Interest × T</p>
+<p>شرح: مستشفى دفع 12 مليون فوايد والضريبة 22.5%: الضريبة قلّت ⁦2.7⁩ مليون، فالتكلفة الحقيقية للفوايد 9.3 مليون بس.</p>
+
+<p>• Cost of debt (lecture 06 form) — تكلفة الديون</p>
+<p>Interest expense divided by total debt, then multiplied by (1 − T) because interest is tax-deductible.</p>
+<p>Formula: Cost of debt = (Interest expense ÷ Total debt) × (1 − T)</p>
+<p>شرح: فوايد 12 مليون على ديون 80 مليون = 15% قبل الضريبة، وبعد الضريبة ⁦15% × 0.775 = 11.6%⁩.</p>
+
+<p>• CAPM (Capital Asset Pricing Model) — نموذج تسعير الأصول الرأسمالية</p>
+<p>Estimates the cost of equity: the risk-free rate plus beta times the market risk premium.</p>
+<p>Formula: Re = Rf + β × (Rm − Rf)</p>
+<p>شرح: المساهم بياخد اللي أذون الخزانة بتديه، وفوقه علاوة على قد المخاطرة. سلسلة صيدليات بيتا 0.8 بتطلب أقل من وكالة إعلانات بيتا 1.4.</p>
+
+<p>• Beta (β) — معامل بيتا</p>
+<p>Measures how strongly a share moves with the market. β = 1 moves with it; β &gt; 1 swings more (riskier); β &lt; 1 swings less.</p>
+<p>شرح: الناس بتشتري دوا في الأزمة والرخاء، فسهم الصيدليات بيتهز أقل من السوق. لكن ميزانية الإعلانات أول حاجة بتتقطع، فسهم وكالة الإعلانات بيتهز أكتر.</p>
+
+<p>• Rf (Risk-free rate of return) — العائد الخالي من المخاطر</p>
+<p>The return available with almost no risk, such as government treasury bills. The starting point of any required return.</p>
+<p>شرح: اللي أي حد ياخده من أذون الخزانة وهو قاعد في بيته. أي استثمار فيه مخاطرة لازم يدّي أكتر من كده.</p>
+
+<p>• Market risk premium (Rm − Rf) — علاوة مخاطر السوق</p>
+<p>Rm − Rf: the extra return investors require for holding the market instead of the risk-free asset.</p>
+<p>Formula: Market risk premium = Rm − Rf</p>
+<p>شرح: لو السوق بيدّي 25% وأذون الخزانة 18%، يبقى العلاوة 7%: ده تمن إنك سبت الأمان ودخلت البورصة.</p>
+
+<p>• Preference shares — الأسهم الممتازة</p>
+<p>Shares that receive a fixed dividend before ordinary shareholders. Their dividends are not tax-deductible, so their cost has no (1 − T) adjustment.</p>
+<p>شرح: في الترتيب هم في النص: بياخدوا قبل المساهم العادي وبعد البنك، فتكلفتهم في النص. ومفيش عليهم وفر ضريبي.</p>
+
+<p>• WACC with several sources — متوسط التكلفة مع عدة مصادر</p>
+<p>Weight each source by amount ÷ total, multiply each weight by its after-tax cost, and add. In the lecture: 16%, 15%, 12% and 9% sources give about 13%.</p>
+<p>Formula: WACC = Σ (weight × after-tax cost)</p>
+<p>شرح: زي صيدلية بتشتري من أربع موردين: متوسط التكلفة كل سعر في نسبته، مش مجموع الأسعار ولا متوسطهم العادي.</p>
+
+<p>• Weighted cost of bank loans — متوسط تكلفة القروض البنكية</p>
+<p>Weight each loan's rate by its share of total loans, then multiply by (1 − T). Lecture example: 9.5% before tax, 5.7% after a 40% tax.</p>
+<p>Formula: Kd = Σ (loan ÷ total loans × rate) × (1 − T)</p>
+<p>شرح: متوسط عادي للفوايد غلط، لأن القرض الكبير تأثيره أكبر. زي متوسط مدة الإقامة في المستشفى: بيتحسب على عدد المرضى في كل قسم، مش متوسط الأقسام.</p>
+
+<p>• Face value (FV) (Face value) — القيمة الاسمية</p>
+<p>The amount a bond repays at maturity, usually 1,000. The coupon is calculated on it.</p>
+<p>شرح: المبلغ المكتوب على السند واللي الشركة هترجّعه في الآخر، حتى لو باعت السند بأقل منه.</p>
+
+<p>• Coupon rate — معدل الكوبون</p>
+<p>The fixed yearly interest a bond pays, as a % of face value. A 7% coupon on 1,000 pays 70 a year.</p>
+<p>Formula: C = FV × coupon rate</p>
+<p>شرح: الفايدة المكتوبة على السند. بس دي مش بالضرورة التكلفة الحقيقية على الشركة، لو باعته بخصم أو دفعت مصاريف إصدار.</p>
+
+<p>• Issued at a discount — الإصدار بخصم</p>
+<p>When the market rate for similar risk is above the coupon, the bond sells below face value. Then YTM is higher than the coupon rate.</p>
+<p>شرح: لو البنوك بتدّي أكتر من 7%، محدش هيشتري سند 7% بـ ⁦1,000⁩. فالشركة تبيعه بـ ⁦966⁩ عشان العائد الفعلي للمشتري يبقى مغري.</p>
+
+<p>• Net issuance proceeds (NP · Net Proceeds) — صافي حصيلة الإصدار</p>
+<p>What the company actually receives per bond: issue price minus issuance (flotation) costs, here a % of face value.</p>
+<p>Formula: NP = Issue price − (FV × issuance cost %)</p>
+<p>شرح: سعر البيع ناقص مصاريف الإصدار: ⁦966 − 20 = 946⁩. ده اللي دخل الخزنة فعلًا، وهو اللي بنحسب عليه التكلفة.</p>
+
+<p>• YTM (Yield to Maturity) — العائد حتى تاريخ الاستحقاق</p>
+<p>The yearly return on a bond held to maturity, approximated as [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]. For the issuer it is the before-tax cost of the bond.</p>
+<p>Formula: YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]</p>
+<p>شرح: البسط: الفايدة السنوية زائد فرق الخصم موزع على السنين. المقام: متوسط الفلوس اللي الشركة شايلاها. في المثال الكوبون 7% والتكلفة الحقيقية حوالي 7.8%.</p>
+
+<p>• After-tax cost of bonds — تكلفة السندات بعد الضريبة</p>
+<p>YTM × (1 − T). In the lecture, 7.8% × 0.75 = 5.85%. Compare sources of finance after tax.</p>
+<p>Formula: After-tax cost of bonds = YTM × (1 − T)</p>
+<p>شرح: القروض في المثال كانت 9.5% والسندات 7.8% قبل الضريبة. بعد الضريبة القروض بقت 5.7% والسندات 5.85%، يعني الترتيب اتقلب. عشان كده المقارنة دايمًا بعد الضريبة.</p>
+
+<p>=== FORMULAS ===</p>
+<p>• Cost of debt (after tax) (تكلفة الديون بعد الضريبة): Kd = (Interest expense ÷ Total debt) × (1 − T). T is the marginal tax rate; interest is tax-deductible.</p>
+<p>• Tax saving on interest (الوفر الضريبي): Tax saving = Interest expense × T. Why debt is cheaper than equity after tax.</p>
+<p>• CAPM (cost of equity) (نموذج تسعير الأصول الرأسمالية): Re = Rf + β × (Rm − Rf). Beta measures risk relative to the market.</p>
+<p>• WACC (lecture 06 form) (متوسط تكلفة رأس المال المرجح): WACC = (E/V × Re) + (D/V × Rd × (1 − Tc)). E, D at market value; V = E + D. Only debt gets (1 − Tc).</p>
+<p>• WACC with several sources (متوسط التكلفة مع عدة مصادر): WACC = Σ (amount ÷ total × after-tax cost). Ordinary shares, retained earnings, preference shares, bonds.</p>
+<p>• Weighted cost of bank loans (متوسط تكلفة القروض البنكية): Kd = Σ (loan ÷ total loans × rate) × (1 − T). Weight by loan size, never a simple average.</p>
+<p>• Bond net issuance proceeds (صافي حصيلة إصدار السندات): NP = Issue price − (FV × issuance cost %). What the company actually receives.</p>
+<p>• Yield to maturity (YTM) (العائد حتى تاريخ الاستحقاق): YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]. C = FV × coupon rate. Before-tax cost of the bond; above the coupon when issued at a discount.</p>
+<p>• After-tax cost of bonds (تكلفة السندات بعد الضريبة): Kb = YTM × (1 − T). Compare all sources after tax.</p>
+<p>• Investment rule (قاعدة قرار الاستثمار): Accept if expected return &gt; WACC. Otherwise the project gives investors nothing.</p>
+
+<p>=== PRACTICE QUESTIONS WITH SOLUTIONS ===</p>
+
+<p>Q1. A private clinic pays 6M in interest on 40M of total debt. The tax rate is 25%. What is its after-tax cost of debt?</p>
+<p>- 11.25%  ✔ correct: 6 ÷ 40 = 15% before tax; 15% × (1 − 25%) = 11.25%.</p>
+<p>- 15%: This is the cost before tax; interest is tax-deductible, so multiply by (1 − T).</p>
+<p>- 3.75%: This multiplies by the tax rate (25%) instead of by (1 − 25%).</p>
+<p>- 4.5M: This is the after-tax interest amount, not a rate. Divide by total debt.</p>
+<p>Working:</p>
+<p>Before tax = 6M ÷ 40M = 15%</p>
+<p>After tax = 15% × (1 − 0.25) = 15% × 0.75 = 11.25%</p>
+<p>شرح: الفوايد بتتخصم قبل الضريبة، فالحكومة عمليًا بتشيل ربعها. عشان كده التكلفة الحقيقية 11.25% مش 15%.</p>
+
+<p>Q2. A pharmaceutical distributor has a beta of 0.8. Treasury bills yield 15% and the market returns 22%. What is its cost of equity using CAPM?</p>
+<p>- 20.6%  ✔ correct: 15% + 0.8 × (22% − 15%) = 15% + 5.6% = 20.6%.</p>
+<p>- 17.6%: This is 0.8 × 22%: it forgets the risk-free rate and does not subtract it from Rm.</p>
+<p>- 32.6%: This is 15% + 0.8 × 22%: the market return must be reduced by Rf first.</p>
+<p>- 22%: This is the market return, which only applies when beta is exactly 1.</p>
+<p>Working:</p>
+<p>Market risk premium = 22% − 15% = 7%</p>
+<p>Risk allowance = 0.8 × 7% = 5.6%</p>
+<p>Cost of equity = 15% + 5.6% = 20.6%</p>
+<p>شرح: بيتا أقل من 1 معناها إن السهم بيتهز أقل من السوق، فالمساهم بيطلب عائد أقل من عائد السوق: 20.6% بدل 22%.</p>
+
+<p>Q3. A hospital is financed 60% by equity costing 20% and 40% by debt with a 15% interest rate. The tax rate is 20%. What is its WACC?</p>
+<p>- 16.8%  ✔ correct: 0.60 × 20% + 0.40 × 15% × 0.8 = 12% + 4.8% = 16.8%.</p>
+<p>- 18%: This forgets the tax saving on debt: 12% + 6%.</p>
+<p>- 35%: This adds the two costs instead of weighting them.</p>
+<p>- 17.5%: This is the simple average of 20% and 15%, ignoring weights and tax.</p>
+<p>Working:</p>
+<p>Equity part = 60% × 20% = 12%</p>
+<p>Debt part = 40% × 15% × (1 − 20%) = 4.8%</p>
+<p>WACC = 12% + 4.8% = 16.8%</p>
+<p>شرح: الوزن الأول، وبعدين الضريبة على الدين بس. وأي مشروع في المستشفى ده لازم يجيب أكتر من 16.8% عشان يضيف قيمة.</p>
+
+<p>Q4. A company has two bank loans: 2M at 10% and 6M at 14%. The tax rate is 25%. What is its after-tax cost of bank loans?</p>
+<p>- 9.75%  ✔ correct: Weighted rate = (2 × 10% + 6 × 14%) ÷ 8 = 13%; after tax 13% × 0.75 = 9.75%.</p>
+<p>- 9%: This is the simple average (12%) after tax. The larger loan must weigh more.</p>
+<p>- 13%: This is the weighted rate before tax; multiply by (1 − T).</p>
+<p>- 12%: This is the simple average before tax: wrong on both weights and tax.</p>
+<p>Working:</p>
+<p>Weights: 2 ÷ 8 = 0.25 and 6 ÷ 8 = 0.75</p>
+<p>Weighted rate = 0.25 × 10% + 0.75 × 14% = 2.5% + 10.5% = 13%</p>
+<p>After tax = 13% × (1 − 0.25) = 9.75%</p>
+<p>شرح: القرض الكبير (6 مليون) هو اللي بيحدد التكلفة أكتر، فالمتوسط المرجح طلع 13% مش 12%. وبعد الوفر الضريبي 9.75%.</p>
+
+<p>Q5. A company issues a 10-year bond with face value 1,000 and a 10% coupon. It sells for 950, and issuance costs are 3% of face value. What is the approximate YTM?</p>
+<p>- 11.25%  ✔ correct: NP = 950 − 30 = 920; YTM ≈ (100 + 80 ÷ 10) ÷ [(1,000 + 920) ÷ 2] = 108 ÷ 960 = 11.25%.</p>
+<p>- 10%: This is the coupon rate. The bond was sold at a discount and had costs, so the real cost is higher.</p>
+<p>- 10.77%: This uses the price of 950 and ignores issuance costs: (100 + 5) ÷ 975.</p>
+<p>- 10.87%: This is 100 ÷ 920: it ignores that the company must repay the full 1,000 at maturity.</p>
+<p>Working:</p>
+<p>Issuance cost = 1,000 × 3% = 30</p>
+<p>NP = 950 − 30 = 920</p>
+<p>C = 1,000 × 10% = 100</p>
+<p>YTM ≈ [100 + (1,000 − 920) ÷ 10] ÷ [(1,000 + 920) ÷ 2]</p>
+<p>= (100 + 8) ÷ 960 = 11.25%</p>
+<p>شرح: الشركة استلمت 920 بس وهترجّع 1,000، فالفرق 80 تكلفة زيادة بتتوزع على العشر سنين: 8 كل سنة فوق الفايدة. عشان كده التكلفة الحقيقية 11.25% مش 10%.</p>
+
+<p>Q6. A marketing group issues bonds with an 8% coupon at a price of 930. What can you say about its YTM?</p>
+<p>- It is above 8%, because the bond was sold at a discount  ✔ correct: Selling below face value means the company repays more than it received, so its yearly cost is above the coupon.</p>
+<p>- It equals 8%, the coupon rate: The coupon equals the YTM only when the bond is sold at face value with no costs.</p>
+<p>- It is below 8%, because the company received less money: Receiving less money while repaying 1,000 raises the cost; it does not lower it.</p>
+<p>- It cannot be compared without the tax rate: YTM is the before-tax cost; tax only matters for the next step.</p>
+<p>Working:</p>
+<p>Price 930 &lt; face value 1,000 → discount</p>
+<p>The extra 70 repaid at maturity adds to the yearly cost</p>
+<p>So YTM &gt; 8% coupon</p>
+<p>شرح: السند اتباع بخصم لأن السوق بيدّي أكتر من 8%. فالشركة هتدفع الكوبون وكمان هترجّع 70 جنيه زيادة عن اللي استلمته، والاتنين مع بعض بيخلّوا التكلفة أعلى من 8%.</p>
+
+<p>Q7. A hospital's WACC is 13%. Project A, a new oncology day-care unit, is expected to return 15%. Project B, an expanded cafeteria, is expected to return 11%. What should management do?</p>
+<p>- Accept A and reject B  ✔ correct: A earns more than the 13% cost of capital; B earns less, so it would destroy value even though it is profitable.</p>
+<p>- Accept both, because both are profitable: Being profitable is not enough: B earns 11% on money that costs 13%.</p>
+<p>- Reject both, because WACC is above the interest rate: The comparison is expected return vs WACC, not vs an interest rate.</p>
+<p>- Accept B, because it is less risky: The question gives no risk difference; the rule is return vs cost of capital.</p>
+<p>Working:</p>
+<p>A: 15% &gt; 13% → creates value → accept</p>
+<p>B: 11% &lt; 13% → destroys value → reject</p>
+<p>شرح: الكافيتريا هتكسب، بس 11% على فلوس تكلفتها 13%. يعني المستشفى هيخسر 2% في السنة من غير ما يبان في الدفاتر. ده نفس منطق الـ EVA بس قبل ما نصرف.</p>
+
+<p>Q8. In a WACC with ordinary shares, retained earnings, preference shares and bonds, which cost is multiplied by (1 − T)?</p>
+<p>- Only the bonds  ✔ correct: Only interest is deducted before tax. Dividends on ordinary and preference shares are paid from profit after tax.</p>
+<p>- All four sources: Equity costs have no tax saving, because dividends are not tax-deductible.</p>
+<p>- Bonds and preference shares, because both pay a fixed amount: A fixed payment is not the test; the test is whether it is tax-deductible. Preference dividends are not.</p>
+<p>- None of them, because WACC is already after tax: WACC is after tax precisely because the debt cost is multiplied by (1 − T).</p>
+<p>Working:</p>
+<p>Interest → deducted before tax → × (1 − T)</p>
+<p>Dividends (ordinary and preference) → paid after tax → no adjustment</p>
+<p>Retained earnings → owners' money → no adjustment</p>
+<p>شرح: الفايدة بتتخصم من الربح قبل الضريبة، فبتقلل الضريبة. لكن الأرباح اللي بتتوزع على أي نوع أسهم بتتدفع بعد الضريبة، فمفيش وفر. السؤال ده مهم جدًا للـ assignment.</p>
+</body></html>

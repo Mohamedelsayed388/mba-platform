@@ -371,10 +371,10 @@ body::before{background:var(--mast)}
       <div class="byline"><span>Built by <b>Mohamed Elsayed</b>, AI Instructor</span><span>Course lecturer: Dr. Ahmed Amin Hashim</span></div>
     </div>
     <aside class="latest" aria-label="Latest lecture">
-      <span class="label">Latest · Lecture 05</span>
-      <h2>Economic Value Added (EVA) <span class="h-ar" lang="ar">القيمة الاقتصادية المضافة</span></h2>
-      <ul><li>EVA = NOPAT − Invested capital × WACC</li><li>WACC step by step, with a worked example</li><li>Exam case: from positive to negative EVA</li></ul>
-      <button class="btn brass" data-open-issue="5">Read lecture 05</button>
+      <span class="label">Latest · Lecture 06</span>
+      <h2>The Cost of Capital <span class="h-ar" lang="ar">تكلفة رأس المال</span></h2>
+      <ul><li>After-tax cost of debt and CAPM (Capital Asset Pricing Model)</li><li>WACC with several sources and several loans</li><li>Bonds: net proceeds, YTM (Yield to Maturity) and after-tax cost</li></ul>
+      <button class="btn brass" data-open-issue="6">Read lecture 06</button>
     </aside>
   </div>
   <div class="ticker" aria-hidden="true"><div class="run" id="ticker"></div></div>
@@ -443,8 +443,8 @@ body::before{background:var(--mast)}
     <span class="label">Course structure</span>
     <h2>Four parts across the semester</h2>
     <div class="pillars">
-      <div class="pillar now"><span class="label">Part 1 · in progress</span><b>Financial Analysis &amp; Capital Budgeting</b></div>
-      <div class="pillar"><span class="label">Part 2</span><b>The Cost of Capital</b></div>
+      <div class="pillar"><span class="label">Part 1 · covered</span><b>Financial Analysis &amp; Capital Budgeting</b></div>
+      <div class="pillar now"><span class="label">Part 2 · in progress</span><b>The Cost of Capital</b></div>
       <div class="pillar"><span class="label">Part 3</span><b>Securities Valuation</b></div>
       <div class="pillar"><span class="label">Part 4</span><b>The Environment Surrounding Business</b></div>
     </div>
@@ -469,7 +469,8 @@ body::before{background:var(--mast)}
       <button aria-pressed="false" data-issue="2">Lecture 02 · Financial Analysis</button>
       <button aria-pressed="false" data-issue="3">Lecture 03 · Financial Statements</button>
       <button aria-pressed="false" data-issue="4">Lecture 04 · Financial Ratios</button>
-      <button aria-pressed="true" data-issue="5">Lecture 05 · EVA</button>
+      <button aria-pressed="false" data-issue="5">Lecture 05 · EVA</button>
+      <button aria-pressed="true" data-issue="6">Lecture 06 · Cost of Capital</button>
     </div>
   </div>
 
@@ -518,7 +519,7 @@ body::before{background:var(--mast)}
           <div class="branch"><h3><span class="num">1</span>Financial Analysis</h3><div class="chips"><span class="chip">Sources &amp; uses of money</span><span class="chip">Financial statements</span><span class="chip">Financial ratios</span><span class="chip">Network of ratios</span><span class="chip">MVA · Market Value Added</span><span class="chip">EVA · Economic Value Added</span></div><span class="st done">Lectures 02–05</span></div>
           <div class="branch"><h3><span class="num">2</span>Financial Forecasting</h3><div class="chips"><span class="chip">Forecasted financial position</span><span class="chip">% of sales method</span><span class="chip">Linear regression</span></div><span class="st">Coming up</span></div>
           <div class="branch"><h3><span class="num">3</span>Planning &amp; Control</h3><div class="chips"><span class="chip">Budgeting</span><span class="chip">Breakeven analysis</span><span class="chip">Operating leverage</span></div><span class="st">Coming up</span></div>
-          <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC · Weighted Average Cost of Capital</span></div><span class="st">Part 2 · Cost of capital</span></div>
+          <div class="branch"><h3><span class="num">4</span>Financial Hierarchy <span class="flag">Important</span></h3><div class="chips"><span class="chip">Sources of finance</span><span class="chip">Costs of finance</span><span class="chip">WACC · Weighted Average Cost of Capital</span></div><span class="st done">Lectures 05–06</span></div>
           <div class="branch"><h3><span class="num">5</span>Investment Decisions</h3><div class="chips"><span class="chip">SRR</span><span class="chip">PBP</span><span class="chip">NPV</span><span class="chip">IRR</span></div><span class="st done">Defined in lecture 01</span></div>
           <div class="branch"><h3><span class="num">6</span>Asset Management</h3><div class="chips"><span class="chip">To be detailed</span></div><span class="st">Coming up</span></div>
         </div>
@@ -1159,7 +1160,7 @@ body::before{background:var(--mast)}
     </div>
   </article>
 
-  <article data-issue-body="5">
+  <article data-issue-body="5" hidden>
     <div class="ihead">
       <span class="label">Lecture 05 · Part Three</span>
       <h2>Economic Value Added (EVA) <span class="h-ar" lang="ar">القيمة الاقتصادية المضافة</span></h2>
@@ -1320,6 +1321,233 @@ body::before{background:var(--mast)}
         </div>
       </div>
       <p class="ar callout">الدرس من القصتين: النمو مش معناه إنك تحط فلوس أكتر. Pepsi حطت فلوس أكتر بكتير وكسبت قيمة سوقية أقل. Coca-Cola حطت فلوس أقل بكتير، بس استخدمتها أحسن، فقيمتها في السوق زادت أكتر. ونفس الكلام في مستشفى: فرع جديد بمئات الملايين مش إنجاز في حد ذاته. الإنجاز إن العائد عليه يكون أعلى من تكلفة الفلوس اللي اتصرفت فيه. ومن هنا الربط بالـ MVA اللي أخدناه في المحاضرة التانية: لما الشركة تعمل EVA موجب سنة ورا سنة، السوق بيقيّمها أعلى.</p>
+    </div>
+  </article>
+
+  <article data-issue-body="6">
+    <div class="ihead">
+      <span class="label">Lecture 06 · Part Two</span>
+      <h2>The Cost of Capital: debt, equity and bonds <span class="h-ar" lang="ar">تكلفة رأس المال: الديون وحقوق الملكية والسندات</span></h2>
+      <p class="lead">The cost of capital is the <b>minimum</b> return a company must earn on its assets to satisfy everyone who funded them: lenders, owners and other providers of capital. It is a blended rate of two main sources, <b>debt</b> and <b>equity</b>, and that blend is the WACC (Weighted Average Cost of Capital). Lecture 05 used WACC inside EVA; this lecture shows how each piece of it is calculated, including the cost of bank loans and of bonds.</p>
+      <p class="ar callout">أي فلوس داخلة الشركة ليها صاحب، وصاحبها مستني عائد. البنك مستني فوايده، والمساهم مستني عائد يعوّضه عن المخاطرة. تكلفة رأس المال هي أقل عائد لازم الشركة تجيبه عشان ترضي الاتنين. يعني لو مستشفى تكلفة الفلوس اللي فيه 12%، وعاوز يفتح قسم أشعة جديد، القسم ده لازم يجيب أكتر من 12%، وإلا يبقى المستشفى بيشتغل عشان يدفع للممولين وبس، والمساهم مش هيطلع بحاجة.</p>
+      <p class="note">This lecture is "Part Two · Cost of Capital", which matches the course outline from Lecture 01. The two exercises at the end of the slides are the cohort's assignment, so this page explains the method on the lecture's solved cases and on separate practice numbers, and leaves the assignment for you to solve.</p>
+    </div>
+
+    <div class="block">
+      <h2>1. The rule behind every investment <span class="h-ar" lang="ar">القاعدة اللي ورا أي قرار استثمار</span></h2>
+      <div class="stmt3">
+        <div class="s"><b>Minimum required return</b><span lang="ar">الحد الأدنى للعائد المطلوب</span><span class="sd">The return suppliers of capital require as compensation for providing it.</span></div>
+        <div class="s"><b>Return &gt; cost of capital</b><span lang="ar">العائد أكبر من التكلفة</span><span class="sd">A project must earn more than the cost of the capital that finances it, or it gives investors nothing.</span></div>
+        <div class="s"><b>The investor's view</b><span lang="ar">من وجهة نظر المستثمر</span><span class="sd">An estimate of the return expected from buying shares or any investment, often with best- and worst-case scenarios.</span></div>
+      </div>
+      <div class="two">
+        <div class="pane">
+          <h3>Worked example: a new cath lab</h3>
+          <p>A hospital's WACC is <b>12%</b>. Two proposals:</p>
+          <div class="formula">Cath lab: expected return 15% &gt; 12% → accept</div>
+          <div class="formula">Second car park: expected return 9% &lt; 12% → reject</div>
+          <p>The car park still makes money, but less than the money costs.</p>
+        </div>
+        <div class="pane">
+          <h3>Same company, two names</h3>
+          <p>For the <b>company</b> it is a cost: what it pays to use the money. For the <b>investor</b> it is a required return: what they expect to receive. It is one number seen from both sides of the table.</p>
+          <p>That is also why it is the discount rate in NPV and the bar for IRR from Lecture 01.</p>
+        </div>
+      </div>
+      <p class="ar callout">الجراج هيكسب، آه، بس 9% بس، والفلوس اللي اتصرفت عليه تكلفتها 12%. يعني كل سنة المستشفى بيخسر 3% من غير ما يحس، لأن الدفاتر هتقول إن الجراج كسبان. ده نفس منطق الـ EVA اللي أخدناه في المحاضرة اللي فاتت، بس هنا بنستخدمه قبل ما ندفع الفلوس، مش بعدها. وده بالظبط معنى "hurdle rate": الحاجز اللي أي مشروع لازم ينطّه.</p>
+    </div>
+
+    <div class="block">
+      <h2>2. Cost of debt, after tax <span class="h-ar" lang="ar">تكلفة الديون بعد الضريبة</span></h2>
+      <p class="lead">The cost of debt is the interest rate the company pays on its debt, such as bank loans and bonds. Because interest is deducted before tax is calculated, the government effectively pays part of it. So the cost of debt is always used <b>after tax</b>.</p>
+      <div class="eq">Cost of debt = (Interest expense ÷ Total debt) × (1 − T)</div>
+      <p class="note">T is the company's marginal tax rate. Interest expense is the interest paid on the firm's current debt.</p>
+      <div class="two">
+        <div class="pane">
+          <h3>Worked example: a hospital group</h3>
+          <div class="formula">Interest expense 12M ÷ Total debt 80M = 15% before tax</div>
+          <div class="formula">After tax = 15% × (1 − 22.5%) = 15% × 0.775 = 11.6%</div>
+        </div>
+        <div class="pane">
+          <h3>Where the saving comes from: the tax shield</h3>
+          <div class="formula">Tax saving = Interest × T = 12M × 22.5% = 2.7M</div>
+          <div class="formula">Net cost = 12M − 2.7M = 9.3M → 9.3 ÷ 80 = 11.6%</div>
+          <p>The lecture calls this the <b>tax saving</b>: a financial idea used when comparing options, not an accounting entry.</p>
+        </div>
+      </div>
+      <p class="ar callout">ليه بنضرب في &#x2066;(1 − T)&#x2069;؟ لأن الفوايد بتتخصم من الربح قبل ما نحسب الضريبة. المستشفى دفع 12 مليون فوايد، فالربح اللي عليه ضريبة قلّ 12 مليون، والضريبة قلّت &#x2066;2.7&#x2069; مليون. يعني التكلفة الحقيقية للدين 9.3 مليون بس، مش 12. والميزة دي مش موجودة لفلوس المساهمين: الأرباح اللي بتتوزع عليهم مش بتتخصم من الضريبة. عشان كده الدين غالبًا أرخص من حقوق الملكية.</p>
+    </div>
+
+    <div class="block">
+      <h2>3. Cost of equity: CAPM <span class="h-ar" lang="ar">تكلفة حقوق الملكية: نموذج تسعير الأصول الرأسمالية</span></h2>
+      <p class="lead">The cost of equity is the return shareholders expect in exchange for their money and their risk. It is usually estimated with the <b>CAPM (Capital Asset Pricing Model)</b>, which uses <b>beta</b> to measure risk.</p>
+      <div class="eq">Cost of equity = Rf + β × (Rm − Rf)</div>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Part</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><b>Rf</b> · Risk-free rate<br><span lang="ar">العائد الخالي من المخاطر</span></td><td>What you earn with almost no risk, such as government treasury bills.</td></tr>
+          <tr><td><b>Rm</b> · Market rate of return<br><span lang="ar">عائد السوق</span></td><td>The average return of the stock market as a whole.</td></tr>
+          <tr><td><b>Rm − Rf</b> · Market risk premium<br><span lang="ar">علاوة مخاطر السوق</span></td><td>The extra return investors want for leaving the safe option for the market.</td></tr>
+          <tr><td><b>β</b> · Beta<br><span lang="ar">معامل بيتا</span></td><td>How strongly the share moves with the market. β = 1 moves with it; above 1 swings more; below 1 swings less.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="two">
+        <div class="pane">
+          <h3>Worked example: two listed companies</h3>
+          <p>Rf = 18%, Rm = 25%, so the market premium is 7%.</p>
+          <div class="formula">Pharmacy chain, β = 0.8: 18% + 0.8 × 7% = 23.6%</div>
+          <div class="formula">Advertising agency, β = 1.4: 18% + 1.4 × 7% = 27.8%</div>
+        </div>
+        <div class="pane">
+          <h3>Link to Lecture 05</h3>
+          <p>Lecture 05 wrote the cost of equity as <b>risk-free rate + risk allowance</b>. CAPM is the same idea, with the risk allowance calculated as β × (Rm − Rf) instead of given.</p>
+        </div>
+      </div>
+      <p class="ar callout">الناس بتشتري دوا لما الاقتصاد كويس ولما يكون وحش، فسهم سلسلة صيدليات بيتهز أقل من السوق، والبيتا بتاعته أقل من 1. لكن أول حاجة الشركات بتقطعها في الأزمة هي ميزانية الإعلانات، فسهم وكالة الإعلانات بيطلع وينزل أكتر من السوق، والبيتا بتاعته أكبر من 1. المساهم في الوكالة شايل مخاطرة أكبر، فطبيعي يطلب عائد أعلى: &#x2066;27.8%&#x2069; بدل &#x2066;23.6%&#x2069;. والعائد الخالي من المخاطر هو اللي أي حد ياخده من أذون الخزانة وهو قاعد في بيته، فأي استثمار تاني لازم يدّيه أكتر من كده.</p>
+    </div>
+
+    <div class="block">
+      <h2>4. Putting them together: WACC <span class="h-ar" lang="ar">نجمعهم: متوسط تكلفة رأس المال المرجح</span></h2>
+      <div class="eq">WACC = (E/V × Re) + (D/V × Rd × (1 − Tc))</div>
+      <p class="note">E and D are the market values of equity and debt, V = E + D, Re is the cost of equity, Rd the cost of debt and Tc the income tax rate. Only the debt term is multiplied by (1 − Tc).</p>
+      <div class="two">
+        <div class="pane">
+          <h3>The lecture's quick example</h3>
+          <p>70% equity at 10%, 30% debt at 7% after tax:</p>
+          <div class="formula">WACC = 0.7 × 10% + 0.3 × 7% = 7% + 2.1% = 9.1%</div>
+        </div>
+        <div class="pane">
+          <h3>Example 1: ABC raises $1.5 million</h3>
+          <p>$800,000 from shares (cost 5%), $700,000 from 700 bonds of $1,000 (cost 10%), tax 25%.</p>
+          <div class="formula">Equity: 800/1,500 × 5% = 0.5333 × 5% = 2.67%</div>
+          <div class="formula">Debt: 700/1,500 × 10% × 0.75 = 3.50%</div>
+          <div class="formula">WACC = 2.67% + 3.50% = 6.17%</div>
+        </div>
+      </div>
+      <p class="note">Points to check with the lecturer: one slide writes "Cost of debt + Cost of equity = Overall cost of capital". It is a <b>weighted</b> sum, as every example in the lecture calculates (the same point appeared in Lecture 05). Example 1 shows the result as 0.061 ("6.1"); the exact figure is 0.0617, about 6.2%.</p>
+      <p class="ar callout">الـ WACC زي متوسط سعر الدوا في صيدلية بتشتري من موردين: لو جبت 70% من البضاعة من مورد غالي و30% من مورد أرخص، متوسط التكلفة مش مجموع السعرين ولا متوسطهم العادي. لازم كل سعر يتضرب في نسبته. وهنا نفس الكلام: فلوس المساهمين وفلوس البنك، كل واحد بتكلفته وبوزنه. وخلي بالك إن &#x2066;(1 − T)&#x2069; بتتضرب في جزء الدين بس، لأن هو بس اللي بيوفر ضريبة.</p>
+    </div>
+
+    <div class="block">
+      <h2>5. WACC with four sources <span class="h-ar" lang="ar">متوسط التكلفة مع أربع مصادر تمويل</span></h2>
+      <p class="lead">Real companies have more than two sources. The method stays the same: weight = amount ÷ total, weighted cost = weight × after-tax cost, WACC = the sum of the weighted costs.</p>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Source</th><th>Amount (Rs.)</th><th>Weight</th><th>After-tax cost</th><th>Weighted cost</th></tr></thead>
+        <tbody>
+          <tr><td><b>Equity share capital</b><br><span lang="ar">رأس مال الأسهم العادية</span></td><td>800,000</td><td>0.333</td><td>16%</td><td>5.33%</td></tr>
+          <tr><td><b>Retained earnings</b><br><span lang="ar">الأرباح المحتجزة</span></td><td>400,000</td><td>0.167</td><td>15%</td><td>2.50%</td></tr>
+          <tr><td><b>Preference share capital</b><br><span lang="ar">رأس مال الأسهم الممتازة</span></td><td>600,000</td><td>0.25</td><td>12%</td><td>3.00%</td></tr>
+          <tr><td><b>Debentures / bonds</b><br><span lang="ar">السندات</span></td><td>600,000</td><td>0.25</td><td>9%</td><td>2.25%</td></tr>
+          <tr><td><b>Total</b></td><td><b>2,400,000</b></td><td>1.00</td><td></td><td><b>13.08% ≈ 13%</b></td></tr>
+        </tbody>
+      </table></div>
+      <div class="two">
+        <div class="pane">
+          <h3>What the four sources are</h3>
+          <p><b>Preference shares</b> get a fixed dividend paid before ordinary shareholders, but carry no tax saving. <b>Retained earnings</b> are profits kept in the business; they belong to the owners, so they have a cost even though no one is paid interest on them.</p>
+        </div>
+        <div class="pane">
+          <h3>Reading the 13%</h3>
+          <p>Every pound in ABC costs about 13 piasters a year. A new project must beat 13% to add value.</p>
+          <p class="note">The slide rounds the weights to 0.34 and 0.16 and shows 0.024 for retained earnings; with exact weights it is 0.025. The total, 13%, is the same either way.</p>
+        </div>
+      </div>
+      <p class="ar callout">لاحظ ترتيب التكاليف: السندات أرخص حاجة (9%)، وبعدها الأسهم الممتازة (12%)، وبعدها الأرباح المحتجزة (15%)، وأغلى حاجة الأسهم العادية (16%). ده منطقي: صاحب السند بياخد فوايده الأول ومضمونة أكتر، فبيقبل بعائد أقل، والمساهم العادي آخر واحد بياخد، فبيطلب أكتر. والأرباح المحتجزة هنا أرخص من إصدار أسهم جديدة، لأن الشركة مش بتدفع مصاريف إصدار، وده نفس الكلام اللي قلناه عن الـ pecking order: الشركة بتبدأ بفلوسها هي الأول.</p>
+    </div>
+
+    <div class="block">
+      <h2>6. The cost of several bank loans <span class="h-ar" lang="ar">تكلفة أكتر من قرض بنكي</span></h2>
+      <p class="lead">When a company has several loans at different rates, its cost of bank debt is the <b>weighted</b> average of the rates, using each loan's share of total loans, then adjusted for tax. Example 3: an Egyptian company, tax rate 40%.</p>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Loan</th><th>Amount</th><th>Weight</th><th>Interest</th><th>Weighted cost</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>500,000</td><td>0.149</td><td>8%</td><td>1.19%</td></tr>
+          <tr><td>2</td><td>1,200,000</td><td>0.358</td><td>9%</td><td>3.22%</td></tr>
+          <tr><td>3</td><td>750,000</td><td>0.224</td><td>9.5%</td><td>2.13%</td></tr>
+          <tr><td>4</td><td>900,000</td><td>0.269</td><td>11%</td><td>2.96%</td></tr>
+          <tr><td><b>Total</b></td><td><b>3,350,000</b></td><td>1.00</td><td></td><td><b>9.50% before tax</b></td></tr>
+        </tbody>
+      </table></div>
+      <div class="formula">After tax = 9.5% × (1 − 40%) = 9.5% × 0.6 = 5.7%</div>
+      <p class="note">One slide in this example is headed "the cost of bank loans before tax" but shows the after-tax formula, written as "Interest expense × (1 − Tax rate)". The formula should use the interest <b>rate</b> (interest ÷ debt), and its result is the cost after tax.</p>
+      <p class="ar callout">الغلطة الشائعة هنا إنك تاخد متوسط عادي للفوايد: &#x2066;(8 + 9 + 9.5 + 11) ÷ 4 = 9.375%&#x2069;. ده غلط، لأن قرض المليون و200 ألف تأثيره أكبر بكتير من قرض النص مليون. زي ما في المستشفى متوسط مدة الإقامة بيتحسب على عدد المرضى في كل قسم، مش متوسط الأقسام. فبنوزن كل قرض بحجمه، فيطلع 9.5%، وبعد التوفير الضريبي التكلفة الحقيقية &#x2066;5.7%&#x2069; بس.</p>
+    </div>
+
+    <div class="block">
+      <h2>7. The cost of bonds: proceeds and YTM <span class="h-ar" lang="ar">تكلفة السندات: صافي حصيلة الإصدار والعائد حتى الاستحقاق</span></h2>
+      <p class="lead">A bond is a loan the company takes from the public. It promises a fixed yearly interest (the <b>coupon</b>) and repays the <b>face value</b> at maturity. If investors can earn more elsewhere at the same risk, the company must sell the bond below face value, <b>at a discount</b>, and it also pays <b>issuance (flotation) costs</b>.</p>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><b>FV</b> · Face value<br><span lang="ar">القيمة الاسمية</span></td><td>The amount repaid at maturity, usually 1,000.</td></tr>
+          <tr><td><b>Coupon rate</b><br><span lang="ar">معدل الكوبون</span></td><td>Yearly interest as a % of face value. C = FV × coupon rate.</td></tr>
+          <tr><td><b>Discount</b><br><span lang="ar">الإصدار بخصم</span></td><td>Selling below face value because the market rate is higher than the coupon.</td></tr>
+          <tr><td><b>Issuance costs</b><br><span lang="ar">مصاريف الإصدار</span></td><td>Fees to issue the bond, here a % of face value.</td></tr>
+          <tr><td><b>NP</b> · Net issuance proceeds<br><span lang="ar">صافي حصيلة الإصدار</span></td><td>What the company actually receives: issue price − issuance costs.</td></tr>
+          <tr><td><b>YTM</b> · Yield to maturity<br><span lang="ar">العائد حتى تاريخ الاستحقاق</span></td><td>The yearly return on the bond if held to maturity: the company's <b>before-tax</b> cost of the bond.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="eq">Net proceeds = Issue price − (FV × issuance cost %)</div>
+      <div class="eq">YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]</div>
+      <div class="eq">After-tax cost of bonds = YTM × (1 − T)</div>
+      <p class="note">n is the number of years to maturity. The formula is an approximation, which is why the lecture writes "≈".</p>
+      <div class="two">
+        <div class="pane">
+          <h3>Lecture example: 10 years, 7% coupon</h3>
+          <p>FV 1,000, sold for 966, issuance cost 2% of FV, tax 25%.</p>
+          <div class="formula">NP = 966 − (1,000 × 2%) = 966 − 20 = 946</div>
+          <div class="formula">C = 1,000 × 7% = 70</div>
+          <div class="formula">YTM ≈ [70 + (1,000 − 946) ÷ 10] ÷ [(1,000 + 946) ÷ 2]</div>
+          <div class="formula">= (70 + 5.4) ÷ 973 = 75.4 ÷ 973 = 7.75%</div>
+          <div class="formula">After tax = 7.8% × (1 − 25%) = 5.85%</div>
+        </div>
+        <div class="pane">
+          <h3>Case 2 (model answer): 8 years, 8% coupon</h3>
+          <p>FV 1,000, sold for 940, issuance cost 3% of FV.</p>
+          <div class="formula">NP = 940 − 30 = 910</div>
+          <div class="formula">C = 1,000 × 8% = 80</div>
+          <div class="formula">YTM ≈ [80 + (1,000 − 910) ÷ 8] ÷ [(1,000 + 910) ÷ 2]</div>
+          <div class="formula">= (80 + 11.25) ÷ 955 = 91.25 ÷ 955 = 9.56%</div>
+          <p>Issued at a discount, so YTM (9.56%) is higher than the 8% coupon.</p>
+        </div>
+      </div>
+      <p class="note">Points to check with the lecturer: in the first example the slide shows "70 (1000 − 946)/10" without the plus sign; it is 70 <b>+</b> 5.4. The YTM is 7.749%; the after-tax step uses the rounded 7.8%, giving 5.85% (with 7.75% it is 5.81%). The YTM slide also lists the years as "t" while the formula writes "n"; they are the same thing.</p>
+      <p class="ar callout">خلينا نفهم كل جزء في المعادلة بالراحة. البسط هو اللي الشركة بتدفعه في السنة فعلًا: الكوبون، يعني الفوايد السنوية، زائد حتة صغيرة. الحتة دي جاية من إن الشركة استلمت &#x2066;946&#x2069; بس، وهترجّع &#x2066;1,000&#x2069; كاملة في الآخر. الفرق ده، &#x2066;54&#x2069; جنيه، تكلفة زيادة عليها، فبنوزعه على العشر سنين: &#x2066;5.4&#x2069; في السنة. والمقام هو متوسط الفلوس اللي الشركة شايلاها طول المدة: بين اللي استلمته واللي هترجّعه. ونقسم الاتنين على بعض، يطلع العائد السنوي. والفكرة ببساطة إن الشركة كاتبة على السند 7%، لكن لأنها باعته بخصم ودفعت مصاريف، التكلفة الحقيقية عليها قبل الضريبة حوالي 7.8%. زي حملة تسويق: سعر الإعلان المكتوب حاجة، والتكلفة الحقيقية بعد العمولات والخصومات حاجة تانية.</p>
+      <div class="two">
+        <div class="pane">
+          <h3>Bank loans vs bonds in the lecture</h3>
+          <div class="scroll"><table class="mini"><tbody>
+            <tr><td></td><td>Before tax</td><td>After tax</td></tr>
+            <tr><td>Bank loans (tax 40%)</td><td>9.5%</td><td><b>5.7%</b></td></tr>
+            <tr><td>Bonds (tax 25%)</td><td>7.8%</td><td><b>5.85%</b></td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="pane">
+          <h3>The lesson in the comparison</h3>
+          <p>Loans look more expensive before tax, but cost less after tax because the tax rate in that example is higher. Always compare sources <b>after tax</b>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>8. Practice, then your assignment <span class="h-ar" lang="ar">تمرين محلول، وبعدين الـ assignment</span></h2>
+      <div class="two">
+        <div class="pane">
+          <h3>Practice: a hospital bond</h3>
+          <p>FV 1,000, 5 years, coupon 10%, sold for 960, issuance cost 2% of FV, tax 22.5%.</p>
+          <div class="formula">1. NP = 960 − 20 = 940</div>
+          <div class="formula">2. C = 1,000 × 10% = 100</div>
+          <div class="formula">YTM ≈ [100 + (1,000 − 940) ÷ 5] ÷ [(1,000 + 940) ÷ 2]</div>
+          <div class="formula">= (100 + 12) ÷ 970 = 11.55%</div>
+          <div class="formula">3. After tax = 11.55% × 0.775 = 8.95%</div>
+        </div>
+        <div class="pane">
+          <h3>The assignment (two exercises in the slides)</h3>
+          <p><b>Bonds:</b> follow the same three steps: net proceeds (watch: the issuance cost is a % of <b>face value</b>), then YTM with n = 12, then multiply by (1 − 35%).</p>
+          <p><b>WACC with four sources:</b> the weights are given, so multiply each weight by its cost and add. Apply the tax only to debt. Note that 5.58% is exactly 9.3% × (1 − 40%), so it looks like it is already after tax; confirm with the lecturer before multiplying it by (1 − 40%) again.</p>
+        </div>
+      </div>
+      <p class="ar callout">الـ assignment حلّوه بنفسكم، لأن ده اللي هيثبّت الفكرة. اتبعوا نفس خطوات التمرين المحلول فوق، خطوة خطوة. وفي تمرين الـ WACC خلي بالك من حاجة مهمة: الضريبة بتتطبق على الدين بس، مش على الأسهم الممتازة ولا العادية ولا الأرباح المحتجزة، لأن توزيعاتهم مش بتتخصم من الضريبة. والرقم &#x2066;5.58%&#x2069; بالظبط يساوي &#x2066;9.3% × 0.6&#x2069;، فغالبًا هو أصلًا بعد الضريبة، فاتأكدوا من الدكتور قبل ما تضربوه في &#x2066;(1 − 40%)&#x2069; تاني. ولو وقفت عند خطوة، اسأل مساعد المادة عن الطريقة، مش عن الرقم النهائي.</p>
     </div>
   </article>
 </section>
@@ -1650,7 +1878,8 @@ body::before{background:var(--mast)}
     {n:2,title:'Financial Analysis & Capital Budgeting',sub:'Sources & uses · Horizontal & vertical · Ratios & DuPont · MVA & EVA'},
     {n:3,title:'The Three Financial Statements',sub:'Balance sheet · Income statement · Cash flow statement · Five ratio families'},
     {n:4,title:'Financial Ratio Analysis',sub:'Liquidity · Activity · Profitability · Leverage · Trend vs cross-sectional · Exam case'},
-    {n:5,title:'Economic Value Added (EVA)',sub:'Operating profit & NOPAT · Invested capital · WACC · Exam case · Limits of EVA'}
+    {n:5,title:'Economic Value Added (EVA)',sub:'Operating profit & NOPAT · Invested capital · WACC · Exam case · Limits of EVA'},
+    {n:6,title:'The Cost of Capital',sub:'After-tax cost of debt · CAPM · WACC with several sources · Bank loans · Bonds & YTM'}
   ];
   var NEXT='Next topic to be confirmed at the lecture';
 
@@ -1733,7 +1962,24 @@ body::before{background:var(--mast)}
     {i:5,t:"Value creation coefficient",tAr:"معامل خلق القيمة",en:"EVA divided by invested capital: how much value each pound of capital creates above its cost.",f:"Value creation coefficient = EVA ÷ Invested capital",ar:"زي نسبة مئوية للـ EVA. 28% معناها إن كل جنيه مستثمر جاب 28 قرش قيمة زيادة عن تكلفته. وده بيخليك تقارن شركة كبيرة بصغيرة بشكل عادل."},
     {i:5,t:"Positive, zero and negative EVA",tAr:"القيمة الموجبة والصفر والسالبة",en:"Positive: returns exceed the cost of capital. Zero: returns equal it. Negative: returns fall short, so value is destroyed even if accounting profit is positive.",ar:"صفر مش معناه إن الشركة خسرانة، معناه إنها بتجيب بالظبط اللي الفلوس تكلفته. والسالب ممكن يحصل لشركة كسبانة، زي الشركة الصناعية في 2022: كسبت 17.9 مليون، بس تكلفة فلوسها كانت 18.1 مليون."},
     {i:5,t:"Limits of EVA",tAr:"عيوب القيمة الاقتصادية المضافة",en:"EVA ignores non-financial factors (customer satisfaction, morale), can be manipulated if used alone, ignores external factors such as interest rates and inflation, and suits asset-rich firms better than intangible-heavy ones.",ar:"عشان كده الدكتور قال: استخدمه مع الـ ROE والـ ROA. ومثال: شركة برمجيات أصولها الحقيقية ناس وأفكار، فرأس مالها المستثمر صغير على الورق، والـ EVA هيطلعها أحسن من حقيقتها."},
-    {i:5,t:"EVA and market value",tAr:"الـ EVA والقيمة السوقية",en:"Companies that grow EVA tend to grow market value (MVA). Coca-Cola, managed by EVA, added less capital than Pepsi but gained far more market value.",ar:"السوق بيكافئ اللي بيستخدم فلوسه كويس، مش اللي بيحط فلوس أكتر. Pepsi زودت رأس مالها 520% وكسبت قيمة سوقية أقل من Coca-Cola اللي زودت 58% بس."}
+    {i:5,t:"EVA and market value",tAr:"الـ EVA والقيمة السوقية",en:"Companies that grow EVA tend to grow market value (MVA). Coca-Cola, managed by EVA, added less capital than Pepsi but gained far more market value.",ar:"السوق بيكافئ اللي بيستخدم فلوسه كويس، مش اللي بيحط فلوس أكتر. Pepsi زودت رأس مالها 520% وكسبت قيمة سوقية أقل من Coca-Cola اللي زودت 58% بس."},
+    {i:6,t:"Cost of capital",tAr:"تكلفة رأس المال",en:"The minimum return a firm must earn on its assets to satisfy its lenders, owners and other providers of capital. A blended rate of debt and equity, also called the hurdle rate.",ar:"أقل عائد لازم الشركة تجيبه عشان ترضي البنك والمساهمين. لو المستشفى تكلفة فلوسه 12%، أي قسم جديد لازم يجيب أكتر من 12%، وإلا يبقى شغال للممولين وبس."},
+    {i:6,t:"Return vs cost of capital rule",tAr:"قاعدة العائد مقابل التكلفة",en:"A project should earn more than the cost of the capital that finances it. If it earns less, it gives investors nothing, even if it shows a profit.",f:"Accept if expected return > WACC",ar:"جراج بيكسب 9% وتكلفة فلوسه 12%: الدفاتر بتقول كسبان، والحقيقة إنه بياكل 3% من فلوس الملاك كل سنة."},
+    {i:6,t:"Tax shield",tAr:"الوفر الضريبي",full:"Tax savings on interest",en:"Interest is deducted before tax, so it lowers the tax bill by Interest × T. The lecture calls it the tax saving: a financial term used to compare options, not an accounting one.",f:"Tax saving = Interest × T",ar:"مستشفى دفع 12 مليون فوايد والضريبة 22.5%: الضريبة قلّت ⁦2.7⁩ مليون، فالتكلفة الحقيقية للفوايد 9.3 مليون بس."},
+    {i:6,t:"Cost of debt (lecture 06 form)",tAr:"تكلفة الديون",en:"Interest expense divided by total debt, then multiplied by (1 − T) because interest is tax-deductible.",f:"Cost of debt = (Interest expense ÷ Total debt) × (1 − T)",ar:"فوايد 12 مليون على ديون 80 مليون = 15% قبل الضريبة، وبعد الضريبة ⁦15% × 0.775 = 11.6%⁩."},
+    {i:6,t:"CAPM",tAr:"نموذج تسعير الأصول الرأسمالية",full:"Capital Asset Pricing Model",en:"Estimates the cost of equity: the risk-free rate plus beta times the market risk premium.",f:"Re = Rf + β × (Rm − Rf)",ar:"المساهم بياخد اللي أذون الخزانة بتديه، وفوقه علاوة على قد المخاطرة. سلسلة صيدليات بيتا 0.8 بتطلب أقل من وكالة إعلانات بيتا 1.4."},
+    {i:6,t:"Beta (β)",tAr:"معامل بيتا",en:"Measures how strongly a share moves with the market. β = 1 moves with it; β > 1 swings more (riskier); β < 1 swings less.",ar:"الناس بتشتري دوا في الأزمة والرخاء، فسهم الصيدليات بيتهز أقل من السوق. لكن ميزانية الإعلانات أول حاجة بتتقطع، فسهم وكالة الإعلانات بيتهز أكتر."},
+    {i:6,t:"Rf",tAr:"العائد الخالي من المخاطر",full:"Risk-free rate of return",en:"The return available with almost no risk, such as government treasury bills. The starting point of any required return.",ar:"اللي أي حد ياخده من أذون الخزانة وهو قاعد في بيته. أي استثمار فيه مخاطرة لازم يدّي أكتر من كده."},
+    {i:6,t:"Market risk premium",tAr:"علاوة مخاطر السوق",full:"Rm − Rf",en:"Rm − Rf: the extra return investors require for holding the market instead of the risk-free asset.",f:"Market risk premium = Rm − Rf",ar:"لو السوق بيدّي 25% وأذون الخزانة 18%، يبقى العلاوة 7%: ده تمن إنك سبت الأمان ودخلت البورصة."},
+    {i:6,t:"Preference shares",tAr:"الأسهم الممتازة",en:"Shares that receive a fixed dividend before ordinary shareholders. Their dividends are not tax-deductible, so their cost has no (1 − T) adjustment.",ar:"في الترتيب هم في النص: بياخدوا قبل المساهم العادي وبعد البنك، فتكلفتهم في النص. ومفيش عليهم وفر ضريبي."},
+    {i:6,t:"WACC with several sources",tAr:"متوسط التكلفة مع عدة مصادر",en:"Weight each source by amount ÷ total, multiply each weight by its after-tax cost, and add. In the lecture: 16%, 15%, 12% and 9% sources give about 13%.",f:"WACC = Σ (weight × after-tax cost)",ar:"زي صيدلية بتشتري من أربع موردين: متوسط التكلفة كل سعر في نسبته، مش مجموع الأسعار ولا متوسطهم العادي."},
+    {i:6,t:"Weighted cost of bank loans",tAr:"متوسط تكلفة القروض البنكية",en:"Weight each loan's rate by its share of total loans, then multiply by (1 − T). Lecture example: 9.5% before tax, 5.7% after a 40% tax.",f:"Kd = Σ (loan ÷ total loans × rate) × (1 − T)",ar:"متوسط عادي للفوايد غلط، لأن القرض الكبير تأثيره أكبر. زي متوسط مدة الإقامة في المستشفى: بيتحسب على عدد المرضى في كل قسم، مش متوسط الأقسام."},
+    {i:6,t:"Face value (FV)",tAr:"القيمة الاسمية",full:"Face value",en:"The amount a bond repays at maturity, usually 1,000. The coupon is calculated on it.",ar:"المبلغ المكتوب على السند واللي الشركة هترجّعه في الآخر، حتى لو باعت السند بأقل منه."},
+    {i:6,t:"Coupon rate",tAr:"معدل الكوبون",en:"The fixed yearly interest a bond pays, as a % of face value. A 7% coupon on 1,000 pays 70 a year.",f:"C = FV × coupon rate",ar:"الفايدة المكتوبة على السند. بس دي مش بالضرورة التكلفة الحقيقية على الشركة، لو باعته بخصم أو دفعت مصاريف إصدار."},
+    {i:6,t:"Issued at a discount",tAr:"الإصدار بخصم",en:"When the market rate for similar risk is above the coupon, the bond sells below face value. Then YTM is higher than the coupon rate.",ar:"لو البنوك بتدّي أكتر من 7%، محدش هيشتري سند 7% بـ ⁦1,000⁩. فالشركة تبيعه بـ ⁦966⁩ عشان العائد الفعلي للمشتري يبقى مغري."},
+    {i:6,t:"Net issuance proceeds",tAr:"صافي حصيلة الإصدار",full:"NP · Net Proceeds",en:"What the company actually receives per bond: issue price minus issuance (flotation) costs, here a % of face value.",f:"NP = Issue price − (FV × issuance cost %)",ar:"سعر البيع ناقص مصاريف الإصدار: ⁦966 − 20 = 946⁩. ده اللي دخل الخزنة فعلًا، وهو اللي بنحسب عليه التكلفة."},
+    {i:6,t:"YTM",tAr:"العائد حتى تاريخ الاستحقاق",full:"Yield to Maturity",en:"The yearly return on a bond held to maturity, approximated as [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]. For the issuer it is the before-tax cost of the bond.",f:"YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]",ar:"البسط: الفايدة السنوية زائد فرق الخصم موزع على السنين. المقام: متوسط الفلوس اللي الشركة شايلاها. في المثال الكوبون 7% والتكلفة الحقيقية حوالي 7.8%."},
+    {i:6,t:"After-tax cost of bonds",tAr:"تكلفة السندات بعد الضريبة",en:"YTM × (1 − T). In the lecture, 7.8% × 0.75 = 5.85%. Compare sources of finance after tax.",f:"After-tax cost of bonds = YTM × (1 − T)",ar:"القروض في المثال كانت 9.5% والسندات 7.8% قبل الضريبة. بعد الضريبة القروض بقت 5.7% والسندات 5.85%، يعني الترتيب اتقلب. عشان كده المقارنة دايمًا بعد الضريبة."}
   ];
 
   var QUIZ=[
@@ -1904,7 +2150,39 @@ body::before{background:var(--mast)}
     {i:5,s:"Why does EVA start from NOPAT rather than net income?",
      o:[["Net income has already deducted interest; subtracting the full capital charge as well would count the cost of debt twice","NOPAT is before financing costs, so all capital costs are deducted once, through WACC.",1],["Net income is not reported in the income statement","It is the bottom line of the income statement."],["NOPAT is always larger, which makes EVA look better","The reason is consistency, not making EVA larger."],["Taxes are not deducted from net income","Net income is after tax."]],
      st:"Net income = after interest and tax\nCapital charge already includes the cost of debt\nSo: start before interest (NOPAT), then subtract all capital costs once",
-     ar:"لو بدأت من صافي الربح وطرحت تكلفة رأس المال كاملة، هتكون خصمت الفوايد مرتين: مرة في قائمة الدخل، ومرة جوه الـ WACC. عشان كده الـ NOPAT هو نقطة البداية الصح."}
+     ar:"لو بدأت من صافي الربح وطرحت تكلفة رأس المال كاملة، هتكون خصمت الفوايد مرتين: مرة في قائمة الدخل، ومرة جوه الـ WACC. عشان كده الـ NOPAT هو نقطة البداية الصح."},
+    {i:6,s:"A private clinic pays 6M in interest on 40M of total debt. The tax rate is 25%. What is its after-tax cost of debt?",
+     o:[["11.25%","6 ÷ 40 = 15% before tax; 15% × (1 − 25%) = 11.25%.",1],["15%","This is the cost before tax; interest is tax-deductible, so multiply by (1 − T)."],["3.75%","This multiplies by the tax rate (25%) instead of by (1 − 25%)."],["4.5M","This is the after-tax interest amount, not a rate. Divide by total debt."]],
+     st:"Before tax = 6M ÷ 40M = 15%\nAfter tax = 15% × (1 − 0.25) = 15% × 0.75 = 11.25%",
+     ar:"الفوايد بتتخصم قبل الضريبة، فالحكومة عمليًا بتشيل ربعها. عشان كده التكلفة الحقيقية 11.25% مش 15%."},
+    {i:6,s:"A pharmaceutical distributor has a beta of 0.8. Treasury bills yield 15% and the market returns 22%. What is its cost of equity using CAPM?",
+     o:[["20.6%","15% + 0.8 × (22% − 15%) = 15% + 5.6% = 20.6%.",1],["17.6%","This is 0.8 × 22%: it forgets the risk-free rate and does not subtract it from Rm."],["32.6%","This is 15% + 0.8 × 22%: the market return must be reduced by Rf first."],["22%","This is the market return, which only applies when beta is exactly 1."]],
+     st:"Market risk premium = 22% − 15% = 7%\nRisk allowance = 0.8 × 7% = 5.6%\nCost of equity = 15% + 5.6% = 20.6%",
+     ar:"بيتا أقل من 1 معناها إن السهم بيتهز أقل من السوق، فالمساهم بيطلب عائد أقل من عائد السوق: 20.6% بدل 22%."},
+    {i:6,s:"A hospital is financed 60% by equity costing 20% and 40% by debt with a 15% interest rate. The tax rate is 20%. What is its WACC?",
+     o:[["16.8%","0.60 × 20% + 0.40 × 15% × 0.8 = 12% + 4.8% = 16.8%.",1],["18%","This forgets the tax saving on debt: 12% + 6%."],["35%","This adds the two costs instead of weighting them."],["17.5%","This is the simple average of 20% and 15%, ignoring weights and tax."]],
+     st:"Equity part = 60% × 20% = 12%\nDebt part = 40% × 15% × (1 − 20%) = 4.8%\nWACC = 12% + 4.8% = 16.8%",
+     ar:"الوزن الأول، وبعدين الضريبة على الدين بس. وأي مشروع في المستشفى ده لازم يجيب أكتر من 16.8% عشان يضيف قيمة."},
+    {i:6,s:"A company has two bank loans: 2M at 10% and 6M at 14%. The tax rate is 25%. What is its after-tax cost of bank loans?",
+     o:[["9.75%","Weighted rate = (2 × 10% + 6 × 14%) ÷ 8 = 13%; after tax 13% × 0.75 = 9.75%.",1],["9%","This is the simple average (12%) after tax. The larger loan must weigh more."],["13%","This is the weighted rate before tax; multiply by (1 − T)."],["12%","This is the simple average before tax: wrong on both weights and tax."]],
+     st:"Weights: 2 ÷ 8 = 0.25 and 6 ÷ 8 = 0.75\nWeighted rate = 0.25 × 10% + 0.75 × 14% = 2.5% + 10.5% = 13%\nAfter tax = 13% × (1 − 0.25) = 9.75%",
+     ar:"القرض الكبير (6 مليون) هو اللي بيحدد التكلفة أكتر، فالمتوسط المرجح طلع 13% مش 12%. وبعد الوفر الضريبي 9.75%."},
+    {i:6,s:"A company issues a 10-year bond with face value 1,000 and a 10% coupon. It sells for 950, and issuance costs are 3% of face value. What is the approximate YTM?",
+     o:[["11.25%","NP = 950 − 30 = 920; YTM ≈ (100 + 80 ÷ 10) ÷ [(1,000 + 920) ÷ 2] = 108 ÷ 960 = 11.25%.",1],["10%","This is the coupon rate. The bond was sold at a discount and had costs, so the real cost is higher."],["10.77%","This uses the price of 950 and ignores issuance costs: (100 + 5) ÷ 975."],["10.87%","This is 100 ÷ 920: it ignores that the company must repay the full 1,000 at maturity."]],
+     st:"Issuance cost = 1,000 × 3% = 30\nNP = 950 − 30 = 920\nC = 1,000 × 10% = 100\nYTM ≈ [100 + (1,000 − 920) ÷ 10] ÷ [(1,000 + 920) ÷ 2]\n= (100 + 8) ÷ 960 = 11.25%",
+     ar:"الشركة استلمت 920 بس وهترجّع 1,000، فالفرق 80 تكلفة زيادة بتتوزع على العشر سنين: 8 كل سنة فوق الفايدة. عشان كده التكلفة الحقيقية 11.25% مش 10%."},
+    {i:6,s:"A marketing group issues bonds with an 8% coupon at a price of 930. What can you say about its YTM?",
+     o:[["It is above 8%, because the bond was sold at a discount","Selling below face value means the company repays more than it received, so its yearly cost is above the coupon.",1],["It equals 8%, the coupon rate","The coupon equals the YTM only when the bond is sold at face value with no costs."],["It is below 8%, because the company received less money","Receiving less money while repaying 1,000 raises the cost; it does not lower it."],["It cannot be compared without the tax rate","YTM is the before-tax cost; tax only matters for the next step."]],
+     st:"Price 930 < face value 1,000 → discount\nThe extra 70 repaid at maturity adds to the yearly cost\nSo YTM > 8% coupon",
+     ar:"السند اتباع بخصم لأن السوق بيدّي أكتر من 8%. فالشركة هتدفع الكوبون وكمان هترجّع 70 جنيه زيادة عن اللي استلمته، والاتنين مع بعض بيخلّوا التكلفة أعلى من 8%."},
+    {i:6,s:"A hospital's WACC is 13%. Project A, a new oncology day-care unit, is expected to return 15%. Project B, an expanded cafeteria, is expected to return 11%. What should management do?",
+     o:[["Accept A and reject B","A earns more than the 13% cost of capital; B earns less, so it would destroy value even though it is profitable.",1],["Accept both, because both are profitable","Being profitable is not enough: B earns 11% on money that costs 13%."],["Reject both, because WACC is above the interest rate","The comparison is expected return vs WACC, not vs an interest rate."],["Accept B, because it is less risky","The question gives no risk difference; the rule is return vs cost of capital."]],
+     st:"A: 15% > 13% → creates value → accept\nB: 11% < 13% → destroys value → reject",
+     ar:"الكافيتريا هتكسب، بس 11% على فلوس تكلفتها 13%. يعني المستشفى هيخسر 2% في السنة من غير ما يبان في الدفاتر. ده نفس منطق الـ EVA بس قبل ما نصرف."},
+    {i:6,s:"In a WACC with ordinary shares, retained earnings, preference shares and bonds, which cost is multiplied by (1 − T)?",
+     o:[["Only the bonds","Only interest is deducted before tax. Dividends on ordinary and preference shares are paid from profit after tax.",1],["All four sources","Equity costs have no tax saving, because dividends are not tax-deductible."],["Bonds and preference shares, because both pay a fixed amount","A fixed payment is not the test; the test is whether it is tax-deductible. Preference dividends are not."],["None of them, because WACC is already after tax","WACC is after tax precisely because the debt cost is multiplied by (1 − T)."]],
+     st:"Interest → deducted before tax → × (1 − T)\nDividends (ordinary and preference) → paid after tax → no adjustment\nRetained earnings → owners' money → no adjustment",
+     ar:"الفايدة بتتخصم من الربح قبل الضريبة، فبتقلل الضريبة. لكن الأرباح اللي بتتوزع على أي نوع أسهم بتتدفع بعد الضريبة، فمفيش وفر. السؤال ده مهم جدًا للـ assignment."}
   ];
 
   var FORMULAS=[
@@ -1945,7 +2223,17 @@ body::before{background:var(--mast)}
     {i:5,t:"Cost of equity (lecture method)",tAr:"تكلفة حقوق الملكية",f:"Cost of equity = Risk-free rate + Risk allowance",r:"The return owners require."},
     {i:5,t:"After-tax cost of debt",tAr:"تكلفة الديون بعد الضريبة",f:"Cost of debt = (Interest rate + Loan fees) × (1 − t)",r:"Interest is tax-deductible."},
     {i:5,t:"Capital charge",tAr:"تكلفة رأس المال المستثمر",f:"Capital charge = Invested capital × WACC",r:"NOPAT must exceed this for EVA to be positive."},
-    {i:5,t:"Value creation coefficient",tAr:"معامل خلق القيمة",f:"Value creation coefficient = EVA ÷ Invested capital",r:"Value created per pound of capital; compares firms of different size."}
+    {i:5,t:"Value creation coefficient",tAr:"معامل خلق القيمة",f:"Value creation coefficient = EVA ÷ Invested capital",r:"Value created per pound of capital; compares firms of different size."},
+    {i:6,t:"Cost of debt (after tax)",tAr:"تكلفة الديون بعد الضريبة",f:"Kd = (Interest expense ÷ Total debt) × (1 − T)",r:"T is the marginal tax rate; interest is tax-deductible."},
+    {i:6,t:"Tax saving on interest",tAr:"الوفر الضريبي",f:"Tax saving = Interest expense × T",r:"Why debt is cheaper than equity after tax."},
+    {i:6,t:"CAPM (cost of equity)",tAr:"نموذج تسعير الأصول الرأسمالية",f:"Re = Rf + β × (Rm − Rf)",r:"Beta measures risk relative to the market."},
+    {i:6,t:"WACC (lecture 06 form)",tAr:"متوسط تكلفة رأس المال المرجح",f:"WACC = (E/V × Re) + (D/V × Rd × (1 − Tc))",r:"E, D at market value; V = E + D. Only debt gets (1 − Tc)."},
+    {i:6,t:"WACC with several sources",tAr:"متوسط التكلفة مع عدة مصادر",f:"WACC = Σ (amount ÷ total × after-tax cost)",r:"Ordinary shares, retained earnings, preference shares, bonds."},
+    {i:6,t:"Weighted cost of bank loans",tAr:"متوسط تكلفة القروض البنكية",f:"Kd = Σ (loan ÷ total loans × rate) × (1 − T)",r:"Weight by loan size, never a simple average."},
+    {i:6,t:"Bond net issuance proceeds",tAr:"صافي حصيلة إصدار السندات",f:"NP = Issue price − (FV × issuance cost %)",r:"What the company actually receives."},
+    {i:6,t:"Yield to maturity (YTM)",tAr:"العائد حتى تاريخ الاستحقاق",f:"YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2]",r:"C = FV × coupon rate. Before-tax cost of the bond; above the coupon when issued at a discount."},
+    {i:6,t:"After-tax cost of bonds",tAr:"تكلفة السندات بعد الضريبة",f:"Kb = YTM × (1 − T)",r:"Compare all sources after tax."},
+    {i:6,t:"Investment rule",tAr:"قاعدة قرار الاستثمار",f:"Accept if expected return > WACC",r:"Otherwise the project gives investors nothing."}
   ];
 
   /* ===== Ticker ===== */

@@ -9,7 +9,7 @@
 <p>The Cost of Capital: debt, equity and bonds تكلفة رأس المال: الديون وحقوق الملكية والسندات</p>
 <p>The cost of capital is the minimum return a company must earn on its assets to satisfy everyone who funded them: lenders, owners and other providers of capital. It is a blended rate of two main sources, debt and equity, and that blend is the WACC (Weighted Average Cost of Capital). Lecture 05 used WACC inside EVA; this lecture shows how each piece of it is calculated, including the cost of bank loans and of bonds.</p>
 <p>أي فلوس داخلة الشركة ليها صاحب، وصاحبها مستني عائد. البنك مستني فوايده، والمساهم مستني عائد يعوّضه عن المخاطرة. تكلفة رأس المال هي أقل عائد لازم الشركة تجيبه عشان ترضي الاتنين. يعني لو مستشفى تكلفة الفلوس اللي فيه 12%، وعاوز يفتح قسم أشعة جديد، القسم ده لازم يجيب أكتر من 12%، وإلا يبقى المستشفى بيشتغل عشان يدفع للممولين وبس، والمساهم مش هيطلع بحاجة.</p>
-<p>This lecture is "Part Two · Cost of Capital", which matches the course outline from Lecture 01. The two exercises at the end of the slides are the cohort's assignment, so this page explains the method on the lecture's solved cases and on separate practice numbers, and leaves the assignment for you to solve.</p>
+<p>This lecture is "Part Two · Cost of Capital", which matches the course outline from Lecture 01. The two exercises at the end of the slides are the cohort's assignment: section 9 walks through the model answer step by step, so try each step yourself before opening the solution.</p>
 
 <p>1. The rule behind every investment القاعدة اللي ورا أي قرار استثمار</p>
 
@@ -177,7 +177,86 @@
 <p>Bonds: follow the same three steps: net proceeds (watch: the issuance cost is a % of face value), then YTM with n = 12, then multiply by (1 − 35%).</p>
 <p>WACC with four sources: the weights are given, so multiply each weight by its cost and add. Apply the tax only to debt. Note that 5.58% is exactly 9.3% × (1 − 40%), so it looks like it is already after tax; confirm with the lecturer before multiplying it by (1 − 40%) again.</p>
 
-<p>الـ assignment حلّوه بنفسكم، لأن ده اللي هيثبّت الفكرة. اتبعوا نفس خطوات التمرين المحلول فوق، خطوة خطوة. وفي تمرين الـ WACC خلي بالك من حاجة مهمة: الضريبة بتتطبق على الدين بس، مش على الأسهم الممتازة ولا العادية ولا الأرباح المحتجزة، لأن توزيعاتهم مش بتتخصم من الضريبة. والرقم ⁦5.58%⁩ بالظبط يساوي ⁦9.3% × 0.6⁩، فغالبًا هو أصلًا بعد الضريبة، فاتأكدوا من الدكتور قبل ما تضربوه في ⁦(1 − 40%)⁩ تاني. ولو وقفت عند خطوة، اسأل مساعد المادة عن الطريقة، مش عن الرقم النهائي.</p>
+<p>جرّبوا الـ assignment بنفسكم الأول بنفس خطوات التمرين المحلول ده، وبعدين قارنوا بالحل النموذجي في الجزء 9 تحت. وفي تمرين الـ WACC خلي بالك من حاجة مهمة: الضريبة بتتطبق على الدين بس، مش على الأسهم الممتازة ولا العادية ولا الأرباح المحتجزة، لأن توزيعاتهم مش بتتخصم من الضريبة. والرقم ⁦5.58%⁩ بالظبط يساوي ⁦9.3% × 0.6⁩، فغالبًا هو أصلًا بعد الضريبة، فاتأكدوا من الدكتور قبل ما تضربوه في ⁦(1 − 40%)⁩ تاني. ولو وقفت عند خطوة، اسأل مساعد المادة عن الطريقة، مش عن الرقم النهائي.</p>
+
+<p>9. The assignment: model answer, step by step حل الـ assignment خطوة بخطوة</p>
+<p>Try each step first: type your answer and press Check. Stuck? Take a Hint. Then open the full solution to compare your working.</p>
+<p>جرّب الأول قبل ما تفتح الحل. اكتب رقمك في الخانة ودوس Check، والمنصة هتقولك صح ولا لأ. ولو وقفت، خد Hint. الهدف إنك تخرج فاهم كل رقم جه منين، مش بس تنقل الإجابة.</p>
+
+<p>Exercise 1 · Cost of bonds and YTM تكلفة السندات والعائد حتى الاستحقاق</p>
+<p>Face value 1,000 · 12 years · coupon 9% · sold for 925 · issuance cost 2.5% of face value · tax 35%</p>
+
+<p>Step 1 · Net issuance proceeds (NP) صافي حصيلة الإصدار</p>
+<p>CheckHintShow the solution</p>
+<p>The issuance cost is a percentage of the face value, not of the selling price.</p>
+
+<p>Issuance cost = 1,000 × 2.5% = 25</p>
+<p>NP = 925 − 25 = 900 pounds</p>
+<p>الشركة باعت السند بـ ⁦925⁩، ودفعت ⁦25⁩ مصاريف إصدار، فاللي دخل خزنتها فعلًا ⁦900⁩ بس. وده الرقم اللي بنبني عليه تكلفة السند، مش الـ ⁦925⁩.</p>
+
+<p>Step 2 · Annual coupon (C) الفايدة السنوية</p>
+<p>CheckHintShow the solution</p>
+<p>The coupon is calculated on the face value, whatever the selling price.</p>
+
+<p>C = 1,000 × 9% = 90 pounds a year</p>
+
+<p>Step 3 · Yield to maturity (YTM) العائد حتى تاريخ الاستحقاق</p>
+<p>CheckHintShow the solution</p>
+<p>YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2], with n = 12 and NP from step 1.</p>
+
+<p>YTM ≈ [90 + (1,000 − 900) ÷ 12] ÷ [(1,000 + 900) ÷ 2]</p>
+<p>= (90 + 8.33) ÷ 950 = 98.33 ÷ 950 = 10.35%</p>
+<p>الشركة بتدفع ⁦90⁩ فايدة كل سنة، وكمان هترجّع ⁦1,000⁩ وهي استلمت ⁦900⁩ بس. الـ ⁦100⁩ فرق دول بنوزعهم على الـ 12 سنة: ⁦8.33⁩ في السنة. ومتوسط الفلوس اللي الشركة شايلاها ⁦950⁩. فالتكلفة الحقيقية قبل الضريبة ⁦10.35%⁩، أعلى من الكوبون 9%، لأن السند اتباع بخصم.</p>
+
+<p>Step 4 · After-tax cost of bonds تكلفة السندات بعد الضريبة</p>
+<p>CheckHintShow the solution</p>
+<p>Multiply the YTM by (1 − 35%).</p>
+
+<p>After-tax cost = 10.35% × (1 − 35%) = 10.35% × 0.65 = 6.73%</p>
+<p>الفوايد بتتخصم قبل الضريبة، فالحكومة عمليًا بتشيل ⁦35%⁩ منها. فكل جنيه الشركة جمعته من السندات بيكلفها فعليًا حوالي ⁦6.7⁩ قرش في السنة.</p>
+
+<p>Answer · Exercise 1</p>
+<p>Net issuance proceeds900 pounds</p>
+<p>YTM (before-tax cost)≈ 10.35%</p>
+<p>After-tax cost of bonds≈ 6.73%</p>
+
+<p>Exercise 2 · Weighted cost of capital متوسط تكلفة رأس المال المرجح</p>
+<p>Weights: long-term debt 30%, preferred shares 20%, ordinary equity 30%, retained earnings 20%. Costs: debt 5.58%, preferred 24.7%, ordinary equity 28.25%, retained earnings 25.9%. Tax 40%.</p>
+
+<p>WACC متوسط التكلفة المرجح</p>
+<p>CheckHintShow the solution</p>
+<p>Multiply each weight by its cost and add the four results. 5.58% = 9.3% × (1 − 40%), so it is already after tax: do not apply the tax again.</p>
+
+<p>SourceWeightCostWeighted cost</p>
+
+<p>Long-term debt (after tax)القروض طويلة الأجل30%5.58%1.674%</p>
+<p>Preferred sharesالأسهم الممتازة20%24.7%4.940%</p>
+<p>Ordinary equityالأسهم العادية30%28.25%8.475%</p>
+<p>Retained earningsالأرباح المحتجزة20%25.9%5.180%</p>
+<p>WACC100%20.27%</p>
+
+<p>If the lecturer says 5.58% is before tax, the debt line becomes 30% × 5.58% × 0.6 = 1.004%, and the WACC is about 19.60%. Show this as an alternative in your answer.</p>
+<p>الشركة دي كل جنيه فيها بيكلفها حوالي ⁦20⁩ قرش في السنة. ليه رقم عالي كده؟ لأن 70% من تمويلها من الملاك (ممتازة وعادية ومحتجزة)، والملاك هنا بيطلبوا من ⁦25%⁩ لـ ⁦28%⁩. الدين هو أرخص مصدر بكتير، بس وزنه 30% بس. ومعنى الرقم عمليًا: أي مشروع جديد، فرع لمستشفى أو حملة تسويق كبيرة، لازم يجيب أكتر من ⁦20.27%⁩ عشان يضيف قيمة.</p>
+
+<p>Answer · Exercise 2</p>
+<p>WACC (debt cost already after tax)≈ 20.27%</p>
+<p>Alternative, if 5.58% is before tax≈ 19.60%</p>
+
+<p>10. Bond lab: move the numbers, watch the cost معمل السندات: غيّر الأرقام وشوف التكلفة</p>
+<p>It starts with the assignment's bond. Change the selling price, the years or the tax rate and see what happens to the YTM. Sell at 1,000 with no issuance cost and the YTM equals the coupon; sell above 1,000 and it falls below it.</p>
+
+<p>Selling price 925</p>
+<p>Coupon rate % 9</p>
+<p>Years to maturity 12</p>
+<p>Issuance cost % of face value 2.5</p>
+<p>Tax rate % 35</p>
+
+<p>Net proceeds900</p>
+<p>YTM (before tax)10.35%</p>
+<p>After-tax cost6.73%</p>
+
+<p>YTM is 1.35 points above the 9% coupon: the company receives 900 but repays 1,000, so the bond costs it more than the coupon.</p>
+<p>جرّب بنفسك: خلّي سعر البيع ⁦1,000⁩ ومصاريف الإصدار صفر، هتلاقي الـ YTM بقى بالظبط زي الكوبون. وبعدين ارفع السعر فوق ⁦1,000⁩، هتلاقيه نزل تحت الكوبون. وده كل اللي المحاضرة بتقوله في سطر واحد: كل ما الشركة تستلم فلوس أقل من اللي هترجّعها، تكلفتها الحقيقية بتزيد.</p>
 
 <p>=== KEY TERMS (flashcards) ===</p>
 

@@ -332,6 +332,23 @@ footer b{color:var(--ink);font-family:var(--f-brand);font-stretch:112%}
 .themebtn{margin-left:auto;align-self:center;font:500 13px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:4px 12px;cursor:pointer;white-space:nowrap}
 .themebtn:hover{border-color:var(--accent);color:var(--accent)}
 footer{background:var(--surface)}
+.a6h{margin:22px 0 4px}
+.a6s{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:var(--surface)}
+.a6s.ok{border-color:var(--good);background:var(--good-soft)}
+.a6q{margin-bottom:8px}.a6q span{color:var(--brass);font-weight:600}
+.a6row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.a6in,.lab input[type=range]{font:500 16px var(--f-body)}
+.a6in{width:110px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.a6fb{font-weight:600}.a6fb.ok{color:var(--good)}.a6fb.no{color:var(--bad)}
+.a6hint{margin:8px 0 0;color:var(--muted)}
+.a6sol{margin-top:10px}
+.lab{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 18px;margin:12px 0}
+.lab label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+.lab output{font-weight:700;color:var(--ink);font-family:var(--f-mono,monospace)}
+.lab input[type=range]{width:100%;accent-color:var(--accent)}
+.labout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.labout div{border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--surface);display:flex;flex-direction:column;gap:4px;min-width:0}
+.labout span{font-size:13px;color:var(--muted)}.labout b{font-size:20px}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1332,7 +1349,7 @@ body::before{background:var(--mast)}
       <h2>The Cost of Capital: debt, equity and bonds <span class="h-ar" lang="ar">تكلفة رأس المال: الديون وحقوق الملكية والسندات</span></h2>
       <p class="lead">The cost of capital is the <b>minimum</b> return a company must earn on its assets to satisfy everyone who funded them: lenders, owners and other providers of capital. It is a blended rate of two main sources, <b>debt</b> and <b>equity</b>, and that blend is the WACC (Weighted Average Cost of Capital). Lecture 05 used WACC inside EVA; this lecture shows how each piece of it is calculated, including the cost of bank loans and of bonds.</p>
       <p class="ar callout">أي فلوس داخلة الشركة ليها صاحب، وصاحبها مستني عائد. البنك مستني فوايده، والمساهم مستني عائد يعوّضه عن المخاطرة. تكلفة رأس المال هي أقل عائد لازم الشركة تجيبه عشان ترضي الاتنين. يعني لو مستشفى تكلفة الفلوس اللي فيه 12%، وعاوز يفتح قسم أشعة جديد، القسم ده لازم يجيب أكتر من 12%، وإلا يبقى المستشفى بيشتغل عشان يدفع للممولين وبس، والمساهم مش هيطلع بحاجة.</p>
-      <p class="note">This lecture is "Part Two · Cost of Capital", which matches the course outline from Lecture 01. The two exercises at the end of the slides are the cohort's assignment, so this page explains the method on the lecture's solved cases and on separate practice numbers, and leaves the assignment for you to solve.</p>
+      <p class="note">This lecture is "Part Two · Cost of Capital", which matches the course outline from Lecture 01. The two exercises at the end of the slides are the cohort's assignment: section 9 walks through the model answer step by step, so try each step yourself before opening the solution.</p>
     </div>
 
     <div class="block">
@@ -1549,7 +1566,111 @@ body::before{background:var(--mast)}
           <p><b>WACC with four sources:</b> the weights are given, so multiply each weight by its cost and add. Apply the tax only to debt. Note that 5.58% is exactly 9.3% × (1 − 40%), so it looks like it is already after tax; confirm with the lecturer before multiplying it by (1 − 40%) again.</p>
         </div>
       </div>
-      <p class="ar callout">الـ assignment حلّوه بنفسكم، لأن ده اللي هيثبّت الفكرة. اتبعوا نفس خطوات التمرين المحلول فوق، خطوة خطوة. وفي تمرين الـ WACC خلي بالك من حاجة مهمة: الضريبة بتتطبق على الدين بس، مش على الأسهم الممتازة ولا العادية ولا الأرباح المحتجزة، لأن توزيعاتهم مش بتتخصم من الضريبة. والرقم &#x2066;5.58%&#x2069; بالظبط يساوي &#x2066;9.3% × 0.6&#x2069;، فغالبًا هو أصلًا بعد الضريبة، فاتأكدوا من الدكتور قبل ما تضربوه في &#x2066;(1 − 40%)&#x2069; تاني. ولو وقفت عند خطوة، اسأل مساعد المادة عن الطريقة، مش عن الرقم النهائي.</p>
+      <p class="ar callout">جرّبوا الـ assignment بنفسكم الأول بنفس خطوات التمرين المحلول ده، وبعدين قارنوا بالحل النموذجي في الجزء 9 تحت. وفي تمرين الـ WACC خلي بالك من حاجة مهمة: الضريبة بتتطبق على الدين بس، مش على الأسهم الممتازة ولا العادية ولا الأرباح المحتجزة، لأن توزيعاتهم مش بتتخصم من الضريبة. والرقم &#x2066;5.58%&#x2069; بالظبط يساوي &#x2066;9.3% × 0.6&#x2069;، فغالبًا هو أصلًا بعد الضريبة، فاتأكدوا من الدكتور قبل ما تضربوه في &#x2066;(1 − 40%)&#x2069; تاني. ولو وقفت عند خطوة، اسأل مساعد المادة عن الطريقة، مش عن الرقم النهائي.</p>
+    </div>
+    <div class="block" id="a6">
+      <h2>9. The assignment: model answer, step by step <span class="h-ar" lang="ar">حل الـ assignment خطوة بخطوة</span></h2>
+      <p class="lead">Try each step first: type your answer and press <b>Check</b>. Stuck? Take a <b>Hint</b>. Then open the full solution to compare your working.</p>
+      <p class="ar callout">جرّب الأول قبل ما تفتح الحل. اكتب رقمك في الخانة ودوس Check، والمنصة هتقولك صح ولا لأ. ولو وقفت، خد Hint. الهدف إنك تخرج فاهم كل رقم جه منين، مش بس تنقل الإجابة.</p>
+
+      <h3 class="a6h">Exercise 1 · Cost of bonds and YTM <span class="h-ar" lang="ar">تكلفة السندات والعائد حتى الاستحقاق</span></h3>
+      <p class="note">Face value 1,000 · 12 years · coupon 9% · sold for 925 · issuance cost 2.5% of face value · tax 35%</p>
+
+      <div class="a6s" data-ans="900" data-tol="0.5">
+        <div class="a6q"><b>Step 1 · Net issuance proceeds (NP)</b> <span lang="ar">صافي حصيلة الإصدار</span></div>
+        <div class="a6row"><input class="a6in" inputmode="decimal" aria-label="Your answer for step 1" placeholder="pounds"><button class="btn" data-a6="check">Check</button><button class="btn" data-a6="hint">Hint</button><button class="btn" data-a6="show" data-gc="a6-show-np">Show the solution</button><span class="a6fb" aria-live="polite"></span></div>
+        <p class="a6hint" hidden>The issuance cost is a percentage of the <b>face value</b>, not of the selling price.</p>
+        <div class="a6sol" hidden>
+          <div class="formula">Issuance cost = 1,000 × 2.5% = 25</div>
+          <div class="formula">NP = 925 − 25 = 900 pounds</div>
+          <p class="ar">الشركة باعت السند بـ &#x2066;925&#x2069;، ودفعت &#x2066;25&#x2069; مصاريف إصدار، فاللي دخل خزنتها فعلًا &#x2066;900&#x2069; بس. وده الرقم اللي بنبني عليه تكلفة السند، مش الـ &#x2066;925&#x2069;.</p>
+        </div>
+      </div>
+
+      <div class="a6s" data-ans="90" data-tol="0.5">
+        <div class="a6q"><b>Step 2 · Annual coupon (C)</b> <span lang="ar">الفايدة السنوية</span></div>
+        <div class="a6row"><input class="a6in" inputmode="decimal" aria-label="Your answer for step 2" placeholder="pounds"><button class="btn" data-a6="check">Check</button><button class="btn" data-a6="hint">Hint</button><button class="btn" data-a6="show" data-gc="a6-show-c">Show the solution</button><span class="a6fb" aria-live="polite"></span></div>
+        <p class="a6hint" hidden>The coupon is calculated on the face value, whatever the selling price.</p>
+        <div class="a6sol" hidden>
+          <div class="formula">C = 1,000 × 9% = 90 pounds a year</div>
+        </div>
+      </div>
+
+      <div class="a6s" data-ans="10.35" data-tol="0.06">
+        <div class="a6q"><b>Step 3 · Yield to maturity (YTM)</b> <span lang="ar">العائد حتى تاريخ الاستحقاق</span></div>
+        <div class="a6row"><input class="a6in" inputmode="decimal" aria-label="Your answer for step 3" placeholder="%"><button class="btn" data-a6="check">Check</button><button class="btn" data-a6="hint">Hint</button><button class="btn" data-a6="show" data-gc="a6-show-ytm">Show the solution</button><span class="a6fb" aria-live="polite"></span></div>
+        <p class="a6hint" hidden>YTM ≈ [C + (FV − NP) ÷ n] ÷ [(FV + NP) ÷ 2], with n = 12 and NP from step 1.</p>
+        <div class="a6sol" hidden>
+          <div class="formula">YTM ≈ [90 + (1,000 − 900) ÷ 12] ÷ [(1,000 + 900) ÷ 2]</div>
+          <div class="formula">= (90 + 8.33) ÷ 950 = 98.33 ÷ 950 = 10.35%</div>
+          <p class="ar">الشركة بتدفع &#x2066;90&#x2069; فايدة كل سنة، وكمان هترجّع &#x2066;1,000&#x2069; وهي استلمت &#x2066;900&#x2069; بس. الـ &#x2066;100&#x2069; فرق دول بنوزعهم على الـ 12 سنة: &#x2066;8.33&#x2069; في السنة. ومتوسط الفلوس اللي الشركة شايلاها &#x2066;950&#x2069;. فالتكلفة الحقيقية قبل الضريبة &#x2066;10.35%&#x2069;، أعلى من الكوبون 9%، لأن السند اتباع بخصم.</p>
+        </div>
+      </div>
+
+      <div class="a6s" data-ans="6.73" data-tol="0.06">
+        <div class="a6q"><b>Step 4 · After-tax cost of bonds</b> <span lang="ar">تكلفة السندات بعد الضريبة</span></div>
+        <div class="a6row"><input class="a6in" inputmode="decimal" aria-label="Your answer for step 4" placeholder="%"><button class="btn" data-a6="check">Check</button><button class="btn" data-a6="hint">Hint</button><button class="btn" data-a6="show" data-gc="a6-show-tax">Show the solution</button><span class="a6fb" aria-live="polite"></span></div>
+        <p class="a6hint" hidden>Multiply the YTM by (1 − 35%).</p>
+        <div class="a6sol" hidden>
+          <div class="formula">After-tax cost = 10.35% × (1 − 35%) = 10.35% × 0.65 = 6.73%</div>
+          <p class="ar">الفوايد بتتخصم قبل الضريبة، فالحكومة عمليًا بتشيل &#x2066;35%&#x2069; منها. فكل جنيه الشركة جمعته من السندات بيكلفها فعليًا حوالي &#x2066;6.7&#x2069; قرش في السنة.</p>
+        </div>
+      </div>
+
+      <div class="scroll"><table class="mini"><tbody>
+        <tr><td><b>Answer · Exercise 1</b></td><td></td></tr>
+        <tr><td>Net issuance proceeds</td><td><b>900 pounds</b></td></tr>
+        <tr><td>YTM (before-tax cost)</td><td><b>≈ 10.35%</b></td></tr>
+        <tr><td>After-tax cost of bonds</td><td><b>≈ 6.73%</b></td></tr>
+      </tbody></table></div>
+
+      <h3 class="a6h">Exercise 2 · Weighted cost of capital <span class="h-ar" lang="ar">متوسط تكلفة رأس المال المرجح</span></h3>
+      <p class="note">Weights: long-term debt 30%, preferred shares 20%, ordinary equity 30%, retained earnings 20%. Costs: debt 5.58%, preferred 24.7%, ordinary equity 28.25%, retained earnings 25.9%. Tax 40%.</p>
+
+      <div class="a6s" data-ans="20.27" data-tol="0.05">
+        <div class="a6q"><b>WACC</b> <span lang="ar">متوسط التكلفة المرجح</span></div>
+        <div class="a6row"><input class="a6in" inputmode="decimal" aria-label="Your answer for the WACC" placeholder="%"><button class="btn" data-a6="check">Check</button><button class="btn" data-a6="hint">Hint</button><button class="btn" data-a6="show" data-gc="a6-show-wacc">Show the solution</button><span class="a6fb" aria-live="polite"></span></div>
+        <p class="a6hint" hidden>Multiply each weight by its cost and add the four results. 5.58% = 9.3% × (1 − 40%), so it is already after tax: do not apply the tax again.</p>
+        <div class="a6sol" hidden>
+          <div class="scroll"><table class="cmp">
+            <thead><tr><th>Source</th><th>Weight</th><th>Cost</th><th>Weighted cost</th></tr></thead>
+            <tbody>
+              <tr><td>Long-term debt (after tax)<br><span lang="ar">القروض طويلة الأجل</span></td><td>30%</td><td>5.58%</td><td>1.674%</td></tr>
+              <tr><td>Preferred shares<br><span lang="ar">الأسهم الممتازة</span></td><td>20%</td><td>24.7%</td><td>4.940%</td></tr>
+              <tr><td>Ordinary equity<br><span lang="ar">الأسهم العادية</span></td><td>30%</td><td>28.25%</td><td>8.475%</td></tr>
+              <tr><td>Retained earnings<br><span lang="ar">الأرباح المحتجزة</span></td><td>20%</td><td>25.9%</td><td>5.180%</td></tr>
+              <tr><td><b>WACC</b></td><td>100%</td><td></td><td><b>20.27%</b></td></tr>
+            </tbody>
+          </table></div>
+          <p class="note">If the lecturer says 5.58% is <b>before</b> tax, the debt line becomes 30% × 5.58% × 0.6 = 1.004%, and the WACC is about <b>19.60%</b>. Show this as an alternative in your answer.</p>
+          <p class="ar">الشركة دي كل جنيه فيها بيكلفها حوالي &#x2066;20&#x2069; قرش في السنة. ليه رقم عالي كده؟ لأن 70% من تمويلها من الملاك (ممتازة وعادية ومحتجزة)، والملاك هنا بيطلبوا من &#x2066;25%&#x2069; لـ &#x2066;28%&#x2069;. الدين هو أرخص مصدر بكتير، بس وزنه 30% بس. ومعنى الرقم عمليًا: أي مشروع جديد، فرع لمستشفى أو حملة تسويق كبيرة، لازم يجيب أكتر من &#x2066;20.27%&#x2069; عشان يضيف قيمة.</p>
+        </div>
+      </div>
+
+      <div class="scroll"><table class="mini"><tbody>
+        <tr><td><b>Answer · Exercise 2</b></td><td></td></tr>
+        <tr><td>WACC (debt cost already after tax)</td><td><b>≈ 20.27%</b></td></tr>
+        <tr><td>Alternative, if 5.58% is before tax</td><td>≈ 19.60%</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="block" id="bondlab">
+      <h2>10. Bond lab: move the numbers, watch the cost <span class="h-ar" lang="ar">معمل السندات: غيّر الأرقام وشوف التكلفة</span></h2>
+      <p class="lead">It starts with the assignment's bond. Change the selling price, the years or the tax rate and see what happens to the YTM. Sell at 1,000 with no issuance cost and the YTM equals the coupon; sell above 1,000 and it falls below it.</p>
+      <div class="lab">
+        <label>Selling price <output id="bl-p-o">925</output><input type="range" id="bl-p" min="800" max="1100" step="5" value="925"></label>
+        <label>Coupon rate % <output id="bl-c-o">9</output><input type="range" id="bl-c" min="1" max="20" step="0.5" value="9"></label>
+        <label>Years to maturity <output id="bl-n-o">12</output><input type="range" id="bl-n" min="1" max="30" step="1" value="12"></label>
+        <label>Issuance cost % of face value <output id="bl-f-o">2.5</output><input type="range" id="bl-f" min="0" max="6" step="0.5" value="2.5"></label>
+        <label>Tax rate % <output id="bl-t-o">35</output><input type="range" id="bl-t" min="0" max="50" step="1" value="35"></label>
+      </div>
+      <div class="labout">
+        <div><span>Net proceeds</span><b id="bl-np">900</b></div>
+        <div><span>YTM (before tax)</span><b id="bl-y">10.35%</b></div>
+        <div><span>After-tax cost</span><b id="bl-a">6.73%</b></div>
+      </div>
+      <p class="formula" id="bl-msg"></p>
+      <p class="ar callout">جرّب بنفسك: خلّي سعر البيع &#x2066;1,000&#x2069; ومصاريف الإصدار صفر، هتلاقي الـ YTM بقى بالظبط زي الكوبون. وبعدين ارفع السعر فوق &#x2066;1,000&#x2069;، هتلاقيه نزل تحت الكوبون. وده كل اللي المحاضرة بتقوله في سطر واحد: كل ما الشركة تستلم فلوس أقل من اللي هترجّعها، تكلفتها الحقيقية بتزيد.</p>
     </div>
   </article>
 </section>
@@ -2250,6 +2371,34 @@ body::before{background:var(--mast)}
     if(id==='home')refreshStats();
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'));window.scrollTo(0,0);});});
+
+  /* Lecture 06 assignment coach and bond lab */
+  (function(){
+    function num(v){return parseFloat(String(v).replace(/[%,\s]/g,'').replace('٫','.').replace(/[٠-٩]/g,function(d){return '٠١٢٣٤٥٦٧٨٩'.indexOf(d);}));}
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('[data-a6]');if(!b)return;var st=b.closest('.a6s');var act=b.dataset.a6;
+      if(act==='hint'){st.querySelector('.a6hint').hidden=false;return;}
+      if(act==='show'){var so=st.querySelector('.a6sol');so.hidden=!so.hidden;b.textContent=so.hidden?'Show the solution':'Hide the solution';return;}
+      var v=num(st.querySelector('.a6in').value),fb=st.querySelector('.a6fb');
+      if(isNaN(v)){fb.textContent='Type a number first';fb.className='a6fb no';return;}
+      var ok=Math.abs(v-parseFloat(st.dataset.ans))<=parseFloat(st.dataset.tol);
+      fb.textContent=ok?'Correct':'Not yet. Try again or take a hint';fb.className='a6fb '+(ok?'ok':'no');st.classList.toggle('ok',ok);
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('a6in')){e.target.closest('.a6s').querySelector('[data-a6="check"]').click();}});
+    var ids=['p','c','n','f','t'];if(!$('bl-p'))return;
+    function f2(x){return x.toFixed(2)+'%';}
+    function calc(){
+      var g={};ids.forEach(function(k){g[k]=parseFloat($('bl-'+k).value);$('bl-'+k+'-o').textContent=g[k];});
+      var np=g.p-1000*g.f/100,C=1000*g.c/100,y=(C+(1000-np)/g.n)/((1000+np)/2)*100;
+      $('bl-np').textContent=Math.round(np*100)/100;$('bl-y').textContent=f2(y);$('bl-a').textContent=f2(y*(1-g.t/100));
+      var d=y-g.c,m;
+      if(Math.abs(d)<0.005)m='YTM equals the coupon: the company receives exactly what it will repay.';
+      else if(d>0)m='YTM is '+d.toFixed(2)+' points above the '+g.c+'% coupon: the company receives '+Math.round(np)+' but repays 1,000, so the bond costs it more than the coupon.';
+      else m='YTM is '+(-d).toFixed(2)+' points below the '+g.c+'% coupon: the bond sold at a premium, so the company receives more than it repays.';
+      $('bl-msg').textContent=m;
+    }
+    ids.forEach(function(k){$('bl-'+k).addEventListener('input',calc);});calc();
+  })();
   (function(){var b=$('themebtn');function apply(t){if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else document.documentElement.removeAttribute('data-theme');b.textContent=t==='dark'?'☀️ Day':'🌙 Night';}
     apply(store('mbap-theme')||'light');b.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';store('mbap-theme',t);apply(t);});})();
   document.addEventListener('click',function(e){var g=e.target.closest('[data-go-tab]');if(g){show(g.getAttribute('data-go-tab'));window.scrollTo(0,0);}});

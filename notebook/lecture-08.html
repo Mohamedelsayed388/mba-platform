@@ -1,0 +1,261 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Lecture 08: Security Valuation · MBA Platform study source</title></head><body>
+<p>MBA Platform · Finance for Non-Financial Managers</p>
+<p>Lecture 08: Security Valuation</p>
+<p>(Independent study companion by Mohamed Elsayed. Not an official Academy publication.)</p>
+
+<p>=== LECTURE NOTES ===</p>
+
+<p>Lecture 08 · Part Three</p>
+<p>Security Valuation تقييم الأوراق المالية</p>
+<p>Valuation finds a security's intrinsic value, what it is truly worth, so it can be compared with its market price. For a share, the intrinsic value is the present value of all the dividends it will pay. The lecture builds this up in three cases: zero growth, constant growth (the Gordon model) and non-constant growth.</p>
+<p>السعر في البورصة هو اللي الناس مستعدة تدفعه النهارده، وده بيتأثر بالأخبار والطمع والخوف. القيمة الحقيقية حاجة تانية: هي كل الفلوس اللي السهم هيجيبهالك في المستقبل، محسوبة بقيمتها النهارده. لو القيمة الحقيقية أعلى من السعر، السهم رخيص. ولو أقل، يبقى غالي. والمحاضرة كلها بتعلمك تحسب الرقم ده.</p>
+
+<p>1. Intrinsic value vs market price القيمة الحقيقية مقابل سعر السوق</p>
+
+<p>Undervaluedمقيَّم بأقل من قيمتهIntrinsic value &gt; market price → a candidate to buy.</p>
+<p>Fairسعر عادلIntrinsic value ≈ market price.</p>
+<p>Overvaluedمقيَّم بأكتر من قيمتهIntrinsic value &lt; market price → a candidate to avoid or sell.</p>
+
+<p>Why valuation matters</p>
+<p>Investment decisions: buy assets priced below their value.</p>
+<p>Risk management: spot assets whose price has run ahead of value.</p>
+<p>Financial reporting and audits: securities must be valued reliably in the statements.</p>
+<p>Mergers and acquisitions: negotiate a fair price for the target.</p>
+
+<p>Five principles</p>
+<p>Intrinsic value vs market price.</p>
+<p>Time value of money: a pound today is worth more than a pound later.</p>
+<p>Risk and return: higher risk demands a higher return.</p>
+<p>Macroeconomics: inflation, interest rates and policy.</p>
+<p>Financial statement analysis: Lectures 02 to 04.</p>
+
+<p>لاحظ إن المادة كلها بتتجمع هنا: تحليل القوائم المالية من المحاضرات الأولى بيقولك الشركة صحتها إيه، والعائد المطلوب من المحاضرة السادسة (تكلفة الملكية بالـ CAPM) هو الرقم اللي بنخصم بيه. والتقييم بيحوّل الاتنين لرقم واحد: السهم يستاهل كام.</p>
+
+<p>2. One period: the starting point فترة واحدة: نقطة البداية</p>
+<p>A share is harder to value than a bond, for three reasons: its cash flows are not promised, it never matures, and the market's required return cannot be observed directly. The simplest case is holding it for one year.</p>
+<p>P0 = (D1 + P1) ÷ (1 + R)</p>
+<p>P0 is today's price, D1 the dividend at the end of the year, P1 the price in one year, R the required return.</p>
+
+<p>Lecture example</p>
+<p>You expect a $10 dividend and to sell at $70 in a year. You require 25%.</p>
+<p>P0 = (10 + 70) ÷ 1.25 = 80 ÷ 1.25 = $64</p>
+
+<p>Extend it forever</p>
+<p>P1 itself depends on D2 and P2, and so on. Repeating this gives the general rule:</p>
+<p>P0 = D1/(1+R) + D2/(1+R)² + D3/(1+R)³ + …</p>
+
+<p>لو هتاخد بعد سنة 80 دولار (10 توزيع و70 لما تبيع)، وإنت عاوز تكسب 25%، يبقى أقصى سعر تدفعه النهارده 64. لو دفعت أكتر، عائدك هيقل عن 25%. ولو كمّلنا نفس المنطق للأبد، قيمة السهم بتطلع مجموع كل التوزيعات المستقبلية، كل واحد مخصوم بعدد سنينه. المشكلة إن مفيش حد يقدر يحسب توزيعات لحد ما لا نهاية، عشان كده المحاضرة بتقسمها لتلات حالات.</p>
+
+<p>3. Case 1: zero growth الحالة الأولى: توزيع ثابت من غير نمو</p>
+<p>P0 = D ÷ R</p>
+<p>The dividend is the same every year (D1 = D2 = D3 = D), like a preferred share.</p>
+
+<p>Lecture caseDRValue</p>
+
+<p>Fixed-policy company$1020%10 ÷ 0.20 = $50</p>
+<p>Stable Dividends Inc. (preferred)$58%5 ÷ 0.08 = $62.50</p>
+<p>XYZ$36%3 ÷ 0.06 = $50.00</p>
+
+<p>لو السهم الممتاز بيدّي 5 دولار كل سنة للأبد، وإنت عاوز عائد 8%، يبقى تدفع فيه 62.50. ليه؟ لأن ⁦8%⁩ من ⁦62.50⁩ هي بالظبط 5. وخد بالك من العلاقة: لو العائد المطلوب زاد، القيمة بتقل. نفس السهم بعائد 10% يستاهل 50 بس. وعشان كده لما البنك المركزي يرفع الفايدة، أسعار الأسهم غالبًا بتنزل.</p>
+
+<p>4. Case 2: constant growth, the Gordon model الحالة التانية: نمو ثابت، نموذج جوردون</p>
+<p>Dt = D0 × (1 + g)^t</p>
+<p>P0 = D1 ÷ (R − g) = D0 × (1 + g) ÷ (R − g)</p>
+<p>Pt = D(t+1) ÷ (R − g) = P0 × (1 + g)^t</p>
+<p>D0 is the dividend just paid; D1 is the next one. The model only works when g is less than R.</p>
+
+<p>Growing a dividend: Hedless Corp.</p>
+<p>Just paid $3, growing 8% a year. In five years:</p>
+<p>D5 = 3 × 1.08⁵ = 3 × 1.4693 = $4.41</p>
+
+<p>Pricing: D0 = $2.30, R = 13%, g = 5%</p>
+<p>D1 = 2.30 × 1.05 = 2.415</p>
+<p>P0 = 2.415 ÷ (0.13 − 0.05) = 2.415 ÷ 0.08 = $30.19</p>
+<p>P5 = 30.19 × 1.05⁵ = $38.53</p>
+
+<p>Lecture caseGivenWorkingResult</p>
+
+<p>Gordon Growth Co.D1 = $4 (next), R 16%, g 6%4 ÷ 0.10; D4 = 4 × 1.06³ = 4.764; P4 = 4.764 × 1.06 ÷ 0.10P0 $40, P4 $50.50</p>
+<p>Grow Tech Ltd.D0 = $2 (just paid), R 12%, g 7%D1 = 2.14; 2.14 ÷ 0.05$42.80</p>
+<p>Ever Grow Consumer ProductsD1 = $4.50, R 9%, g 4%4.50 ÷ 0.05; P5 = 90 × 1.04⁵P0 $90, P5 $109.50</p>
+
+<p>أكتر غلطة في الامتحان: الخلط بين D0 وD1. لو السؤال قال "just paid" يبقى ده D0، ولازم تضربه في ⁦(1 + g)⁩ الأول عشان تجيب D1. ولو قال "next dividend" أو "expected" يبقى ده D1 على طول، زي مثال Gordon Growth. والمقام ⁦(R − g)⁩ هو قلب الموديل: الفرق بين العائد اللي إنت عاوزه والنمو اللي السهم بيدّيهولك. ولو النمو قرّب من العائد المطلوب، المقام بيصغر والسعر بيطير، وده سبب إن أسهم شركات النمو بتبقى أسعارها عالية جدًا وحساسة جدًا لأي تغيير في التوقعات. والسعر بينمو بنفس معدل نمو التوزيعات: لو التوزيع بيزيد 5% في السنة، السهم كمان.</p>
+
+<p>5. Case 3: non-constant growth الحالة التالتة: نمو غير ثابت</p>
+<p>A company grows fast for a few years and then settles to a constant rate. Value it in two steps.</p>
+<p>Step 1 · Price at the end of the fast-growth period with Gordon: Pn = D(n+1) ÷ (R − g)</p>
+<p>Step 2 · Discount each early dividend and Pn back to today, then add</p>
+
+<p>Lecture example</p>
+<p>Dividends $1, $2, $2.50, then 5% growth; R = 10%.</p>
+<p>P3 = 2.50 × 1.05 ÷ 0.05 = $52.50</p>
+<p>P0 = 1/1.10 + 2/1.10² + 2.50/1.10³ + 52.50/1.10³</p>
+<p>= 0.91 + 1.65 + 1.88 + 39.44 = $43.88</p>
+
+<p>Chain Reaction, Inc.</p>
+<p>Total dividends $5M just paid, growing 30% for 3 years, then 10%; R = 20%.</p>
+<p>D1 6.50 · D2 8.45 · D3 10.985 ($M)</p>
+<p>P3 = 10.985 × 1.10 ÷ 0.10 = $120.835M</p>
+<p>P0 = 5.42 + 5.87 + 6.36 + 69.93 = $87.57M</p>
+<p>With 20 million shares: 87.57 ÷ 20 = $4.38 per share.</p>
+
+<p>Lecture caseDividendsThenRValue</p>
+
+<p>Innovate Now Corp.1.00 · 1.50 · 2.006%15%P3 = 2.12 ÷ 0.09 = 23.56 → $18.80</p>
+<p>Pharma Growth Inc.3.00 · 3.50 · 4.003%10%P3 = 4.12 ÷ 0.07 = 58.86 → $52.86</p>
+
+<p>فكّر فيها زي مستشفى جديد: أول تلات سنين بيكبر بسرعة وكل سنة الأرباح بتقفز، وبعد كده بيستقر وينمو بنسبة ثابتة. مش هنقدر نستخدم جوردون من الأول لأن النمو مش ثابت، فبنعمل خطوتين: نوقف في آخر سنة من النمو السريع، ونسأل "السهم هيستاهل كام ساعتها؟" بجوردون، وبعدين نرجّع كل حاجة للنهارده. ولاحظ إن الـ P3 بيمثل حوالي 80% من القيمة أو أكتر في كل الأمثلة. يعني معظم قيمة السهم جاية من السنين البعيدة، مش من توزيعات أول كام سنة.</p>
+<p>Common mistake: P3 is discounted by (1 + R)³, the same as D3, because it is a value at the end of year 3, not year 4.</p>
+
+<p>6. Practice: is this hospital share cheap? تمرين: سهم المستشفى ده رخيص ولا غالي؟</p>
+
+<p>The numbers</p>
+<p>A listed hospital group just paid a dividend of 2.00. Dividends grow 6% a year. Shareholders require 11% (from CAPM, Lecture 06). The share trades at 45.</p>
+<p>D1 = 2.00 × 1.06 = 2.12</p>
+<p>P0 = 2.12 ÷ (0.11 − 0.06) = 2.12 ÷ 0.05 = 42.40</p>
+<p>42.40 &lt; 45 → overvalued by about 6%</p>
+
+<p>Same share, small changes</p>
+<p>g = 7% → 2.14 ÷ 0.04 = 53.50 → undervalued</p>
+<p>R = 12% → 2.12 ÷ 0.06 = 35.33 → clearly overvalued</p>
+<p>One point of growth or required return moves the value by 17% to 26%.</p>
+
+<p>نفس السهم ممكن يطلع غالي أو رخيص حسب افتراض واحد. عشان كده التقييم مش رقم مقدّس: هو أداة تفكير. ولما محلل يقولك "السهم ده قيمته العادلة كذا"، أول سؤال تسأله: افترضت نمو كام وعائد مطلوب كام؟</p>
+
+<p>=== KEY TERMS (flashcards) ===</p>
+
+<p>• Intrinsic value — القيمة الحقيقية</p>
+<p>The true worth of a security based on its future cash flows, as opposed to the market price set by supply and demand.</p>
+<p>شرح: السعر هو اللي الناس بتدفعه النهارده، والقيمة هي اللي السهم يستاهله فعلًا. والفرق بينهم هو فرصتك.</p>
+
+<p>• Undervalued vs overvalued — رخيص ولا غالي</p>
+<p>Undervalued: intrinsic value above market price (a candidate to buy). Overvalued: intrinsic value below market price.</p>
+<p>شرح: سهم مستشفى قيمته 42.40 وبيتباع بـ 45: غالي بحوالي 6%.</p>
+
+<p>• Why shares are hard to value — ليه تقييم السهم صعب</p>
+<p>Unlike a bond, a share's cash flows are not promised, it never matures, and the required return cannot be observed directly.</p>
+<p>شرح: السند بيقولك هتاخد كام وإمتى. السهم ولا ده ولا ده: لازم تتوقّع.</p>
+
+<p>• One-period valuation — تقييم لفترة واحدة</p>
+<p>Today's price is next year's dividend plus next year's price, discounted at the required return.</p>
+<p>Formula: P0 = (D1 + P1) ÷ (1 + R)</p>
+<p>شرح: هتاخد 10 توزيع و70 لما تبيع، وعاوز 25%: أقصى سعر تدفعه 64.</p>
+
+<p>• Dividend discount model — نموذج خصم التوزيعات</p>
+<p>The value of a share is the present value of all future dividends.</p>
+<p>Formula: P0 = Σ Dt ÷ (1 + R)^t</p>
+<p>شرح: كل توزيع جاي بنرجّعه لقيمته النهارده، ونجمعهم. وكل ما التوزيع يبعد، قيمته النهارده تقل.</p>
+
+<p>• Zero growth model — نموذج النمو الصفري</p>
+<p>When the dividend never changes, as with preferred stock, the value is the dividend divided by the required return.</p>
+<p>Formula: P0 = D ÷ R</p>
+<p>شرح: توزيع 5 كل سنة وإنت عاوز 8%: القيمة 62.50، لأن 8% من 62.50 هي بالظبط 5.</p>
+
+<p>• D0 vs D1 — التوزيع الحالي والتوزيع الجاي</p>
+<p>D0 is the dividend just paid; D1 is the next one. If given D0, multiply by (1 + g) first.</p>
+<p>Formula: D1 = D0 × (1 + g)</p>
+<p>شرح: أكتر غلطة في الامتحان. "just paid" يعني D0، و"next" أو "expected" يعني D1 على طول.</p>
+
+<p>• Gordon growth model — نموذج جوردون</p>
+<p>For a dividend growing at a constant rate g, the price is the next dividend divided by (R − g). Valid only when g is less than R.</p>
+<p>Formula: P0 = D1 ÷ (R − g)</p>
+<p>شرح: المقام هو الفرق بين العائد اللي عاوزه والنمو اللي السهم بيدّيهولك. لو النمو قرّب من العائد، السعر بيطير.</p>
+
+<p>• Future price under constant growth — السعر في المستقبل</p>
+<p>Under constant growth, the price grows at the same rate as the dividend.</p>
+<p>Formula: Pt = P0 × (1 + g)^t = D(t+1) ÷ (R − g)</p>
+<p>شرح: سهم بـ 30.19 والنمو 5%: بعد 5 سنين يبقى 38.53.</p>
+
+<p>• Non-constant growth — النمو غير الثابت</p>
+<p>Fast growth for a few years, then constant growth. Value the share at the end of the fast period with Gordon, then discount everything to today.</p>
+<p>Formula: P0 = Σ Dt/(1+R)^t + Pn/(1+R)^n</p>
+<p>شرح: زي مستشفى جديد: كام سنة نمو سريع وبعدين يستقر. بنوقف عند آخر سنة سريعة، نحسب السعر هناك، ونرجّع كله للنهارده.</p>
+
+<p>• Required return in valuation — العائد المطلوب في التقييم</p>
+<p>The discount rate R is the shareholders' required return, the cost of equity from CAPM in Lecture 06. A higher R means a lower value.</p>
+<p>شرح: لما البنك المركزي يرفع الفايدة، العائد المطلوب بيزيد، فقيمة الأسهم بتقل. وده سبب إن البورصة بتنزل غالبًا مع رفع الفايدة.</p>
+
+<p>=== FORMULAS ===</p>
+<p>• One-period share value (قيمة السهم لفترة واحدة): P0 = (D1 + P1) ÷ (1 + R). Next dividend plus next price, discounted.</p>
+<p>• Dividend discount model (نموذج خصم التوزيعات): P0 = D1/(1+R) + D2/(1+R)² + D3/(1+R)³ + …. Value = PV of all future dividends.</p>
+<p>• Zero growth (النمو الصفري): P0 = D ÷ R. Constant dividend, like preferred stock.</p>
+<p>• Dividend growth (نمو التوزيعات): Dt = D0 × (1 + g)^t. D0 = just paid; D1 = next.</p>
+<p>• Gordon growth model (نموذج جوردون): P0 = D1 ÷ (R − g) = D0 × (1 + g) ÷ (R − g). Valid only when g &lt; R.</p>
+<p>• Future price, constant growth (السعر المستقبلي مع نمو ثابت): Pt = D(t+1) ÷ (R − g) = P0 × (1 + g)^t. The price grows at g.</p>
+<p>• Non-constant growth (النمو غير الثابت): P0 = Σ Dt ÷ (1+R)^t + Pn ÷ (1+R)^n, with Pn = D(n+1) ÷ (R − g). Pn is discounted by n years, like Dn.</p>
+
+<p>=== PRACTICE QUESTIONS WITH SOLUTIONS ===</p>
+
+<p>Q1. A share is expected to pay a dividend of 6 next year and to be worth 84 then. You require 20%. What is the most you should pay today?</p>
+<p>- 75  ✔ correct: (6 + 84) ÷ 1.20 = 90 ÷ 1.20 = 75.</p>
+<p>- 90: This is the total cash in a year, not its value today.</p>
+<p>- 72: This is 90 × 0.80: discounting is dividing by 1.20, not subtracting 20%.</p>
+<p>- 70: This discounts only the price, 84 ÷ 1.20, and forgets the dividend.</p>
+<p>Working:</p>
+<p>Cash in one year = 6 + 84 = 90</p>
+<p>P0 = 90 ÷ (1 + 0.20) = 75</p>
+<p>شرح: لو دفعت أكتر من 75 عائدك هيقل عن 20%. القسمة على 1.20 غير إنك تطرح 20%.</p>
+
+<p>Q2. A preferred share pays a fixed dividend of 4.50 a year forever. Investors require 9%. What is it worth?</p>
+<p>- 50  ✔ correct: Zero growth: P0 = D ÷ R = 4.50 ÷ 0.09 = 50.</p>
+<p>- 40.50: This is 4.50 × 9; the dividend is divided by the rate.</p>
+<p>- 4.91: This is 4.50 × 1.09, one year of growth that does not exist.</p>
+<p>- 45: This is 4.50 ÷ 0.10, the wrong rate.</p>
+<p>Working:</p>
+<p>Zero growth model</p>
+<p>P0 = D ÷ R = 4.50 ÷ 0.09 = 50</p>
+<p>شرح: تأكد: 9% من 50 هي 4.50 بالظبط. يعني بالسعر ده هتاخد العائد اللي عاوزه.</p>
+
+<p>Q3. A listed hospital group has just paid a dividend of 2.00. Dividends grow 5% a year and investors require 12%. What is the share worth?</p>
+<p>- 30.00  ✔ correct: D1 = 2.00 × 1.05 = 2.10; P0 = 2.10 ÷ (0.12 − 0.05) = 30.00.</p>
+<p>- 28.57: This uses D0 instead of D1: 2.00 ÷ 0.07. "Just paid" means D0.</p>
+<p>- 16.67: This divides by R only, ignoring growth: 2.00 ÷ 0.12.</p>
+<p>- 12.35: This divides by R + g instead of R − g.</p>
+<p>Working:</p>
+<p>Just paid → D0 = 2.00</p>
+<p>D1 = 2.00 × 1.05 = 2.10</p>
+<p>P0 = 2.10 ÷ (0.12 − 0.05) = 2.10 ÷ 0.07 = 30.00</p>
+<p>شرح: أكتر غلطة: تنسى تحوّل D0 لـ D1. "just paid" معناها التوزيع اللي فات، والموديل محتاج اللي جاي.</p>
+
+<p>Q4. Using the previous share (price 30, growth 5%), what will it be worth in 3 years?</p>
+<p>- 34.73  ✔ correct: Under constant growth the price grows at g: 30 × 1.05³ = 30 × 1.1576 = 34.73.</p>
+<p>- 34.50: This adds 5% three times without compounding: 30 × 1.15.</p>
+<p>- 31.50: This applies one year of growth only.</p>
+<p>- 30.00: The price is not fixed; it grows with the dividend.</p>
+<p>Working:</p>
+<p>Pt = P0 × (1 + g)^t</p>
+<p>P3 = 30 × 1.05³ = 30 × 1.1576 = 34.73</p>
+<p>شرح: السعر بينمو بنفس معدل نمو التوزيعات، ومركّب، مش بيتجمع.</p>
+
+<p>Q5. A marketing technology company will pay dividends of 1.00 and 2.00 over the next two years. After that, dividends grow 4% a year forever. Investors require 14%. What is P2, the share's value at the end of year 2?</p>
+<p>- 20.80  ✔ correct: D3 = 2.00 × 1.04 = 2.08; P2 = 2.08 ÷ (0.14 − 0.04) = 20.80.</p>
+<p>- 20.00: This uses D2 instead of D3: the price at time 2 needs the dividend at time 3.</p>
+<p>- 14.86: This divides by R only.</p>
+<p>- 11.56: This divides by R + g.</p>
+<p>Working:</p>
+<p>Price at time 2 needs the dividend at time 3</p>
+<p>D3 = 2.00 × 1.04 = 2.08</p>
+<p>P2 = 2.08 ÷ (0.14 − 0.04) = 20.80</p>
+<p>شرح: عشان تجيب السعر في سنة معيّنة، محتاج التوزيع اللي في السنة اللي بعدها. زي ما P0 محتاج D1.</p>
+
+<p>Q6. Continuing: dividends 1.00 and 2.00, P2 = 20.80, R = 14%. What is the share worth today?</p>
+<p>- 18.42  ✔ correct: 0.877 + (2.00 + 20.80) ÷ 1.14² = 0.877 + 17.544 = 18.42.</p>
+<p>- 23.80: This adds the cash without discounting.</p>
+<p>- 16.27: This discounts D2 and P2 by three years instead of two.</p>
+<p>- 20.88: This discounts everything by one year only: 23.80 ÷ 1.14.</p>
+<p>Working:</p>
+<p>PV(D1) = 1.00 ÷ 1.14 = 0.877</p>
+<p>PV(D2 + P2) = (2.00 + 20.80) ÷ 1.14² = 22.80 ÷ 1.2996 = 17.544</p>
+<p>P0 ≈ 0.877 + 17.544 = 18.42</p>
+<p>شرح: P2 بيتخصم بسنتين زي D2 بالظبط، لأنه قيمة في آخر السنة التانية.</p>
+
+<p>Q7. A share trades at 50. An analyst values it at 42. What should a value-focused investor conclude?</p>
+<p>- It is overvalued; avoid it or consider selling  ✔ correct: Intrinsic value (42) is below the market price (50).</p>
+<p>- It is undervalued; buy it: Undervalued means value above price, the opposite of this case.</p>
+<p>- It is fairly priced, since the difference is small: A 16% gap is significant.</p>
+<p>- The market price is always right, so the analysis is wrong: Valuation exists precisely because prices can stray from value.</p>
+<p>Working:</p>
+<p>Intrinsic value 42 &lt; market price 50</p>
+<p>Overvalued by (50 − 42) ÷ 42 ≈ 19%</p>
+<p>شرح: بس افتكر: التقييم مبني على افتراضات. أول سؤال: افترضت نمو كام وعائد مطلوب كام؟</p>
+</body></html>
